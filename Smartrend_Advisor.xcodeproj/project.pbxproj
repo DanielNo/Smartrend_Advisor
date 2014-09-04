@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30DCEA6E19B8B54D006521D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6D19B8B54D006521D4 /* Foundation.framework */; };
+		30DCEA7019B8B54D006521D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */; };
+		30DCEA7219B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
+		30DCEA7819B8B54D006521D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA7619B8B54D006521D4 /* InfoPlist.strings */; };
+		30DCEA7A19B8B54D006521D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA7919B8B54D006521D4 /* main.m */; };
+		30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA7D19B8B54D006521D4 /* AppDelegate.m */; };
+		30DCEA8119B8B54D006521D4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA7F19B8B54D006521D4 /* Main_iPhone.storyboard */; };
+		30DCEA8419B8B54D006521D4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */; };
+		30DCEA8719B8B54D006521D4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA8619B8B54D006521D4 /* FirstViewController.m */; };
+		30DCEA8A19B8B54D006521D4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA8919B8B54D006521D4 /* SecondViewController.m */; };
+		30DCEA8C19B8B54D006521D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA8B19B8B54D006521D4 /* Images.xcassets */; };
+		30DCEA9319B8B54D006521D4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA9219B8B54D006521D4 /* XCTest.framework */; };
+		30DCEA9419B8B54D006521D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6D19B8B54D006521D4 /* Foundation.framework */; };
+		30DCEA9519B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
+		30DCEA9D19B8B54D006521D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */; };
+		30DCEA9F19B8B54D006521D4 /* Smartrend_AdvisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30DCEA9619B8B54D006521D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30DCEA6219B8B54D006521D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30DCEA6919B8B54D006521D4;
+			remoteInfo = Smartrend_Advisor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		30DCEA6A19B8B54D006521D4 /* Smartrend_Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smartrend_Advisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DCEA6D19B8B54D006521D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		30DCEA7119B8B54D006521D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		30DCEA7519B8B54D006521D4 /* Smartrend_Advisor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Smartrend_Advisor-Info.plist"; sourceTree = "<group>"; };
+		30DCEA7719B8B54D006521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		30DCEA7919B8B54D006521D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		30DCEA7B19B8B54D006521D4 /* Smartrend_Advisor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smartrend_Advisor-Prefix.pch"; sourceTree = "<group>"; };
+		30DCEA7C19B8B54D006521D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		30DCEA7D19B8B54D006521D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		30DCEA8019B8B54D006521D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		30DCEA8319B8B54D006521D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		30DCEA8519B8B54D006521D4 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		30DCEA8619B8B54D006521D4 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		30DCEA8819B8B54D006521D4 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		30DCEA8919B8B54D006521D4 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		30DCEA8B19B8B54D006521D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		30DCEA9119B8B54D006521D4 /* Smartrend_AdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Smartrend_AdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DCEA9219B8B54D006521D4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		30DCEA9A19B8B54D006521D4 /* Smartrend_AdvisorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Smartrend_AdvisorTests-Info.plist"; sourceTree = "<group>"; };
+		30DCEA9C19B8B54D006521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smartrend_AdvisorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30DCEA6719B8B54D006521D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DCEA7019B8B54D006521D4 /* CoreGraphics.framework in Frameworks */,
+				30DCEA7219B8B54D006521D4 /* UIKit.framework in Frameworks */,
+				30DCEA6E19B8B54D006521D4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DCEA8E19B8B54D006521D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DCEA9319B8B54D006521D4 /* XCTest.framework in Frameworks */,
+				30DCEA9519B8B54D006521D4 /* UIKit.framework in Frameworks */,
+				30DCEA9419B8B54D006521D4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30DCEA6119B8B54D006521D4 = {
+			isa = PBXGroup;
+			children = (
+				30DCEA7319B8B54D006521D4 /* Smartrend_Advisor */,
+				30DCEA9819B8B54D006521D4 /* Smartrend_AdvisorTests */,
+				30DCEA6C19B8B54D006521D4 /* Frameworks */,
+				30DCEA6B19B8B54D006521D4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30DCEA6B19B8B54D006521D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30DCEA6A19B8B54D006521D4 /* Smartrend_Advisor.app */,
+				30DCEA9119B8B54D006521D4 /* Smartrend_AdvisorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30DCEA6C19B8B54D006521D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30DCEA6D19B8B54D006521D4 /* Foundation.framework */,
+				30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */,
+				30DCEA7119B8B54D006521D4 /* UIKit.framework */,
+				30DCEA9219B8B54D006521D4 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		30DCEA7319B8B54D006521D4 /* Smartrend_Advisor */ = {
+			isa = PBXGroup;
+			children = (
+				30DCEA7C19B8B54D006521D4 /* AppDelegate.h */,
+				30DCEA7D19B8B54D006521D4 /* AppDelegate.m */,
+				30DCEA7F19B8B54D006521D4 /* Main_iPhone.storyboard */,
+				30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */,
+				30DCEA8519B8B54D006521D4 /* FirstViewController.h */,
+				30DCEA8619B8B54D006521D4 /* FirstViewController.m */,
+				30DCEA8819B8B54D006521D4 /* SecondViewController.h */,
+				30DCEA8919B8B54D006521D4 /* SecondViewController.m */,
+				30DCEA8B19B8B54D006521D4 /* Images.xcassets */,
+				30DCEA7419B8B54D006521D4 /* Supporting Files */,
+			);
+			path = Smartrend_Advisor;
+			sourceTree = "<group>";
+		};
+		30DCEA7419B8B54D006521D4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				30DCEA7519B8B54D006521D4 /* Smartrend_Advisor-Info.plist */,
+				30DCEA7619B8B54D006521D4 /* InfoPlist.strings */,
+				30DCEA7919B8B54D006521D4 /* main.m */,
+				30DCEA7B19B8B54D006521D4 /* Smartrend_Advisor-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30DCEA9819B8B54D006521D4 /* Smartrend_AdvisorTests */ = {
+			isa = PBXGroup;
+			children = (
+				30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */,
+				30DCEA9919B8B54D006521D4 /* Supporting Files */,
+			);
+			path = Smartrend_AdvisorTests;
+			sourceTree = "<group>";
+		};
+		30DCEA9919B8B54D006521D4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				30DCEA9A19B8B54D006521D4 /* Smartrend_AdvisorTests-Info.plist */,
+				30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30DCEA6919B8B54D006521D4 /* Smartrend_Advisor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30DCEAA219B8B54D006521D4 /* Build configuration list for PBXNativeTarget "Smartrend_Advisor" */;
+			buildPhases = (
+				30DCEA6619B8B54D006521D4 /* Sources */,
+				30DCEA6719B8B54D006521D4 /* Frameworks */,
+				30DCEA6819B8B54D006521D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Smartrend_Advisor;
+			productName = Smartrend_Advisor;
+			productReference = 30DCEA6A19B8B54D006521D4 /* Smartrend_Advisor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		30DCEA9019B8B54D006521D4 /* Smartrend_AdvisorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30DCEAA519B8B54D006521D4 /* Build configuration list for PBXNativeTarget "Smartrend_AdvisorTests" */;
+			buildPhases = (
+				30DCEA8D19B8B54D006521D4 /* Sources */,
+				30DCEA8E19B8B54D006521D4 /* Frameworks */,
+				30DCEA8F19B8B54D006521D4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30DCEA9719B8B54D006521D4 /* PBXTargetDependency */,
+			);
+			name = Smartrend_AdvisorTests;
+			productName = Smartrend_AdvisorTests;
+			productReference = 30DCEA9119B8B54D006521D4 /* Smartrend_AdvisorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30DCEA6219B8B54D006521D4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Comtex;
+				TargetAttributes = {
+					30DCEA9019B8B54D006521D4 = {
+						TestTargetID = 30DCEA6919B8B54D006521D4;
+					};
+				};
+			};
+			buildConfigurationList = 30DCEA6519B8B54D006521D4 /* Build configuration list for PBXProject "Smartrend_Advisor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30DCEA6119B8B54D006521D4;
+			productRefGroup = 30DCEA6B19B8B54D006521D4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30DCEA6919B8B54D006521D4 /* Smartrend_Advisor */,
+				30DCEA9019B8B54D006521D4 /* Smartrend_AdvisorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30DCEA6819B8B54D006521D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DCEA8419B8B54D006521D4 /* Main_iPad.storyboard in Resources */,
+				30DCEA8C19B8B54D006521D4 /* Images.xcassets in Resources */,
+				30DCEA8119B8B54D006521D4 /* Main_iPhone.storyboard in Resources */,
+				30DCEA7819B8B54D006521D4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DCEA8F19B8B54D006521D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DCEA9D19B8B54D006521D4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30DCEA6619B8B54D006521D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DCEA8A19B8B54D006521D4 /* SecondViewController.m in Sources */,
+				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
+				30DCEA8719B8B54D006521D4 /* FirstViewController.m in Sources */,
+				30DCEA7A19B8B54D006521D4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30DCEA8D19B8B54D006521D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30DCEA9F19B8B54D006521D4 /* Smartrend_AdvisorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30DCEA9719B8B54D006521D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30DCEA6919B8B54D006521D4 /* Smartrend_Advisor */;
+			targetProxy = 30DCEA9619B8B54D006521D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		30DCEA7619B8B54D006521D4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30DCEA7719B8B54D006521D4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		30DCEA7F19B8B54D006521D4 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30DCEA8019B8B54D006521D4 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30DCEA8319B8B54D006521D4 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30DCEA9C19B8B54D006521D4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30DCEAA019B8B54D006521D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30DCEAA119B8B54D006521D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30DCEAA319B8B54D006521D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Smartrend_Advisor/Smartrend_Advisor-Prefix.pch";
+				INFOPLIST_FILE = "Smartrend_Advisor/Smartrend_Advisor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		30DCEAA419B8B54D006521D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Smartrend_Advisor/Smartrend_Advisor-Prefix.pch";
+				INFOPLIST_FILE = "Smartrend_Advisor/Smartrend_Advisor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		30DCEAA619B8B54D006521D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Smartrend_Advisor.app/Smartrend_Advisor";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Smartrend_Advisor/Smartrend_Advisor-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Smartrend_AdvisorTests/Smartrend_AdvisorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		30DCEAA719B8B54D006521D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Smartrend_Advisor.app/Smartrend_Advisor";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Smartrend_Advisor/Smartrend_Advisor-Prefix.pch";
+				INFOPLIST_FILE = "Smartrend_AdvisorTests/Smartrend_AdvisorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30DCEA6519B8B54D006521D4 /* Build configuration list for PBXProject "Smartrend_Advisor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30DCEAA019B8B54D006521D4 /* Debug */,
+				30DCEAA119B8B54D006521D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30DCEAA219B8B54D006521D4 /* Build configuration list for PBXNativeTarget "Smartrend_Advisor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30DCEAA319B8B54D006521D4 /* Debug */,
+				30DCEAA419B8B54D006521D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		30DCEAA519B8B54D006521D4 /* Build configuration list for PBXNativeTarget "Smartrend_AdvisorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30DCEAA619B8B54D006521D4 /* Debug */,
+				30DCEAA719B8B54D006521D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30DCEA6219B8B54D006521D4 /* Project object */;
+}
