@@ -8,7 +8,10 @@
 
 #import "FirstViewController.h"
 
-@interface FirstViewController ()
+@interface FirstViewController (){
+    AFHTTPRequestOperationManager *manager;
+    
+}
 
 @end
 
@@ -17,7 +20,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
+    [self openPositions];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)openPositions{
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
+    [manager setCredential:creds];
+    
+    [manager GET:@"finovus_open_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+        NSLog(@"JSON : %@",responseObject);
+        
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        [error localizedDescription];
+        NSLog(@"error : %@",error);
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
