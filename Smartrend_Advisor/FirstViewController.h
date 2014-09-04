@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+
+
+
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property(strong,nonatomic) NSArray *openPositionData;
+@property(strong,nonatomic) NSArray *performanceStatData;
+
 
 @end
