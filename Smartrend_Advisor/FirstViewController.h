@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 
 
 
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @property(strong,nonatomic) NSArray *openPositionData;
 @property(strong,nonatomic) NSArray *performanceStatData;

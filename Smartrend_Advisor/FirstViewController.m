@@ -7,8 +7,7 @@
 //
 
 #import "FirstViewController.h"
-#import "OpenPositionCell.h"
-#import "DailyReturnCell.h"
+#import "companyCell.h"
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -21,50 +20,32 @@
 @synthesize openPositionData,performanceStatData;
 
 
-#pragma mark - tableview methods
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    if (indexPath == 0) {
-            DailyReturnCell *cell1 = [tableView dequeueReusableCellWithIdentifier:@"cell1"];
-        
-        if (cell1==nil) {
-            
-        }
-        return cell1;
-        
-        
-    }
-    else{
-    
-        
-        OpenPositionCell *cell2 = [tableView dequeueReusableCellWithIdentifier:@"cell2"];
-    
-        if (cell2 == nil) {
-            
-            cell2.name.text = @"hi";
-            
-            
-        }
-    
-        return cell2;
-        
-        
-    }
-
-
-}
-
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+#pragma mark - collection view methods
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1 + [openPositionData count];
+/*
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    
+}
+*/
 
 
 #pragma mark - class methods
@@ -92,6 +73,7 @@
         
 
         self.openPositionData = responseObject;
+        NSLog(@"count %i",[openPositionData count]);
 
     }failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [error localizedDescription];
@@ -108,6 +90,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
