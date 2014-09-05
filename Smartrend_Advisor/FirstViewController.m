@@ -17,16 +17,41 @@
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData;
+@synthesize openPositionData,performanceStatData,flowLayout;
 
 
 #pragma mark - collection view methods
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    /*
+    int x = [openPositionData count];
+    
+    if (x%3 == 0) {
+        return x/3;
+    }
+    else {
+        return x/3 + 1;
+    }
+    */
     return 1;
+    
+    
+    
+    
+    
 }
 
-/*
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    NSLog(@"items : %i",[openPositionData count]);
+    
+    
+    //return 2;
+    return [openPositionData count];
+    
+    
+    
+    
     
 }
 
@@ -35,17 +60,40 @@
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
     
+
+    
+    return cell;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    CGSize itemSize;
+    
+    //use for iphone 6
+    //itemSize.width = screenRect.size.width/3;
+    int width = screenRect.size.width/3;
+    NSLog(@"width %i", width);
+    
+    itemSize.width = 100; // 106
+    itemSize.height = 100;
+    
+    
+    return itemSize;
     
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
+    // (top,left,bottom,right) space
+    
+    return  UIEdgeInsetsMake(0 ,0,0 ,0 );
+    
 }
-*/
+
 
 
 #pragma mark - class methods
@@ -74,6 +122,7 @@
 
         self.openPositionData = responseObject;
         NSLog(@"count %i",[openPositionData count]);
+        [self.collectionView reloadData];
 
     }failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [error localizedDescription];
@@ -89,7 +138,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+
     
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     
@@ -98,8 +147,20 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
     [manager setCredential:creds];
-    
     [self openPositions];
+    
+    
+    
+    
+    
+    
+    
+    [super viewDidLoad];
+    
+   
+    
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

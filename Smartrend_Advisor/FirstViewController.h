@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
 
 
 
 
 
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @property(strong,nonatomic) NSArray *openPositionData;
 @property(strong,nonatomic) NSArray *performanceStatData;
