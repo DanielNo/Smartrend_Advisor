@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property(strong,nonatomic) NSArray *openPositionData;
 @property(strong,nonatomic) NSArray *performanceStatData;
 

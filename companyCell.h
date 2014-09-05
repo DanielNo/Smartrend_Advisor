@@ -10,4 +10,6 @@
 
 @interface companyCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *name;
+
 @end

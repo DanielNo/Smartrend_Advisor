@@ -17,7 +17,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner;
 
 
 #pragma mark - collection view methods
@@ -60,8 +60,9 @@
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
     
+    companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
+    [cell.name setText: [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"]];
 
     
     return cell;
@@ -76,10 +77,10 @@
     //use for iphone 6
     //itemSize.width = screenRect.size.width/3;
     int width = screenRect.size.width/3;
-    NSLog(@"width %i", width);
+    //NSLog(@"width %i", width);
     
-    itemSize.width = 100; // 106
-    itemSize.height = 100;
+    itemSize.width = 105; // 106
+    itemSize.height = 49;
     
     
     return itemSize;
@@ -115,6 +116,7 @@
 
 -(void)openPositions{
     
+    [spinner startAnimating];
     
     [manager GET:@"finovus_open_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
         NSLog(@"JSON : %@",responseObject);
@@ -123,6 +125,7 @@
         self.openPositionData = responseObject;
         NSLog(@"count %i",[openPositionData count]);
         [self.collectionView reloadData];
+        [spinner stopAnimating];
 
     }failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [error localizedDescription];
@@ -139,6 +142,7 @@
 - (void)viewDidLoad
 {
 
+    [spinner setHidesWhenStopped:YES];
     
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     
