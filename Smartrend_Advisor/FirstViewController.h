@@ -13,6 +13,10 @@
 
 
 
+@property (weak, nonatomic) IBOutlet UILabel *STA;
+@property (weak, nonatomic) IBOutlet UILabel *SP;
+
+
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

@@ -17,7 +17,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout,spinner;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA;
 
 
 #pragma mark - collection view methods
@@ -101,8 +101,17 @@
 
 -(void)performanceStats{
     [manager GET:@"finovus_performance_stats" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        NSLog(@"JSON : %@",responseObject);
+        NSLog(@"performance stats: %@",responseObject);
         self.performanceStatData = responseObject;
+        NSDictionary *response = [performanceStatData objectAtIndex:0];
+        NSString *st= [response objectForKey:@"st_pl"];
+        NSNumber *sp = [response objectForKey:@"sp_pl"];
+        
+        [self.STA setText:st];
+        [self.SP setText:[sp stringValue]];
+
+        
+        
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [error localizedDescription];
@@ -119,7 +128,7 @@
     [spinner startAnimating];
     
     [manager GET:@"finovus_open_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        NSLog(@"JSON : %@",responseObject);
+        NSLog(@"open positions : %@",responseObject);
         
 
         self.openPositionData = responseObject;
@@ -142,6 +151,22 @@
 - (void)viewDidLoad
 {
 
+    CGRect staRect,SP500Rect;
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    CGSize labelSize;
+    
+
+    labelSize.width = screenRect.size.width/2;
+    labelSize.height = 30;
+    
+    staRect.size = labelSize;
+    
+    [STA setFrame:staRect];
+    [SP setFrame:staRect];
+    
+    
     [spinner setHidesWhenStopped:YES];
     
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
@@ -151,6 +176,8 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
     [manager setCredential:creds];
+    
+    [self performanceStats];
     [self openPositions];
     
     
