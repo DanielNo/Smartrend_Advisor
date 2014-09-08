@@ -15,7 +15,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *STA;
 @property (weak, nonatomic) IBOutlet UILabel *SP;
+@property (weak, nonatomic) IBOutlet UILabel *dailyReturn;
 
+@property (weak, nonatomic) IBOutlet UIButton *dropMenu;
 @property (strong,nonatomic) UIRefreshControl *refreshControl;
 
 

@@ -9,6 +9,9 @@
 #import "FirstViewController.h"
 #import "companyCell.h"
 
+#import "FPPopoverController.h"
+#import "InfoViewController.h"
+
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
     
@@ -17,7 +20,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn;
 
 
 #pragma mark - collection view methods
@@ -55,15 +58,26 @@
     
 }
 
+//       -----------------
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"did select item");
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     cell.selected = YES;
     
     
+    InfoViewController *info = [[InfoViewController alloc]init];
+
+    FPPopoverController *popover = [[FPPopoverController alloc]initWithViewController:info];
+    [popover setArrowDirection:FPPopoverNoArrow];
+   [popover presentPopoverFromView:dailyReturn];
+    
+    [self.view setAlpha:0.5];
     
     
 }
+
+
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -169,6 +183,10 @@
 }
 
 #pragma mark - View lifecycle
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+}
 
 - (void)viewDidLoad
 {

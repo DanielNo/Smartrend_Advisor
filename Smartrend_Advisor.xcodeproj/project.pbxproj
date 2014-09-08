@@ -24,6 +24,10 @@
 		30DCEA9519B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
 		30DCEA9D19B8B54D006521D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */; };
 		30DCEA9F19B8B54D006521D4 /* Smartrend_AdvisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */; };
+		30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A419BE43CB002F50E2 /* FPPopoverController.m */; };
+		30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A619BE43CB002F50E2 /* FPPopoverView.m */; };
+		30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A819BE43CB002F50E2 /* FPTouchView.m */; };
+		30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96AD19BE451E002F50E2 /* InfoViewController.m */; };
 		CB596019B4664D59B194C5F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290A9BFCF464475E9AC59B54 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +68,15 @@
 		30DCEA9A19B8B54D006521D4 /* Smartrend_AdvisorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Smartrend_AdvisorTests-Info.plist"; sourceTree = "<group>"; };
 		30DCEA9C19B8B54D006521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smartrend_AdvisorTests.m; sourceTree = "<group>"; };
+		30EA96A219BE43CB002F50E2 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		30EA96A319BE43CB002F50E2 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		30EA96A419BE43CB002F50E2 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		30EA96A519BE43CB002F50E2 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		30EA96A619BE43CB002F50E2 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		30EA96A719BE43CB002F50E2 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		30EA96A819BE43CB002F50E2 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		30EA96AC19BE451E002F50E2 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		30EA96AD19BE451E002F50E2 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +107,7 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				30EA96A119BE43CB002F50E2 /* FPPopover */,
 				3034CE3519B9FF7C008BB3FF /* companyCell.h */,
 				3034CE3619B9FF7C008BB3FF /* companyCell.m */,
 				30DCEA7319B8B54D006521D4 /* Smartrend_Advisor */,
@@ -136,6 +150,8 @@
 				30DCEA8619B8B54D006521D4 /* FirstViewController.m */,
 				30DCEA8819B8B54D006521D4 /* SecondViewController.h */,
 				30DCEA8919B8B54D006521D4 /* SecondViewController.m */,
+				30EA96AC19BE451E002F50E2 /* InfoViewController.h */,
+				30EA96AD19BE451E002F50E2 /* InfoViewController.m */,
 				30DCEA8B19B8B54D006521D4 /* Images.xcassets */,
 				30DCEA7419B8B54D006521D4 /* Supporting Files */,
 			);
@@ -169,6 +185,20 @@
 				30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		30EA96A119BE43CB002F50E2 /* FPPopover */ = {
+			isa = PBXGroup;
+			children = (
+				30EA96A219BE43CB002F50E2 /* ARCMacros.h */,
+				30EA96A319BE43CB002F50E2 /* FPPopoverController.h */,
+				30EA96A419BE43CB002F50E2 /* FPPopoverController.m */,
+				30EA96A519BE43CB002F50E2 /* FPPopoverView.h */,
+				30EA96A619BE43CB002F50E2 /* FPPopoverView.m */,
+				30EA96A719BE43CB002F50E2 /* FPTouchView.h */,
+				30EA96A819BE43CB002F50E2 /* FPTouchView.m */,
+			);
+			path = FPPopover;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,7 +336,11 @@
 			files = (
 				30DCEA8A19B8B54D006521D4 /* SecondViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
+				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
+				30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */,
 				3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */,
+				30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */,
+				30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */,
 				30DCEA8719B8B54D006521D4 /* FirstViewController.m in Sources */,
 				30DCEA7A19B8B54D006521D4 /* main.m in Sources */,
 			);
