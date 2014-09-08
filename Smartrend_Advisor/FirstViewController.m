@@ -69,6 +69,7 @@
     InfoViewController *info = [[InfoViewController alloc]init];
 
     FPPopoverController *popover = [[FPPopoverController alloc]initWithViewController:info];
+    
     [popover setArrowDirection:FPPopoverNoArrow];
    [popover presentPopoverFromView:dailyReturn];
     

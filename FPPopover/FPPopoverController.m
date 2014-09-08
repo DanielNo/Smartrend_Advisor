@@ -134,7 +134,7 @@
             [bself dismissPopoverAnimated:YES];
         }];
 
-        self.contentSize = CGSizeMake(200, 300); //default size
+        self.contentSize = CGSizeMake(300, 300); //default size
 
         _contentView = [[FPPopoverView alloc] initWithFrame:CGRectMake(0, 0, 
                                               self.contentSize.width, self.contentSize.height)];
@@ -314,6 +314,7 @@
 
 -(void)dismissPopover
 {
+    NSLog(@"dismiss3");
     [self.view removeFromSuperview];
     if([self.delegate respondsToSelector:@selector(popoverControllerDidDismissPopover:)])
     {
@@ -325,11 +326,13 @@
 }
 
 -(void)dismissPopoverAnimated:(BOOL)animated {
+    NSLog(@"dismiss1");
 	[self dismissPopoverAnimated:animated completion:nil];
 }
 
 -(void)dismissPopoverAnimated:(BOOL)animated completion:(FPPopoverCompletion)completionBlock
 {
+    NSLog(@"dismiss2");
     if(animated)
     {
         [UIView animateWithDuration:0.2 animations:^{
