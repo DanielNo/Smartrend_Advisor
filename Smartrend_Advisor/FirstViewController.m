@@ -107,11 +107,12 @@
         NSLog(@"performance stats: %@",responseObject);
         self.performanceStatData = responseObject;
         NSDictionary *response = [performanceStatData objectAtIndex:0];
-        NSString *st= [response objectForKey:@"st_pl"];
-        NSNumber *sp = [response objectForKey:@"sp_pl"];
+        NSString *st= [[response objectForKey:@"st_pl"] stringByAppendingString:@"%"];
+        NSNumber *sp = [response objectForKey:@"sp_pl"] ;
+        
         
         [self.STA setText:st];
-        [self.SP setText:[sp stringValue]];
+        [self.SP setText:[[sp stringValue] stringByAppendingString:@"%"]];
 
         
         
