@@ -17,7 +17,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl;
 
 
 #pragma mark - collection view methods
@@ -56,6 +56,12 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"did select item");
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.selected = YES;
+    
+    
+    
     
 }
 
@@ -103,6 +109,7 @@
 #pragma mark - class methods
 
 -(void)performanceStats{
+    [spinner startAnimating];
     [manager GET:@"finovus_performance_stats" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
         NSLog(@"performance stats: %@",responseObject);
         self.performanceStatData = responseObject;
@@ -114,6 +121,7 @@
         [self.STA setText:st];
         [self.SP setText:[[sp stringValue] stringByAppendingString:@"%"]];
 
+        [spinner stopAnimating];
         
         
         
@@ -150,10 +158,25 @@
     
 }
 
+-(void)startRefresh{
+    NSLog(@"refresh");
+    [spinner setColor:[UIColor clearColor]];
+    [self performanceStats];
+    [self openPositions];
+    
+    
+    [refreshControl endRefreshing];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(startRefresh)
+             forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
 
     CGRect staRect,SP500Rect;
     
@@ -172,6 +195,7 @@
     
     
     [spinner setHidesWhenStopped:YES];
+    [spinner setColor:[UIColor whiteColor]];
     
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     

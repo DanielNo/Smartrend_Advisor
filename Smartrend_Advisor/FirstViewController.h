@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *STA;
 @property (weak, nonatomic) IBOutlet UILabel *SP;
 
+@property (strong,nonatomic) UIRefreshControl *refreshControl;
 
 
 
