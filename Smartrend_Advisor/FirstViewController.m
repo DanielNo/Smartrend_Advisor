@@ -63,6 +63,9 @@
     
     companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
     [cell.name setText: [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"]];
+    
+    
+    cell.contentView.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1] : [UIColor whiteColor];
 
     
     return cell;
@@ -79,7 +82,7 @@
     int width = screenRect.size.width/3;
     //NSLog(@"width %i", width);
     
-    itemSize.width = 105; // 106
+    itemSize.width = 106; // 106
     itemSize.height = 49;
     
     
