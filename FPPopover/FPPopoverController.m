@@ -141,6 +141,8 @@
         NSLog(@"screen height : %f",screenHeight);
         
         self.contentSize = CGSizeMake(screenWidth,screenHeight/2 ); //default size 240
+        
+        
 
         _contentView = [[FPPopoverView alloc] initWithFrame:CGRectMake(0, 0, 
                                               self.contentSize.width, self.contentSize.height)];

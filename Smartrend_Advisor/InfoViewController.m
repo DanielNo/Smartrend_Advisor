@@ -13,7 +13,7 @@
 @end
 
 @implementation InfoViewController
-@synthesize stockName,stockSymbol;
+@synthesize stockName,stockSymbol,entryPrice,lastPrice,openDate,returnPercent;
 
 
 
@@ -34,7 +34,7 @@
     [self.view setBackgroundColor:[UIColor redColor]];
     CGSize viewSize = self.view.frame.size;
     CGFloat height = 40;
-    
+    CGFloat width = viewSize.width-20;
     
     //CGFloat xMiddle = 110;
     CGFloat xMiddle = (self.view.frame.size.width-20)/2;
@@ -44,17 +44,43 @@
     
     CGRect stockSymbolRect = CGRectMake(0,0 ,xMiddle/2 , height);
     CGRect stockNameRect = CGRectMake(xMiddle/2, 0, xMiddle*1.5, height);
+    CGRect entryPriceRect = CGRectMake(0,0+height , width,height );
+    CGRect lastPriceRect = CGRectMake(0,0+height*2 , width,height );
+    CGRect openDateRect = CGRectMake(0, 0+height*3 , width,height );
+    CGRect returnPercentRect = CGRectMake(0, 0+height*4, width,height );
+    
+    
+    
+    
     
     //self.view.frame
     
     
     stockSymbol = [[UILabel alloc]initWithFrame:stockSymbolRect];
     stockName = [[UILabel alloc]initWithFrame:stockNameRect];
+    entryPrice = [[UILabel alloc]initWithFrame:entryPriceRect];
+    lastPrice = [[UILabel alloc]initWithFrame:lastPriceRect];
+    openDate = [[UILabel alloc]initWithFrame:openDateRect];
+    returnPercent = [[UILabel alloc]initWithFrame:returnPercentRect];
+    
+    
+    
+    
     [stockSymbol setBackgroundColor:[UIColor blueColor]];
     [stockName setBackgroundColor:[UIColor yellowColor]];
+    [entryPrice setBackgroundColor:[UIColor whiteColor]];
+    [lastPrice setBackgroundColor:[UIColor grayColor]];
+    [openDate setBackgroundColor:[UIColor purpleColor]];
+    [returnPercent setBackgroundColor:[UIColor orangeColor]];
+    
+    
     
     [self.view addSubview:stockSymbol];
     [self.view addSubview:stockName];
+    [self.view addSubview:entryPrice];
+    [self.view addSubview:lastPrice];
+    [self.view addSubview:openDate];
+    [self.view addSubview:returnPercent];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.

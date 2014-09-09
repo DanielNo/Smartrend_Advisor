@@ -12,5 +12,9 @@
 
 @property (strong,nonatomic) UILabel *stockSymbol;
 @property (strong,nonatomic) UILabel *stockName;
+@property (strong,nonatomic) UILabel *entryPrice;
+@property (strong,nonatomic) UILabel *lastPrice;
+@property (strong,nonatomic) UILabel *openDate;
+@property (strong,nonatomic) UILabel *returnPercent;
 
 @end

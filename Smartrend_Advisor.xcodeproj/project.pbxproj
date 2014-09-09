@@ -28,6 +28,7 @@
 		30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A619BE43CB002F50E2 /* FPPopoverView.m */; };
 		30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A819BE43CB002F50E2 /* FPTouchView.m */; };
 		30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96AD19BE451E002F50E2 /* InfoViewController.m */; };
+		30EA96B019BF87A9002F50E2 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30EA96AF19BF87A9002F50E2 /* View.xib */; };
 		CB596019B4664D59B194C5F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290A9BFCF464475E9AC59B54 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		30EA96A819BE43CB002F50E2 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		30EA96AC19BE451E002F50E2 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		30EA96AD19BE451E002F50E2 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		30EA96AF19BF87A9002F50E2 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				30EA96AF19BF87A9002F50E2 /* View.xib */,
 				30EA96A119BE43CB002F50E2 /* FPPopover */,
 				3034CE3519B9FF7C008BB3FF /* companyCell.h */,
 				3034CE3619B9FF7C008BB3FF /* companyCell.m */,
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30DCEA8419B8B54D006521D4 /* Main_iPad.storyboard in Resources */,
+				30EA96B019BF87A9002F50E2 /* View.xib in Resources */,
 				30DCEA8C19B8B54D006521D4 /* Images.xcassets in Resources */,
 				30DCEA8119B8B54D006521D4 /* Main_iPhone.storyboard in Resources */,
 				30DCEA7819B8B54D006521D4 /* InfoPlist.strings in Resources */,

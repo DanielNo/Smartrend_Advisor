@@ -72,7 +72,13 @@
     [infoVC.stockSymbol setText:symbol];
     [infoVC.stockName setText:[[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"]];
     
-   [popoverVC presentPopoverFromView:dailyReturn];
+    popoverVC.contentView.title = symbol;
+    popoverVC.contentView.title = [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
+    
+    
+    
+    [popoverVC presentPopoverFromView:dailyReturn];
+    
     
     [self.view setAlpha:0.5];
     
@@ -209,6 +215,7 @@
     
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
+    self.collectionView.alwaysBounceVertical = YES;
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(startRefresh)
              forControlEvents:UIControlEventValueChanged];
@@ -222,7 +229,7 @@
     
 
     labelSize.width = screenRect.size.width/2;
-    labelSize.height = 30;
+    labelSize.height = screenRect.size.height/12;
     
     staRect.size = labelSize;
     
