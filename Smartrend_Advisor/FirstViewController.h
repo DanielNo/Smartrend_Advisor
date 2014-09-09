@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class InfoViewController,FPPopoverController;
+
 @interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
 
 
@@ -19,7 +21,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *dropMenu;
 @property (strong,nonatomic) UIRefreshControl *refreshControl;
-
+@property (strong,nonatomic) InfoViewController *infoVC;
+@property (strong,nonatomic) FPPopoverController *popoverVC;
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

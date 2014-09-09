@@ -20,7 +20,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC;
 
 
 #pragma mark - collection view methods
@@ -61,17 +61,18 @@
 //       -----------------
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"did select item");
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     cell.selected = YES;
     
     
-    InfoViewController *info = [[InfoViewController alloc]init];
 
-    FPPopoverController *popover = [[FPPopoverController alloc]initWithViewController:info];
+
+
+    NSString *symbol = [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"];
+    [infoVC.stockSymbol setText:symbol];
+    [infoVC.stockName setText:[[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"]];
     
-    [popover setArrowDirection:FPPopoverNoArrow];
-   [popover presentPopoverFromView:dailyReturn];
+   [popoverVC presentPopoverFromView:dailyReturn];
     
     [self.view setAlpha:0.5];
     
@@ -123,10 +124,21 @@
 
 #pragma mark - class methods
 
+-(void)dismissedPopup{
+    NSLog(@"received");
+    [self.view setAlpha:1.0];
+}
+
 -(void)performanceStats{
     [spinner startAnimating];
+    
+    
+    
+    
     [manager GET:@"finovus_performance_stats" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        NSLog(@"performance stats: %@",responseObject);
+        
+        //NSLog(@"performance stats: %@",responseObject);
+        
         self.performanceStatData = responseObject;
         NSDictionary *response = [performanceStatData objectAtIndex:0];
         NSString *st= [[response objectForKey:@"st_pl"] stringByAppendingString:@"%"];
@@ -155,7 +167,7 @@
     [spinner startAnimating];
     
     [manager GET:@"finovus_open_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        NSLog(@"open positions : %@",responseObject);
+        //NSLog(@"open positions : %@",responseObject);
         
 
         self.openPositionData = responseObject;
@@ -180,18 +192,23 @@
     [self openPositions];
     
     
+
+    
     [refreshControl endRefreshing];
 }
 
 #pragma mark - View lifecycle
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
-}
 
 - (void)viewDidLoad
 {
     
+    infoVC = [InfoViewController new];
+    popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
+    [popoverVC setArrowDirection:FPPopoverNoArrow];
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(startRefresh)
              forControlEvents:UIControlEventValueChanged];

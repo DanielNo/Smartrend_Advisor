@@ -13,6 +13,11 @@
 @end
 
 @implementation InfoViewController
+@synthesize stockName,stockSymbol;
+
+
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,7 +30,32 @@
 
 - (void)viewDidLoad
 {
+    //[self.view setFrame:];
     [self.view setBackgroundColor:[UIColor redColor]];
+    CGSize viewSize = self.view.frame.size;
+    CGFloat height = 40;
+    
+    
+    //CGFloat xMiddle = 110;
+    CGFloat xMiddle = (self.view.frame.size.width-20)/2;
+    
+    
+    
+    
+    CGRect stockSymbolRect = CGRectMake(0,0 ,xMiddle/2 , height);
+    CGRect stockNameRect = CGRectMake(xMiddle/2, 0, xMiddle*1.5, height);
+    
+    //self.view.frame
+    
+    
+    stockSymbol = [[UILabel alloc]initWithFrame:stockSymbolRect];
+    stockName = [[UILabel alloc]initWithFrame:stockNameRect];
+    [stockSymbol setBackgroundColor:[UIColor blueColor]];
+    [stockName setBackgroundColor:[UIColor yellowColor]];
+    
+    [self.view addSubview:stockSymbol];
+    [self.view addSubview:stockName];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

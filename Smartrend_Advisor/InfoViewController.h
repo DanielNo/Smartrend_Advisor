@@ -10,4 +10,7 @@
 
 @interface InfoViewController : UIViewController
 
+@property (strong,nonatomic) UILabel *stockSymbol;
+@property (strong,nonatomic) UILabel *stockName;
+
 @end

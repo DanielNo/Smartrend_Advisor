@@ -134,7 +134,13 @@
             [bself dismissPopoverAnimated:YES];
         }];
 
-        self.contentSize = CGSizeMake(300, 300); //default size
+        CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+        
+        NSLog(@"screen width : %f",screenWidth);
+        NSLog(@"screen height : %f",screenHeight);
+        
+        self.contentSize = CGSizeMake(screenWidth,screenHeight/2 ); //default size 240
 
         _contentView = [[FPPopoverView alloc] initWithFrame:CGRectMake(0, 0, 
                                               self.contentSize.width, self.contentSize.height)];
@@ -314,6 +320,8 @@
 
 -(void)dismissPopover
 {
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"dismiss" object:nil];
     NSLog(@"dismiss3");
     [self.view removeFromSuperview];
     if([self.delegate respondsToSelector:@selector(popoverControllerDidDismissPopover:)])
