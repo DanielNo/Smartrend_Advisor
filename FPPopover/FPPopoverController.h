@@ -25,6 +25,8 @@
           shouldDismissVisiblePopover:(FPPopoverController*)visiblePopoverController;
 @end
 
+extern int popoverHeight;
+
 @interface FPPopoverController : UIViewController
 {
     UIView *_parentView;

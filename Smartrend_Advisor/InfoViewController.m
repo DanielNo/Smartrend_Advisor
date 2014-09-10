@@ -7,6 +7,8 @@
 //
 
 #import "InfoViewController.h"
+#import "FPPopoverController.h"
+
 
 @interface InfoViewController ()
 
@@ -31,19 +33,19 @@
 - (void)viewDidLoad
 {
     //[self.view setFrame:];
-    [self.view setBackgroundColor:[UIColor redColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     CGSize viewSize = self.view.frame.size;
-    CGFloat height = 40;
+    CGFloat height = popoverHeight; // get value of contentview
     CGFloat width = viewSize.width-20;
     
+    NSLog(@"popover height %i",popoverHeight);
     //CGFloat xMiddle = 110;
     CGFloat xMiddle = (self.view.frame.size.width-20)/2;
     
     
     
     
-    CGRect stockSymbolRect = CGRectMake(0,0 ,xMiddle/2 , height);
-    CGRect stockNameRect = CGRectMake(xMiddle/2, 0, xMiddle*1.5, height);
+    CGRect stockSymbolRect = CGRectMake(0,0 ,width , height);
     CGRect entryPriceRect = CGRectMake(0,0+height , width,height );
     CGRect lastPriceRect = CGRectMake(0,0+height*2 , width,height );
     CGRect openDateRect = CGRectMake(0, 0+height*3 , width,height );
@@ -57,26 +59,30 @@
     
     
     stockSymbol = [[UILabel alloc]initWithFrame:stockSymbolRect];
-    stockName = [[UILabel alloc]initWithFrame:stockNameRect];
+    //stockName = [[UILabel alloc]initWithFrame:stockNameRect];
     entryPrice = [[UILabel alloc]initWithFrame:entryPriceRect];
     lastPrice = [[UILabel alloc]initWithFrame:lastPriceRect];
     openDate = [[UILabel alloc]initWithFrame:openDateRect];
     returnPercent = [[UILabel alloc]initWithFrame:returnPercentRect];
     
+    [stockSymbol setTextAlignment:NSTextAlignmentCenter];
+    [entryPrice setTextAlignment:NSTextAlignmentCenter];
+    [lastPrice setTextAlignment:NSTextAlignmentCenter];
+    [openDate setTextAlignment:NSTextAlignmentCenter];
+    [returnPercent setTextAlignment:NSTextAlignmentCenter];
     
-    
-    
+    /*
     [stockSymbol setBackgroundColor:[UIColor blueColor]];
     [stockName setBackgroundColor:[UIColor yellowColor]];
     [entryPrice setBackgroundColor:[UIColor whiteColor]];
     [lastPrice setBackgroundColor:[UIColor grayColor]];
     [openDate setBackgroundColor:[UIColor purpleColor]];
     [returnPercent setBackgroundColor:[UIColor orangeColor]];
-    
+    */
     
     
     [self.view addSubview:stockSymbol];
-    [self.view addSubview:stockName];
+    //[self.view addSubview:stockName];
     [self.view addSubview:entryPrice];
     [self.view addSubview:lastPrice];
     [self.view addSubview:openDate];

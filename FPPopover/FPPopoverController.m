@@ -9,6 +9,7 @@
 
 #import "FPPopoverController.h"
 
+int popoverHeight = 40;
 //ivars
 @interface FPPopoverController()
 {
@@ -21,6 +22,7 @@
     
     BOOL _shadowsHidden;
     CGColorRef _shadowColor;
+    
 }
 @end
 
@@ -142,7 +144,7 @@
         
         self.contentSize = CGSizeMake(screenWidth,screenHeight/2 ); //default size 240
         
-        
+        popoverHeight = screenHeight/13;
 
         _contentView = [[FPPopoverView alloc] initWithFrame:CGRectMake(0, 0, 
                                               self.contentSize.width, self.contentSize.height)];

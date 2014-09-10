@@ -65,16 +65,29 @@
     cell.selected = YES;
     
     
+    NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.row];
 
 
-
-    NSString *symbol = [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"];
+    NSString *symbol = [posDict objectForKey:@"stock_symbol"];
     [infoVC.stockSymbol setText:symbol];
-    [infoVC.stockName setText:[[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"]];
+    [infoVC.stockName setText:[posDict objectForKey:@"company_name"]];
+    NSString *entry = [@"Entry Price : " stringByAppendingString:[posDict objectForKey:@"entry_price_display"]];
+    [infoVC.entryPrice setText:entry];
+    NSString *last = [@"Last Price : " stringByAppendingString:[posDict objectForKey:@"last_price_display"]];
+    [infoVC.lastPrice setText:last];
     
+    
+    
+    
+    NSString *openDate = [@"Open Date : " stringByAppendingString:[posDict objectForKey:@"open_date_display"]];
+    [infoVC.openDate setText:openDate];
+    
+    NSString *rtrn = [@"Return : " stringByAppendingString:[posDict objectForKey:@"pct_gain_display"]];
+    [infoVC.returnPercent setText:rtrn];
+    
+    [popoverVC setShadowsHidden:YES];
     popoverVC.contentView.title = symbol;
     popoverVC.contentView.title = [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
-    
     
     
     [popoverVC presentPopoverFromView:dailyReturn];
@@ -154,7 +167,7 @@
         [self.STA setText:st];
         [self.SP setText:[[sp stringValue] stringByAppendingString:@"%"]];
 
-        [spinner stopAnimating];
+
         
         
         
@@ -169,7 +182,6 @@
 }
 
 -(void)openPositions{
-    
     [spinner startAnimating];
     
     [manager GET:@"finovus_open_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
