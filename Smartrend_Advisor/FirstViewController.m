@@ -150,8 +150,7 @@
 
 -(void)performanceStats{
     [spinner startAnimating];
-    
-    
+
     
     
     [manager GET:@"finovus_performance_stats" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -203,13 +202,19 @@
     
 }
 
--(void)startRefresh{
+-(void)refreshCollectionView{
     NSLog(@"refresh");
-    [spinner setColor:[UIColor clearColor]];
-    [self performanceStats];
-    [self openPositions];
-    
-    
+
+
+    if([self isViewLoaded] && self.view.window){
+        [self performanceStats];
+        [self openPositions];
+        NSLog(@"active");
+    }
+    else{
+        
+        NSLog(@"inactive");
+    }
 
     
     [refreshControl endRefreshing];
@@ -221,36 +226,15 @@
 - (void)viewDidLoad
 {
     
-    infoVC = [InfoViewController new];
-    popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
-    [popoverVC setArrowDirection:FPPopoverNoArrow];
-    
+    [self setupUI];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     self.collectionView.alwaysBounceVertical = YES;
-    refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(startRefresh)
-             forControlEvents:UIControlEventValueChanged];
-    [self.collectionView addSubview:refreshControl];
-
-    CGRect staRect,SP500Rect;
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    CGSize labelSize;
-    
-
-    labelSize.width = screenRect.size.width/2;
-    labelSize.height = screenRect.size.height/12;
-    
-    staRect.size = labelSize;
-    
-    [STA setFrame:staRect];
-    [SP setFrame:staRect];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(startRefresh) name:@"foreground" object:nil];
     
     
-    [spinner setHidesWhenStopped:YES];
-    [spinner setColor:[UIColor whiteColor]];
+    
+    
     
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     
@@ -260,10 +244,13 @@
     NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
     [manager setCredential:creds];
     
+    
     [self performanceStats];
     [self openPositions];
     
     
+    
+   
     
     
     
@@ -276,6 +263,25 @@
     
     
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)setupUI{
+    
+    infoVC = [InfoViewController new];
+    popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
+    [popoverVC setArrowDirection:FPPopoverNoArrow];
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl setAlpha:0];
+    [refreshControl addTarget:self action:@selector(refreshCollectionView)
+             forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    
+    [spinner setHidesWhenStopped:YES];
+    [spinner setColor:[UIColor grayColor]];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
