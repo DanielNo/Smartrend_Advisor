@@ -76,7 +76,8 @@
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
         
-        self.tint = FPPopoverDefaultTint;
+        //self.tint = FPPopoverDefaultTint;
+        self.tint = FPPopoverPurpleTint;
         
         [self addSubview:_titleLabel];
         [self setupViews];
@@ -341,10 +342,16 @@
         colors[0] = colors[1] = colors[2] = 1.0;
         colors[3] = colors[7] = 1.0;
     }
+    else if(self.tint == FPPopoverPurpleTint){
+        colors[0] = 65/255.0f; colors[1] = 19/255.0f; colors[2] =143/255.0f;
+        colors[4] = colors[5] = colors[6] = 0;
+        colors[3] = colors[7] = 1.0;
+    }
     
 
     CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, NULL, 2);
 
+    
     CFRelease(colorSpace);
     return gradient;
 }
@@ -408,6 +415,12 @@
     else if(self.tint == FPPopoverWhiteTint)
     {
         CGContextSetRGBFillColor(ctx, 1, 1, 1, 1.0);
+    }
+    else if(self.tint == FPPopoverPurpleTint)
+    {
+ //       [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1]
+        
+        CGContextSetRGBFillColor(ctx, 65/255.0f, 19/255.0f, 143/255.0f, 1.0);
     }
 
     

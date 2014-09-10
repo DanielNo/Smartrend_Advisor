@@ -46,10 +46,10 @@
     
     
     CGRect stockSymbolRect = CGRectMake(0,0 ,width , height);
-    CGRect entryPriceRect = CGRectMake(0,0+height , width,height );
-    CGRect lastPriceRect = CGRectMake(0,0+height*2 , width,height );
-    CGRect openDateRect = CGRectMake(0, 0+height*3 , width,height );
-    CGRect returnPercentRect = CGRectMake(0, 0+height*4, width,height );
+    CGRect entryPriceRect = CGRectMake(0,height , width,height );
+    CGRect lastPriceRect = CGRectMake(0,height*2 , width,height );
+    CGRect openDateRect = CGRectMake(0, height*3 , width,height );
+    CGRect returnPercentRect = CGRectMake(0, height*4, width,height );
     
     
     
