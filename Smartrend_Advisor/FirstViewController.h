@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class InfoViewController,FPPopoverController;
+@class InfoViewController,FPPopoverController,CustomNavBar;
 
 @interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
 
 
+
+@property (weak, nonatomic) IBOutlet CustomNavBar *navBar;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *settingsBtn;

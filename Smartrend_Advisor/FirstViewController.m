@@ -11,6 +11,7 @@
 
 #import "FPPopoverController.h"
 #import "InfoViewController.h"
+#import "CustomNavBar.h"
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -20,7 +21,7 @@
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC,settingsBtn;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC,settingsBtn,navBar;
 
 
 #pragma mark - collection view methods
@@ -219,7 +220,7 @@
     self.collectionView.alwaysBounceVertical = YES;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
     
-    
+
     
     
     
@@ -253,9 +254,14 @@
 }
 
 -(void)setupUI{
+    
+   
+    [navBar init];
+    
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
+
     
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl setAlpha:0];
