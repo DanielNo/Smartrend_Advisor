@@ -10,6 +10,7 @@
 #import "FPPopoverController.h"
 
 int popoverHeight = 40;
+double contentViewHeight;
 //ivars
 @interface FPPopoverController()
 {
@@ -143,8 +144,11 @@ int popoverHeight = 40;
         NSLog(@"screen height : %f",screenHeight);
         
         self.contentSize = CGSizeMake(screenWidth,screenHeight/2 ); //default size 240
+        NSLog(@"content size : %f ",_contentSize.height);
         
-        popoverHeight = screenHeight/13;
+        contentViewHeight = _contentView.frame.size.height;
+        
+        popoverHeight = screenHeight/12.1;
 
         _contentView = [[FPPopoverView alloc] initWithFrame:CGRectMake(0, 0, 
                                               self.contentSize.width, self.contentSize.height)];
@@ -164,6 +168,8 @@ int popoverHeight = 40;
         //setting contentview
         _contentView.title = _viewController.title;
         _contentView.clipsToBounds = NO;
+     
+
         
         [_viewController addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
     }

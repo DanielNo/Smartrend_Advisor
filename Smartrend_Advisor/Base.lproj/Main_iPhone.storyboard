@@ -210,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXR-cf-QK8">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXR-cf-QK8">
                                                 <rect key="frame" x="266" y="2" width="48" height="48"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="settings_icon">
@@ -254,6 +254,7 @@
                         <outlet property="collectionView" destination="8iM-hQ-FXo" id="9fo-jJ-uAP"/>
                         <outlet property="dailyReturn" destination="fcD-ul-H6H" id="Cy5-XG-fQE"/>
                         <outlet property="flowLayout" destination="ddc-Ta-ngi" id="MJR-Jc-3FV"/>
+                        <outlet property="settingsBtn" destination="dXR-cf-QK8" id="s0Z-Jc-W25"/>
                         <outlet property="spinner" destination="l7e-34-qM1" id="bFk-BN-wcw"/>
                     </connections>
                 </viewController>

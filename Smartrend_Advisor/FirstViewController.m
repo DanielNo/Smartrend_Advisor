@@ -20,45 +20,20 @@
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC,settingsBtn;
 
 
 #pragma mark - collection view methods
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    /*
-    int x = [openPositionData count];
-    
-    if (x%3 == 0) {
-        return x/3;
-    }
-    else {
-        return x/3 + 1;
-    }
-    */
     return 1;
-    
-    
-    
-    
-    
 }
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
     NSLog(@"items : %i",[openPositionData count]);
-    
-    
-    //return 2;
     return [openPositionData count];
-    
-    
-    
-    
-    
 }
 
-//       -----------------
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
@@ -67,22 +42,22 @@
     
     NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.row];
 
-
-    NSString *symbol = [posDict objectForKey:@"stock_symbol"];
+    NSString *spaces = @"  ";
+    NSString *symbol = [@" " stringByAppendingString:[posDict objectForKey:@"stock_symbol"]];
     [infoVC.stockSymbol setText:symbol];
     [infoVC.stockName setText:[posDict objectForKey:@"company_name"]];
-    NSString *entry = [@"Entry Price : " stringByAppendingString:[posDict objectForKey:@"entry_price_display"]];
+    NSString *entry = [spaces stringByAppendingString:[posDict objectForKey:@"entry_price_display"]];
     [infoVC.entryPrice setText:entry];
-    NSString *last = [@"Last Price : " stringByAppendingString:[posDict objectForKey:@"last_price_display"]];
+    NSString *last = [spaces stringByAppendingString:[posDict objectForKey:@"last_price_display"]];
     [infoVC.lastPrice setText:last];
     
+    [infoVC setFields:symbol :@" Entry Price :" :@" Last Price : " :@" Open Date : " :@" Return % : "];
     
     
-    
-    NSString *openDate = [@"Open Date : " stringByAppendingString:[posDict objectForKey:@"open_date_display"]];
+    NSString *openDate = [spaces stringByAppendingString:[posDict objectForKey:@"open_date_display"]];
     [infoVC.openDate setText:openDate];
     
-    NSString *rtrn = [@"Return : " stringByAppendingString:[posDict objectForKey:@"pct_gain_display"]];
+    NSString *rtrn = [spaces stringByAppendingString:[posDict objectForKey:@"pct_gain_display"]];
     [infoVC.returnPercent setText:rtrn];
     
     [popoverVC setShadowsHidden:YES];
@@ -90,7 +65,12 @@
     popoverVC.contentView.title = [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
     
     
+    
+    
+    
+    
     [popoverVC presentPopoverFromView:dailyReturn];
+
     
     
     [self.view setAlpha:0.5];
@@ -216,8 +196,15 @@
         NSLog(@"inactive");
     }
 
-    
+
     [refreshControl endRefreshing];
+}
+
+-(void)settingsBtnPressed:(id)sender{
+    
+    
+    
+    
 }
 
 #pragma mark - View lifecycle
@@ -230,7 +217,7 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     self.collectionView.alwaysBounceVertical = YES;
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(startRefresh) name:@"foreground" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
     
     
     
@@ -266,7 +253,6 @@
 }
 
 -(void)setupUI{
-    
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
@@ -275,11 +261,15 @@
     [refreshControl setAlpha:0];
     [refreshControl addTarget:self action:@selector(refreshCollectionView)
              forControlEvents:UIControlEventValueChanged];
+    [settingsBtn addTarget:self action:@selector(settingsBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     [self.collectionView addSubview:refreshControl];
     
     [spinner setHidesWhenStopped:YES];
     [spinner setColor:[UIColor grayColor]];
     
+
     
     
 }

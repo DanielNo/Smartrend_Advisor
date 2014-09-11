@@ -16,5 +16,12 @@
 @property (strong,nonatomic) UILabel *lastPrice;
 @property (strong,nonatomic) UILabel *openDate;
 @property (strong,nonatomic) UILabel *returnPercent;
+@property (strong,nonatomic) UILabel *field1;
+@property (strong,nonatomic) UILabel *field2;
+@property (strong,nonatomic) UILabel *field3;
+@property (strong,nonatomic) UILabel *field4;
+@property (strong,nonatomic) UILabel *field5;
+
+-(void)setFields:(NSString *)name1 :(NSString *)name2 :(NSString *)name3 :(NSString *)name4 :(NSString *)name5;
 
 @end

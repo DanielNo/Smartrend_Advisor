@@ -26,6 +26,7 @@
 @end
 
 extern int popoverHeight;
+extern double contentViewHeight;
 
 @interface FPPopoverController : UIViewController
 {

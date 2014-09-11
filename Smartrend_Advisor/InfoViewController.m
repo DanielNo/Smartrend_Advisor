@@ -8,6 +8,7 @@
 
 #import "InfoViewController.h"
 #import "FPPopoverController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface InfoViewController ()
@@ -15,7 +16,7 @@
 @end
 
 @implementation InfoViewController
-@synthesize stockName,stockSymbol,entryPrice,lastPrice,openDate,returnPercent;
+@synthesize stockName,stockSymbol,entryPrice,lastPrice,openDate,returnPercent,field1,field2,field3,field4,field5;
 
 
 
@@ -36,20 +37,30 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     CGSize viewSize = self.view.frame.size;
     CGFloat height = popoverHeight; // get value of contentview
-    CGFloat width = viewSize.width-20;
+    CGFloat width = (viewSize.width-20)/2;
     
-    NSLog(@"popover height %i",popoverHeight);
-    //CGFloat xMiddle = 110;
-    CGFloat xMiddle = (self.view.frame.size.width-20)/2;
-    
+    NSLog(@"popover height %f",popoverHeight);
+    CGFloat xCenter = (self.view.frame.size.width-20)/2;
     
     
     
-    CGRect stockSymbolRect = CGRectMake(0,0 ,width , height);
-    CGRect entryPriceRect = CGRectMake(0,height , width,height );
-    CGRect lastPriceRect = CGRectMake(0,height*2 , width,height );
-    CGRect openDateRect = CGRectMake(0, height*3 , width,height );
-    CGRect returnPercentRect = CGRectMake(0, height*4, width,height );
+    
+    CGRect fieldRect1 = CGRectMake(0, 0, width,height );
+    CGRect fieldRect2 = CGRectMake(0, height, width,height );
+    CGRect fieldRect3 = CGRectMake(0, height*2, width,height );
+    CGRect fieldRect4 = CGRectMake(0, height*3, width,height );
+    CGRect fieldRect5 = CGRectMake(0, height*4, width,height );
+    
+    
+    
+    
+    
+    
+    CGRect stockSymbolRect = CGRectMake(width,0 ,width , height);
+    CGRect entryPriceRect = CGRectMake(width,height , width,height );
+    CGRect lastPriceRect = CGRectMake(width,height*2 , width,height );
+    CGRect openDateRect = CGRectMake(width, height*3 , width,height );
+    CGRect returnPercentRect = CGRectMake(width, height*4, width,height );
     
     
     
@@ -64,12 +75,39 @@
     lastPrice = [[UILabel alloc]initWithFrame:lastPriceRect];
     openDate = [[UILabel alloc]initWithFrame:openDateRect];
     returnPercent = [[UILabel alloc]initWithFrame:returnPercentRect];
+    field1 = [[UILabel alloc]initWithFrame:fieldRect1];
+    field2 = [[UILabel alloc]initWithFrame:fieldRect2];
+    field3 = [[UILabel alloc]initWithFrame:fieldRect3];
+    field4 = [[UILabel alloc]initWithFrame:fieldRect4];
+    field5 = [[UILabel alloc]initWithFrame:fieldRect5];
+    CGFloat borderWidth = 1.0;
+    field1.layer.borderColor = [UIColor blackColor].CGColor;
+    field1.layer.borderWidth = borderWidth;
+    field2.layer.borderColor = [UIColor blackColor].CGColor;
+    field2.layer.borderWidth = borderWidth;
+    field3.layer.borderColor = [UIColor blackColor].CGColor;
+    field3.layer.borderWidth = borderWidth;
+    field4.layer.borderColor = [UIColor blackColor].CGColor;
+    field4.layer.borderWidth = borderWidth;
+    field5.layer.borderColor = [UIColor blackColor].CGColor;
+    field5.layer.borderWidth = borderWidth;
     
-    [stockSymbol setTextAlignment:NSTextAlignmentCenter];
-    [entryPrice setTextAlignment:NSTextAlignmentCenter];
-    [lastPrice setTextAlignment:NSTextAlignmentCenter];
-    [openDate setTextAlignment:NSTextAlignmentCenter];
-    [returnPercent setTextAlignment:NSTextAlignmentCenter];
+    stockSymbol.layer.borderColor = [UIColor blackColor].CGColor;
+    stockSymbol.layer.borderWidth = borderWidth;
+    entryPrice.layer.borderColor = [UIColor blackColor].CGColor;
+    entryPrice.layer.borderWidth = borderWidth;
+    lastPrice.layer.borderColor = [UIColor blackColor].CGColor;
+    lastPrice.layer.borderWidth = borderWidth;
+    openDate.layer.borderColor = [UIColor blackColor].CGColor;
+    openDate.layer.borderWidth = borderWidth;
+    returnPercent.layer.borderColor = [UIColor blackColor].CGColor;
+    returnPercent.layer.borderWidth = borderWidth;
+    
+    [stockSymbol setTextAlignment:NSTextAlignmentLeft];
+    [entryPrice setTextAlignment:NSTextAlignmentLeft];
+    [lastPrice setTextAlignment:NSTextAlignmentLeft];
+    [openDate setTextAlignment:NSTextAlignmentLeft];
+    [returnPercent setTextAlignment:NSTextAlignmentLeft];
     
     /*
     [stockSymbol setBackgroundColor:[UIColor blueColor]];
@@ -87,10 +125,25 @@
     [self.view addSubview:lastPrice];
     [self.view addSubview:openDate];
     [self.view addSubview:returnPercent];
+    [self.view addSubview:field1];
+    [self.view addSubview:field2];
+    [self.view addSubview:field3];
+    [self.view addSubview:field4];
+    [self.view addSubview:field5];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+-(void)setFields:(NSString *)name1 :(NSString *)name2 :(NSString *)name3 :(NSString *)name4 :(NSString *)name5{
+    [field1 setText:name1];
+    [field2 setText:name2];
+    [field3 setText:name3];
+    [field4 setText:name4];
+    [field5 setText:name5];
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

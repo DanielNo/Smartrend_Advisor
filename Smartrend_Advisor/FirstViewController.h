@@ -15,6 +15,7 @@
 
 
 
+@property (weak, nonatomic) IBOutlet UIButton *settingsBtn;
 @property (weak, nonatomic) IBOutlet UILabel *STA;
 @property (weak, nonatomic) IBOutlet UILabel *SP;
 @property (weak, nonatomic) IBOutlet UILabel *dailyReturn;
