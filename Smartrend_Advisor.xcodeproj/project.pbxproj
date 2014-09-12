@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3034CE3619B9FF7C008BB3FF /* companyCell.m */; };
+		305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */; };
+		305C5BC419C3728600E73AC5 /* ClosedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC319C3728600E73AC5 /* ClosedViewController.m */; };
+		305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */; };
 		30C74B6219C341A6002C2DF0 /* CustomNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C74B6119C341A6002C2DF0 /* CustomNavController.m */; };
 		30DCEA6E19B8B54D006521D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6D19B8B54D006521D4 /* Foundation.framework */; };
 		30DCEA7019B8B54D006521D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */; };
@@ -18,7 +21,6 @@
 		30DCEA8119B8B54D006521D4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA7F19B8B54D006521D4 /* Main_iPhone.storyboard */; };
 		30DCEA8419B8B54D006521D4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */; };
 		30DCEA8719B8B54D006521D4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA8619B8B54D006521D4 /* FirstViewController.m */; };
-		30DCEA8A19B8B54D006521D4 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA8919B8B54D006521D4 /* SecondViewController.m */; };
 		30DCEA8C19B8B54D006521D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA8B19B8B54D006521D4 /* Images.xcassets */; };
 		30DCEA9319B8B54D006521D4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA9219B8B54D006521D4 /* XCTest.framework */; };
 		30DCEA9419B8B54D006521D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6D19B8B54D006521D4 /* Foundation.framework */; };
@@ -47,6 +49,12 @@
 		290A9BFCF464475E9AC59B54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3034CE3519B9FF7C008BB3FF /* companyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = companyCell.h; sourceTree = "<group>"; };
 		3034CE3619B9FF7C008BB3FF /* companyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = companyCell.m; sourceTree = "<group>"; };
+		305C5BBF19C3726E00E73AC5 /* PerformanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerformanceViewController.h; path = ../PerformanceViewController.h; sourceTree = "<group>"; };
+		305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerformanceViewController.m; path = ../PerformanceViewController.m; sourceTree = "<group>"; };
+		305C5BC219C3728600E73AC5 /* ClosedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosedViewController.h; sourceTree = "<group>"; };
+		305C5BC319C3728600E73AC5 /* ClosedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosedViewController.m; sourceTree = "<group>"; };
+		305C5BC519C3729B00E73AC5 /* AddOpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOpsViewController.h; sourceTree = "<group>"; };
+		305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOpsViewController.m; sourceTree = "<group>"; };
 		30C74B6019C341A6002C2DF0 /* CustomNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavController.h; sourceTree = "<group>"; };
 		30C74B6119C341A6002C2DF0 /* CustomNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavController.m; sourceTree = "<group>"; };
 		30DCEA6A19B8B54D006521D4 /* Smartrend_Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smartrend_Advisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +71,6 @@
 		30DCEA8319B8B54D006521D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		30DCEA8519B8B54D006521D4 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		30DCEA8619B8B54D006521D4 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		30DCEA8819B8B54D006521D4 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		30DCEA8919B8B54D006521D4 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		30DCEA8B19B8B54D006521D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		30DCEA9119B8B54D006521D4 /* Smartrend_AdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Smartrend_AdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DCEA9219B8B54D006521D4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -153,8 +159,12 @@
 				30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */,
 				30DCEA8519B8B54D006521D4 /* FirstViewController.h */,
 				30DCEA8619B8B54D006521D4 /* FirstViewController.m */,
-				30DCEA8819B8B54D006521D4 /* SecondViewController.h */,
-				30DCEA8919B8B54D006521D4 /* SecondViewController.m */,
+				305C5BBF19C3726E00E73AC5 /* PerformanceViewController.h */,
+				305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */,
+				305C5BC219C3728600E73AC5 /* ClosedViewController.h */,
+				305C5BC319C3728600E73AC5 /* ClosedViewController.m */,
+				305C5BC519C3729B00E73AC5 /* AddOpsViewController.h */,
+				305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */,
 				30EA96AC19BE451E002F50E2 /* InfoViewController.h */,
 				30EA96AD19BE451E002F50E2 /* InfoViewController.m */,
 				30DCEA8B19B8B54D006521D4 /* Images.xcassets */,
@@ -340,11 +350,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				30C74B6219C341A6002C2DF0 /* CustomNavController.m in Sources */,
-				30DCEA8A19B8B54D006521D4 /* SecondViewController.m in Sources */,
+				305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
 				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
 				30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */,
+				305C5BC419C3728600E73AC5 /* ClosedViewController.m in Sources */,
 				3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */,
+				305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */,
 				30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */,
 				30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */,
 				30DCEA8719B8B54D006521D4 /* FirstViewController.m in Sources */,

@@ -257,7 +257,6 @@
     
     self.navigationItem.rightBarButtonItem = rightButton;
     
-    
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
