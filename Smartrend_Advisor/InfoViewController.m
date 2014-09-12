@@ -81,26 +81,28 @@
     field4 = [[UILabel alloc]initWithFrame:fieldRect4];
     field5 = [[UILabel alloc]initWithFrame:fieldRect5];
     CGFloat borderWidth = 1.0;
-    field1.layer.borderColor = [UIColor blackColor].CGColor;
+    CGColorRef borderColor = [UIColor blackColor].CGColor;
+    
+    field1.layer.borderColor = borderColor;
     field1.layer.borderWidth = borderWidth;
-    field2.layer.borderColor = [UIColor blackColor].CGColor;
+    field2.layer.borderColor = borderColor;
     field2.layer.borderWidth = borderWidth;
-    field3.layer.borderColor = [UIColor blackColor].CGColor;
+    field3.layer.borderColor = borderColor;
     field3.layer.borderWidth = borderWidth;
-    field4.layer.borderColor = [UIColor blackColor].CGColor;
+    field4.layer.borderColor = borderColor;
     field4.layer.borderWidth = borderWidth;
-    field5.layer.borderColor = [UIColor blackColor].CGColor;
+    field5.layer.borderColor = borderColor;
     field5.layer.borderWidth = borderWidth;
     
-    stockSymbol.layer.borderColor = [UIColor blackColor].CGColor;
+    stockSymbol.layer.borderColor = borderColor;
     stockSymbol.layer.borderWidth = borderWidth;
-    entryPrice.layer.borderColor = [UIColor blackColor].CGColor;
+    entryPrice.layer.borderColor = borderColor;
     entryPrice.layer.borderWidth = borderWidth;
-    lastPrice.layer.borderColor = [UIColor blackColor].CGColor;
+    lastPrice.layer.borderColor = borderColor;
     lastPrice.layer.borderWidth = borderWidth;
-    openDate.layer.borderColor = [UIColor blackColor].CGColor;
+    openDate.layer.borderColor = borderColor;
     openDate.layer.borderWidth = borderWidth;
-    returnPercent.layer.borderColor = [UIColor blackColor].CGColor;
+    returnPercent.layer.borderColor = borderColor;
     returnPercent.layer.borderWidth = borderWidth;
     
     [stockSymbol setTextAlignment:NSTextAlignmentLeft];

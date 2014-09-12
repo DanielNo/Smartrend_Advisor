@@ -11,7 +11,6 @@
 
 #import "FPPopoverController.h"
 #import "InfoViewController.h"
-#import "CustomNavBar.h"
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -254,14 +253,21 @@
 }
 
 -(void)setupUI{
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(menuBtn)];
     
-   
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
     
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
 
-
+    CGFloat borderWidth = 1.0;
+    CGColorRef borderColor = [UIColor blackColor].CGColor;
+    STA.layer.borderColor = borderColor;
+    STA.layer.borderWidth = borderWidth;
+    SP.layer.borderColor = borderColor;
+    SP.layer.borderWidth = borderWidth;
     
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl setAlpha:0];

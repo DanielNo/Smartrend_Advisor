@@ -28,11 +28,12 @@
 @property (strong,nonatomic) InfoViewController *infoVC;
 @property (strong,nonatomic) FPPopoverController *popoverVC;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 @property(strong,nonatomic) NSArray *openPositionData;
 @property(strong,nonatomic) NSArray *performanceStatData;
 

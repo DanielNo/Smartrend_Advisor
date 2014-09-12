@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3034CE3619B9FF7C008BB3FF /* companyCell.m */; };
-		3094585A19C2334400E0F081 /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3094585919C2334400E0F081 /* CustomNavBar.m */; };
+		30C74B6219C341A6002C2DF0 /* CustomNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C74B6119C341A6002C2DF0 /* CustomNavController.m */; };
 		30DCEA6E19B8B54D006521D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6D19B8B54D006521D4 /* Foundation.framework */; };
 		30DCEA7019B8B54D006521D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */; };
 		30DCEA7219B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
@@ -47,8 +47,8 @@
 		290A9BFCF464475E9AC59B54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3034CE3519B9FF7C008BB3FF /* companyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = companyCell.h; sourceTree = "<group>"; };
 		3034CE3619B9FF7C008BB3FF /* companyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = companyCell.m; sourceTree = "<group>"; };
-		3094585819C2334400E0F081 /* CustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
-		3094585919C2334400E0F081 /* CustomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBar.m; sourceTree = "<group>"; };
+		30C74B6019C341A6002C2DF0 /* CustomNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavController.h; sourceTree = "<group>"; };
+		30C74B6119C341A6002C2DF0 /* CustomNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavController.m; sourceTree = "<group>"; };
 		30DCEA6A19B8B54D006521D4 /* Smartrend_Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smartrend_Advisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DCEA6D19B8B54D006521D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -110,8 +110,8 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
-				3094585819C2334400E0F081 /* CustomNavBar.h */,
-				3094585919C2334400E0F081 /* CustomNavBar.m */,
+				30C74B6019C341A6002C2DF0 /* CustomNavController.h */,
+				30C74B6119C341A6002C2DF0 /* CustomNavController.m */,
 				30EA96A119BE43CB002F50E2 /* FPPopover */,
 				3034CE3519B9FF7C008BB3FF /* companyCell.h */,
 				3034CE3619B9FF7C008BB3FF /* companyCell.m */,
@@ -339,11 +339,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C74B6219C341A6002C2DF0 /* CustomNavController.m in Sources */,
 				30DCEA8A19B8B54D006521D4 /* SecondViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
 				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
 				30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */,
-				3094585A19C2334400E0F081 /* CustomNavBar.m in Sources */,
 				3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */,
 				30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */,
 				30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */,
