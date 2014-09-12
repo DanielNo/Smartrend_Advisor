@@ -64,7 +64,15 @@
     popoverVC.contentView.title = symbol;
     popoverVC.contentView.title = [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
     
-    
+    NSNumber *pctGain = [posDict objectForKey:@"pct_gain"];
+    NSString *val = [pctGain stringValue];
+    //NSLog(@"val : %@",val);
+    if ([pctGain doubleValue] >0) {
+        [infoVC greenText];
+    }
+    else{
+        [infoVC redText];
+    }
     
     
     

@@ -23,5 +23,8 @@
 @property (strong,nonatomic) UILabel *field5;
 
 -(void)setFields:(NSString *)name1 :(NSString *)name2 :(NSString *)name3 :(NSString *)name4 :(NSString *)name5;
+-(void)redText;
+-(void)greenText;
+
 
 @end

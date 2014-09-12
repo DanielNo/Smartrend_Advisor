@@ -332,7 +332,7 @@ double contentViewHeight;
 {
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"dismiss" object:nil];
-    NSLog(@"dismiss3");
+    //NSLog(@"dismiss3");
     [self.view removeFromSuperview];
     if([self.delegate respondsToSelector:@selector(popoverControllerDidDismissPopover:)])
     {
@@ -344,13 +344,13 @@ double contentViewHeight;
 }
 
 -(void)dismissPopoverAnimated:(BOOL)animated {
-    NSLog(@"dismiss1");
+    //NSLog(@"dismiss1");
 	[self dismissPopoverAnimated:animated completion:nil];
 }
 
 -(void)dismissPopoverAnimated:(BOOL)animated completion:(FPPopoverCompletion)completionBlock
 {
-    NSLog(@"dismiss2");
+    //NSLog(@"dismiss2");
     if(animated)
     {
         [UIView animateWithDuration:0.2 animations:^{

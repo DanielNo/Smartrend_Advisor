@@ -137,6 +137,14 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)greenText{
+    [returnPercent setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+}
+
+-(void)redText{
+    [returnPercent setTextColor:[UIColor redColor]];
+}
+
 -(void)setFields:(NSString *)name1 :(NSString *)name2 :(NSString *)name3 :(NSString *)name4 :(NSString *)name5{
     [field1 setText:name1];
     [field2 setText:name2];
