@@ -20,7 +20,6 @@
     return self;
 }
 
-//test
 
 -(void)awakeFromNib{
 
