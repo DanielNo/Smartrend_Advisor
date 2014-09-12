@@ -220,7 +220,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <items>
-                                            <navigationItem title="Title" id="97T-RO-cCW"/>
+                                            <navigationItem id="97T-RO-cCW"/>
                                         </items>
                                         <connections>
                                             <outlet property="navItem" destination="97T-RO-cCW" id="8Ob-o7-ero"/>

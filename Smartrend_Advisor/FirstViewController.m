@@ -256,11 +256,11 @@
 -(void)setupUI{
     
    
-    [navBar init];
     
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
+
 
     
     refreshControl = [[UIRefreshControl alloc] init];

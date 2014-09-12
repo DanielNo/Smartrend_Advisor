@@ -24,8 +24,9 @@
 
 -(void)awakeFromNib{
 
-    
     [self setBackgroundImage:[UIImage imageNamed:@"banner"] forBarMetrics:UIBarMetricsDefault];
+    UIImage *img = [self backgroundImageForBarMetrics:UIBarMetricsDefault];
+    
 
      UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStyleBordered target:self action:@selector(someMethod)];
      
@@ -39,6 +40,7 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    
     NSLog(@"draw");
 }
 
