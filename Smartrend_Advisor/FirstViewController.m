@@ -11,6 +11,7 @@
 
 #import "FPPopoverController.h"
 #import "InfoViewController.h"
+#import "MenuTableViewController.h"
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -30,7 +31,7 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSLog(@"items : %i",[openPositionData count]);
+    NSLog(@"items : %lu",[openPositionData count]);
     return [openPositionData count];
 }
 
@@ -132,7 +133,6 @@
 #pragma mark - class methods
 
 -(void)dismissedPopup{
-    NSLog(@"received");
     [self.view setAlpha:1.0];
 }
 
@@ -176,7 +176,7 @@
         
 
         self.openPositionData = responseObject;
-        NSLog(@"count %i",[openPositionData count]);
+        NSLog(@"count %lu",[openPositionData count]);
         [self.collectionView reloadData];
         [spinner stopAnimating];
 
@@ -192,8 +192,6 @@
 
 -(void)refreshCollectionView{
     NSLog(@"refresh");
-
-
     if([self isViewLoaded] && self.view.window){
         [self performanceStats];
         [self openPositions];
@@ -209,8 +207,25 @@
 }
 
 -(void)settingsBtnPressed:(id)sender{
+    MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
     
+    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
     
+    //popover.arrowDirection = FPPopoverArrowDirectionAny;
+    popover.tint = FPPopoverDefaultTint;
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        popover.contentSize = CGSizeMake(300, 500);
+    }
+    else{
+        popover.contentSize = CGSizeMake(200, 300);
+    }
+    popover.arrowDirection = FPPopoverNoArrow;
+    popover.border = NO;
+    
+    //sender is the UIButton view
+    [popover presentPopoverFromView:self.navBar];
     
     
 }
@@ -229,8 +244,6 @@
     
 
     
-    
-    
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -242,15 +255,7 @@
     
     [self performanceStats];
     [self openPositions];
-    
-    
-    
-   
-    
-    
-    
-    
-    
+
     [super viewDidLoad];
     
    
@@ -261,7 +266,7 @@
 }
 
 -(void)setupUI{
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(menuBtn)];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];
     
     self.navigationItem.rightBarButtonItem = rightButton;
     
@@ -288,7 +293,6 @@
     [spinner setHidesWhenStopped:YES];
     [spinner setColor:[UIColor grayColor]];
     
-
     
     
 }

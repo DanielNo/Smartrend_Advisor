@@ -11,6 +11,8 @@
 		305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */; };
 		305C5BC419C3728600E73AC5 /* ClosedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC319C3728600E73AC5 /* ClosedViewController.m */; };
 		305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */; };
+		305C5BCA19C73E2C00E73AC5 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */; };
+		305C5BCD19C759F400E73AC5 /* MarketCommentaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */; };
 		30C74B6219C341A6002C2DF0 /* CustomNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C74B6119C341A6002C2DF0 /* CustomNavController.m */; };
 		30DCEA6E19B8B54D006521D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6D19B8B54D006521D4 /* Foundation.framework */; };
 		30DCEA7019B8B54D006521D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */; };
@@ -55,6 +57,10 @@
 		305C5BC319C3728600E73AC5 /* ClosedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosedViewController.m; sourceTree = "<group>"; };
 		305C5BC519C3729B00E73AC5 /* AddOpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOpsViewController.h; sourceTree = "<group>"; };
 		305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOpsViewController.m; sourceTree = "<group>"; };
+		305C5BC819C73E2C00E73AC5 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
+		305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarketCommentaryViewController.h; path = ../MarketCommentaryViewController.h; sourceTree = "<group>"; };
+		305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarketCommentaryViewController.m; path = ../MarketCommentaryViewController.m; sourceTree = "<group>"; };
 		30C74B6019C341A6002C2DF0 /* CustomNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavController.h; sourceTree = "<group>"; };
 		30C74B6119C341A6002C2DF0 /* CustomNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavController.m; sourceTree = "<group>"; };
 		30DCEA6A19B8B54D006521D4 /* Smartrend_Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smartrend_Advisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,8 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				305C5BC819C73E2C00E73AC5 /* MenuTableViewController.h */,
+				305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */,
 				30C74B6019C341A6002C2DF0 /* CustomNavController.h */,
 				30C74B6119C341A6002C2DF0 /* CustomNavController.m */,
 				30EA96A119BE43CB002F50E2 /* FPPopover */,
@@ -165,6 +173,8 @@
 				305C5BC319C3728600E73AC5 /* ClosedViewController.m */,
 				305C5BC519C3729B00E73AC5 /* AddOpsViewController.h */,
 				305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */,
+				305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */,
+				305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */,
 				30EA96AC19BE451E002F50E2 /* InfoViewController.h */,
 				30EA96AD19BE451E002F50E2 /* InfoViewController.m */,
 				30DCEA8B19B8B54D006521D4 /* Images.xcassets */,
@@ -357,7 +367,9 @@
 				305C5BC419C3728600E73AC5 /* ClosedViewController.m in Sources */,
 				3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */,
 				305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */,
+				305C5BCA19C73E2C00E73AC5 /* MenuTableViewController.m in Sources */,
 				30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */,
+				305C5BCD19C759F400E73AC5 /* MarketCommentaryViewController.m in Sources */,
 				30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */,
 				30DCEA8719B8B54D006521D4 /* FirstViewController.m in Sources */,
 				30DCEA7A19B8B54D006521D4 /* main.m in Sources */,

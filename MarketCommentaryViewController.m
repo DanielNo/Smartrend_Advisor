@@ -1,18 +1,18 @@
 //
-//  CustomNavController.m
+//  MarketCommentaryViewController.m
 //  Smartrend_Advisor
 //
-//  Created by Daniel No on 9/12/14.
+//  Created by Daniel No on 9/15/14.
 //  Copyright (c) 2014 Comtex. All rights reserved.
 //
 
-#import "CustomNavController.h"
+#import "MarketCommentaryViewController.h"
 
-@interface CustomNavController ()
+@interface MarketCommentaryViewController ()
 
 @end
 
-@implementation CustomNavController
+@implementation MarketCommentaryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,17 +23,9 @@
     return self;
 }
 
--(void)awakeFromNib{
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"banner"] forBarMetrics:UIBarMetricsDefault];
-    
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-
     // Do any additional setup after loading the view.
 }
 
