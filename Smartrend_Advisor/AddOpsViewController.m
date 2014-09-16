@@ -20,7 +20,7 @@
 @end
 
 @implementation AddOpsViewController
-@synthesize AddOpsData,collectionView,infoVC,popoverVC;
+@synthesize AddOpsData,infoVC,popoverVC,refreshControl,spinner;
 
 
 #pragma mark - Collectionview methods
@@ -30,7 +30,7 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 4;
+    return [AddOpsData count];
 }
 
 
@@ -39,43 +39,29 @@
     cell.selected = YES;
     
     
-    NSDictionary *posDict = [AddOpsData objectAtIndex:indexPath.row];
+    NSDictionary *dict = [AddOpsData objectAtIndex:indexPath.row];
     
     NSString *spaces = @"  ";
-    NSString *symbol = [@" " stringByAppendingString:[posDict objectForKey:@"stock_symbol"]];
+    NSString *symbol = [@" " stringByAppendingString:[dict objectForKey:@"symbol"]];
     [infoVC.stockSymbol setText:symbol];
-    [infoVC.stockName setText:[posDict objectForKey:@"company_name"]];
-    NSString *entry = [spaces stringByAppendingString:[posDict objectForKey:@"entry_price_display"]];
+    NSString *entry = [dict objectForKey:@"entry_price_display"];
     [infoVC.entryPrice setText:entry];
-    NSString *last = [spaces stringByAppendingString:[posDict objectForKey:@"last_price_display"]];
-    [infoVC.lastPrice setText:last];
-    
-    [infoVC setFields:symbol :@" Entry Price :" :@" Last Price : " :@" Open Date : " :@" Return % : "];
     
     
-    NSString *openDate = [spaces stringByAppendingString:[posDict objectForKey:@"open_date_display"]];
+    [infoVC setFields:symbol :@"  :" :@"  : " :@"  : " :@"  : "];
+    
+    
+    NSString *openDate = [spaces stringByAppendingString:[dict objectForKey:@"date_display"]];
     [infoVC.openDate setText:openDate];
-    
-    NSString *rtrn = [spaces stringByAppendingString:[posDict objectForKey:@"pct_gain_display"]];
-    [infoVC.returnPercent setText:rtrn];
     
     [popoverVC setShadowsHidden:YES];
     popoverVC.contentView.title = symbol;
     popoverVC.contentView.title = [[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
+    int x = popoverVC.view.frame.size.height;
+    NSLog(@"height - %i",x);
     
-    NSNumber *pctGain = [posDict objectForKey:@"pct_gain"];
-    NSString *val = [pctGain stringValue];
-    //NSLog(@"val : %@",val);
-    if ([pctGain doubleValue] >0) {
-        [infoVC greenText];
-    }
-    else{
-        [infoVC redText];
-    }
-    
-    
-    
-    
+    [popoverVC setContentSize:CGSizeMake(200,200 )];
+    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     [popoverVC presentPopoverFromView:collectionView];
     
     
@@ -90,7 +76,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
-    [cell.name setText: [[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"]];
+    [cell.name setText: [[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"symbol"]];
     
     
     cell.contentView.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1] : [UIColor whiteColor];
@@ -128,13 +114,13 @@
 
 #pragma mark - class methods
 -(void)additionalOperations{
-    //[spinner startAnimating];
+    [spinner startAnimating];
     
     
     
     [manager GET:@"finovus_additional_opps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
         
-        //NSLog(@"performance stats: %@",responseObject);
+        NSLog(@"additional operations: %@",responseObject);
         
         self.AddOpsData = responseObject;
         NSDictionary *response = [AddOpsData objectAtIndex:0];
@@ -144,8 +130,8 @@
         NSString *action = [response objectForKey:@"action"];
         
         
-        
-        
+        [spinner stopAnimating];
+        [self.collectionView reloadData];
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [error localizedDescription];
@@ -156,6 +142,22 @@
     
     
 }
+
+-(void)refreshCollectionView{
+    NSLog(@"refresh");
+    if([self isViewLoaded] && self.view.window){
+        [self additionalOperations];
+        NSLog(@"active");
+    }
+    else{
+        
+        NSLog(@"inactive");
+    }
+    
+    
+    [refreshControl endRefreshing];
+}
+
 
 #pragma mark - View Lifecycle
 
@@ -171,9 +173,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    infoVC = [InfoViewController new];
-    popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
-    [popoverVC setArrowDirection:FPPopoverNoArrow];
+    
+    
+    
+    
     
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     
@@ -185,7 +188,24 @@
     
     [self additionalOperations];
     
+    
+
+
+    
     // Do any additional setup after loading the view.
+}
+
+-(void)setupUI{
+    [spinner setHidesWhenStopped:YES];
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl setAlpha:0];
+    [refreshControl addTarget:self action:@selector(refreshCollectionView)
+             forControlEvents:UIControlEventValueChanged];
+    self.collectionView.alwaysBounceVertical = YES;
+    infoVC = [InfoViewController new];
+    popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
+    [popoverVC setArrowDirection:FPPopoverNoArrow];
+    
 }
 
 - (void)didReceiveMemoryWarning

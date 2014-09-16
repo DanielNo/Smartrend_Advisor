@@ -320,7 +320,7 @@
         <!--Add Ops View Controller - First-->
         <scene sceneID="4rL-ue-3Qy">
             <objects>
-                <viewController title="First" id="4H2-mm-lMj" customClass="AddOpsViewController" sceneMemberID="viewController">
+                <viewController title="First" automaticallyAdjustsScrollViewInsets="NO" id="4H2-mm-lMj" customClass="AddOpsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UBa-to-d2S"/>
                         <viewControllerLayoutGuide type="bottom" id="lfO-C6-uCk"/>
@@ -330,7 +330,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BjT-8N-Ve9">
-                                <rect key="frame" x="0.0" y="64" width="320" height="450"/>
+                                <rect key="frame" x="0.0" y="88" width="320" height="452"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="YjW-Dh-2xA">
                                     <size key="itemSize" width="106" height="49"/>
@@ -339,12 +339,12 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="Zkj-3q-HCg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="452"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompanyCell" id="5jj-wj-Aai" customClass="companyCell">
-                                        <rect key="frame" x="0.0" y="64" width="106" height="49"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="106" height="49"/>
@@ -370,17 +370,22 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="4H2-mm-lMj" id="Rpe-d5-kXW"/>
+                                    <outlet property="delegate" destination="4H2-mm-lMj" id="hM8-75-gRY"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="lfO-C6-uCk" firstAttribute="top" secondItem="BjT-8N-Ve9" secondAttribute="bottom" id="RtJ-Lb-ES7"/>
+                            <constraint firstItem="BjT-8N-Ve9" firstAttribute="top" secondItem="UBa-to-d2S" secondAttribute="bottom" id="t7V-tH-YR9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jy5-M7-9WZ"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="collectionView" destination="BjT-8N-Ve9" id="oU1-lC-84z"/>
                         <outlet property="spinner" destination="Zkj-3q-HCg" id="SWZ-4o-S0h"/>
                     </connections>
                 </viewController>

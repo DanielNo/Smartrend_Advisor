@@ -239,7 +239,7 @@
     [self setupUI];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
-    self.collectionView.alwaysBounceVertical = YES;
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
     
 
@@ -266,6 +266,7 @@
 }
 
 -(void)setupUI{
+    self.collectionView.alwaysBounceVertical = YES;
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];
     
     self.navigationItem.rightBarButtonItem = rightButton;
