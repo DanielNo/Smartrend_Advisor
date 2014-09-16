@@ -48,21 +48,20 @@
     [infoVC.entryPrice setText:entry];
     
     
-    [infoVC setFields:symbol :@"  :" :@"  : " :@"  : " :@"  : "];
+    [infoVC setFields:symbol :@"  Open Date : " :@"  : " :@"  : " :@"  : "];
     
     
     NSString *openDate = [spaces stringByAppendingString:[dict objectForKey:@"date_display"]];
     [infoVC.openDate setText:openDate];
     
     [popoverVC setShadowsHidden:YES];
-    popoverVC.contentView.title = symbol;
     popoverVC.contentView.title = [[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
     int x = popoverVC.view.frame.size.height;
     NSLog(@"height - %i",x);
     
-    [popoverVC setContentSize:CGSizeMake(200,200 )];
+    //[popoverVC setContentSize:CGSizeMake(400,400 )];
     UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
-    [popoverVC presentPopoverFromView:collectionView];
+    [popoverVC presentPopoverFromView:layoutView];
     
     
     
@@ -158,6 +157,10 @@
     [refreshControl endRefreshing];
 }
 
+-(void)dismissedPopup{
+    [self.view setAlpha:1.0];
+}
+
 
 #pragma mark - View Lifecycle
 
@@ -173,7 +176,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self setupUI];
     
     
     
@@ -196,6 +199,9 @@
 }
 
 -(void)setupUI{
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
+    
     [spinner setHidesWhenStopped:YES];
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl setAlpha:0];
