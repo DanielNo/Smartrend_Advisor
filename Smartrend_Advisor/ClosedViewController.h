@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class InfoViewController,FPPopoverController;
+
 @interface ClosedViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong,nonatomic) NSArray *closedData;
+@property (strong,nonatomic) InfoViewController *infoVC;
+@property (strong,nonatomic) FPPopoverController *popoverVC;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong,nonatomic) UIRefreshControl *refreshControl;
+
+-(void)closedPositions;
 
 @end
