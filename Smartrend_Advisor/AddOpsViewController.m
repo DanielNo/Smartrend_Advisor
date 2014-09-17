@@ -43,16 +43,16 @@
     
     NSString *spaces = @"  ";
     NSString *symbol = [@" " stringByAppendingString:[dict objectForKey:@"symbol"]];
-    [infoVC.stockSymbol setText:symbol];
+    [infoVC.contentField1 setText:symbol];
     NSString *entry = [dict objectForKey:@"entry_price_display"];
-    [infoVC.entryPrice setText:entry];
+    [infoVC.contentField2 setText:entry];
     
     
-    [infoVC setFields:symbol :@"  Open Date : " :@"  : " :@"  : " :@"  : "];
+    [infoVC setFields:symbol :@"  entry price : " :@"  : " :@"  : " :@"  : "];
     
     
     NSString *openDate = [spaces stringByAppendingString:[dict objectForKey:@"date_display"]];
-    [infoVC.openDate setText:openDate];
+    [infoVC.contentField3 setText:openDate];
     
     [popoverVC setShadowsHidden:YES];
     popoverVC.contentView.title = [[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"];

@@ -10,7 +10,7 @@
 
 @class InfoViewController,FPPopoverController;
 
-@interface ClosedViewController : UIViewController
+@interface ClosedViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong,nonatomic) NSArray *closedData;

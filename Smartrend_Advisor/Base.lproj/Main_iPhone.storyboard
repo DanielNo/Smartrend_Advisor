@@ -39,7 +39,6 @@
                     <view key="view" contentMode="scaleToFill" id="jgx-RX-xEQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="y44-z5-96L"/>
                 </viewController>
@@ -58,7 +57,6 @@
                     <view key="view" contentMode="scaleToFill" id="bkW-DI-1nJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="b8A-ln-f2K"/>
                 </viewController>
@@ -395,7 +393,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="494-DG-RaA">
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="494-DG-RaA">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="452"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
@@ -427,6 +425,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="MnS-mq-KgP" id="cSJ-93-7uT"/>
+                                    <outlet property="delegate" destination="MnS-mq-KgP" id="O7h-k2-mDM"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <constraints>
@@ -437,6 +439,10 @@
                     <navigationItem key="navigationItem" id="Vdd-Ah-ybg"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="collectionView" destination="lJf-fc-GfV" id="vcL-51-7Dm"/>
+                        <outlet property="spinner" destination="494-DG-RaA" id="mqy-pV-YjA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48Q-FR-MSY" sceneMemberID="firstResponder"/>
             </objects>

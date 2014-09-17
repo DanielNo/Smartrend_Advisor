@@ -10,12 +10,22 @@
 
 @interface InfoViewController : UIViewController
 
+/*
 @property (strong,nonatomic) UILabel *stockSymbol;
 @property (strong,nonatomic) UILabel *stockName;
 @property (strong,nonatomic) UILabel *entryPrice;
 @property (strong,nonatomic) UILabel *lastPrice;
 @property (strong,nonatomic) UILabel *openDate;
 @property (strong,nonatomic) UILabel *returnPercent;
+*/
+
+@property (strong,nonatomic) UILabel *contentField1;
+@property (strong,nonatomic) UILabel *contentField2;
+@property (strong,nonatomic) UILabel *contentField3;
+@property (strong,nonatomic) UILabel *contentField4;
+@property (strong,nonatomic) UILabel *contentField5;
+@property (strong,nonatomic) UILabel *contentField6;
+
 @property (strong,nonatomic) UILabel *field1;
 @property (strong,nonatomic) UILabel *field2;
 @property (strong,nonatomic) UILabel *field3;

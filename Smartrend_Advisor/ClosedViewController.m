@@ -41,18 +41,18 @@ AFHTTPRequestOperationManager *manager;
     NSDictionary *dict = [closedData objectAtIndex:indexPath.row];
     
     NSString *spaces = @"  ";
-    NSString *symbol = [@" " stringByAppendingString:[dict objectForKey:@"stock_symbol"]];
+    NSString *symbol = [spaces stringByAppendingString:[dict objectForKey:@"stock_symbol"]];
     NSString *entryPrice = [dict objectForKey:@"entry_price_display"];
     NSString *lastPrice = [dict objectForKey:@"last_price_display"];
     NSString *openDate = [dict objectForKey:@"open_date_display"];
     NSString *closeDate = [dict objectForKey:@"close_date_display"];
     NSString *pctGain = [dict objectForKey:@"pct_gain_display"];
-    [infoVC.stockSymbol setText:symbol];
-    [infoVC.entryPrice setText:entryPrice];
+    [infoVC.contentField1 setText:symbol];
+    [infoVC.contentField2 setText:openDate];
     
     
-    [infoVC setFields:symbol :@"  Open Date : " :@"  : " :@"  : " :@"  : "];
-    [infoVC.openDate setText:openDate];
+    [infoVC setFields:symbol :@"  Open Date : " :@"  Close Date : " :@"  Entry Price : " :@"  Last Price : "];
+    [infoVC.contentField3 setText:entryPrice];
     
     [popoverVC setShadowsHidden:YES];
     popoverVC.contentView.title = [[closedData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
@@ -75,7 +75,7 @@ AFHTTPRequestOperationManager *manager;
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
-    [cell.name setText: [[closedData objectAtIndex:indexPath.row]objectForKey:@"symbol"]];
+    [cell.name setText: [[closedData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"]];
     
     
     cell.contentView.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1] : [UIColor whiteColor];
@@ -123,10 +123,6 @@ AFHTTPRequestOperationManager *manager;
         
         self.closedData = responseObject;
         NSDictionary *response = [closedData objectAtIndex:0];
-        NSString *date = [response objectForKey:@"date_display"];
-        NSString *companyName = [response objectForKey:@"company_name"];
-        NSString *symbol = [response objectForKey:@"symbol"];
-        NSString *action = [response objectForKey:@"action"];
         
         
         [spinner stopAnimating];

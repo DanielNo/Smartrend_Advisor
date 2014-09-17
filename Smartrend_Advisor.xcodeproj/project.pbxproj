@@ -29,6 +29,7 @@
 		30DCEA9519B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
 		30DCEA9D19B8B54D006521D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */; };
 		30DCEA9F19B8B54D006521D4 /* Smartrend_AdvisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */; };
+		30DED3C319C9FD780078E8B0 /* NSString+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */; };
 		30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A419BE43CB002F50E2 /* FPPopoverController.m */; };
 		30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A619BE43CB002F50E2 /* FPPopoverView.m */; };
 		30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A819BE43CB002F50E2 /* FPTouchView.m */; };
@@ -83,6 +84,8 @@
 		30DCEA9A19B8B54D006521D4 /* Smartrend_AdvisorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Smartrend_AdvisorTests-Info.plist"; sourceTree = "<group>"; };
 		30DCEA9C19B8B54D006521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smartrend_AdvisorTests.m; sourceTree = "<group>"; };
+		30DED3C119C9FD780078E8B0 /* NSString+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Formatting.h"; sourceTree = "<group>"; };
+		30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Formatting.m"; sourceTree = "<group>"; };
 		30EA96A219BE43CB002F50E2 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
 		30EA96A319BE43CB002F50E2 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
 		30EA96A419BE43CB002F50E2 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				30DED3C119C9FD780078E8B0 /* NSString+Formatting.h */,
+				30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */,
 				305C5BC819C73E2C00E73AC5 /* MenuTableViewController.h */,
 				305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */,
 				30C74B6019C341A6002C2DF0 /* CustomNavController.h */,
@@ -363,6 +368,7 @@
 				305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
 				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
+				30DED3C319C9FD780078E8B0 /* NSString+Formatting.m in Sources */,
 				30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */,
 				305C5BC419C3728600E73AC5 /* ClosedViewController.m in Sources */,
 				3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */,

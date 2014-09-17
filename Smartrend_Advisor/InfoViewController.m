@@ -16,7 +16,7 @@
 @end
 
 @implementation InfoViewController
-@synthesize stockName,stockSymbol,entryPrice,lastPrice,openDate,returnPercent,field1,field2,field3,field4,field5;
+@synthesize contentField1,contentField2,contentField3,contentField4,contentField5,contentField6,field1,field2,field3,field4,field5;
 
 
 
@@ -39,7 +39,7 @@
     CGFloat height = popoverHeight; // get value of contentview
     CGFloat width = (viewSize.width-20)/2;
     
-    NSLog(@"popover height %f",popoverHeight);
+    NSLog(@"popover height %i",popoverHeight);
     CGFloat xCenter = (self.view.frame.size.width-20)/2;
     
     
@@ -56,11 +56,11 @@
     
     
     
-    CGRect stockSymbolRect = CGRectMake(width,0 ,width , height);
-    CGRect entryPriceRect = CGRectMake(width,height , width,height );
-    CGRect lastPriceRect = CGRectMake(width,height*2 , width,height );
-    CGRect openDateRect = CGRectMake(width, height*3 , width,height );
-    CGRect returnPercentRect = CGRectMake(width, height*4, width,height );
+    CGRect content1Rect = CGRectMake(width,0 ,width , height);
+    CGRect content2Rect = CGRectMake(width,height , width,height );
+    CGRect content3Rect = CGRectMake(width,height*2 , width,height );
+    CGRect content4Rect = CGRectMake(width, height*3 , width,height );
+    CGRect content5Rect = CGRectMake(width, height*4, width,height );
     
     
     
@@ -69,12 +69,12 @@
     //self.view.frame
     
     
-    stockSymbol = [[UILabel alloc]initWithFrame:stockSymbolRect];
+    contentField1 = [[UILabel alloc]initWithFrame:content1Rect];
     //stockName = [[UILabel alloc]initWithFrame:stockNameRect];
-    entryPrice = [[UILabel alloc]initWithFrame:entryPriceRect];
-    lastPrice = [[UILabel alloc]initWithFrame:lastPriceRect];
-    openDate = [[UILabel alloc]initWithFrame:openDateRect];
-    returnPercent = [[UILabel alloc]initWithFrame:returnPercentRect];
+    contentField2 = [[UILabel alloc]initWithFrame:content2Rect];
+    contentField3 = [[UILabel alloc]initWithFrame:content3Rect];
+    contentField4 = [[UILabel alloc]initWithFrame:content4Rect];
+    contentField5 = [[UILabel alloc]initWithFrame:content5Rect];
     field1 = [[UILabel alloc]initWithFrame:fieldRect1];
     field2 = [[UILabel alloc]initWithFrame:fieldRect2];
     field3 = [[UILabel alloc]initWithFrame:fieldRect3];
@@ -94,22 +94,22 @@
     field5.layer.borderColor = borderColor;
     field5.layer.borderWidth = borderWidth;
     
-    stockSymbol.layer.borderColor = borderColor;
-    stockSymbol.layer.borderWidth = borderWidth;
-    entryPrice.layer.borderColor = borderColor;
-    entryPrice.layer.borderWidth = borderWidth;
-    lastPrice.layer.borderColor = borderColor;
-    lastPrice.layer.borderWidth = borderWidth;
-    openDate.layer.borderColor = borderColor;
-    openDate.layer.borderWidth = borderWidth;
-    returnPercent.layer.borderColor = borderColor;
-    returnPercent.layer.borderWidth = borderWidth;
+    contentField1.layer.borderColor = borderColor;
+    contentField1.layer.borderWidth = borderWidth;
+    contentField2.layer.borderColor = borderColor;
+    contentField2.layer.borderWidth = borderWidth;
+    contentField3.layer.borderColor = borderColor;
+    contentField3.layer.borderWidth = borderWidth;
+    contentField4.layer.borderColor = borderColor;
+    contentField4.layer.borderWidth = borderWidth;
+    contentField5.layer.borderColor = borderColor;
+    contentField5.layer.borderWidth = borderWidth;
     
-    [stockSymbol setTextAlignment:NSTextAlignmentLeft];
-    [entryPrice setTextAlignment:NSTextAlignmentLeft];
-    [lastPrice setTextAlignment:NSTextAlignmentLeft];
-    [openDate setTextAlignment:NSTextAlignmentLeft];
-    [returnPercent setTextAlignment:NSTextAlignmentLeft];
+    [contentField1 setTextAlignment:NSTextAlignmentLeft];
+    [contentField2 setTextAlignment:NSTextAlignmentLeft];
+    [contentField3 setTextAlignment:NSTextAlignmentLeft];
+    [contentField4 setTextAlignment:NSTextAlignmentLeft];
+    [contentField5 setTextAlignment:NSTextAlignmentLeft];
     
     /*
     [stockSymbol setBackgroundColor:[UIColor blueColor]];
@@ -121,12 +121,12 @@
     */
     
     
-    [self.view addSubview:stockSymbol];
+    [self.view addSubview:contentField1];
     //[self.view addSubview:stockName];
-    [self.view addSubview:entryPrice];
-    [self.view addSubview:lastPrice];
-    [self.view addSubview:openDate];
-    [self.view addSubview:returnPercent];
+    [self.view addSubview:contentField2];
+    [self.view addSubview:contentField3];
+    [self.view addSubview:contentField4];
+    [self.view addSubview:contentField5];
     [self.view addSubview:field1];
     [self.view addSubview:field2];
     [self.view addSubview:field3];
@@ -138,11 +138,11 @@
 }
 
 -(void)greenText{
-    [returnPercent setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+    [contentField5 setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
 }
 
 -(void)redText{
-    [returnPercent setTextColor:[UIColor redColor]];
+    [contentField5 setTextColor:[UIColor redColor]];
 }
 
 -(void)setFields:(NSString *)name1 :(NSString *)name2 :(NSString *)name3 :(NSString *)name4 :(NSString *)name5{

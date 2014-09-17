@@ -12,6 +12,7 @@
 #import "FPPopoverController.h"
 #import "InfoViewController.h"
 #import "MenuTableViewController.h"
+#import "NSString+Formatting.h"
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -44,30 +45,30 @@
     NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.row];
 
     NSString *spaces = @"  ";
-    NSString *symbol = [@" " stringByAppendingString:[posDict objectForKey:@"stock_symbol"]];
-    [infoVC.stockSymbol setText:symbol];
-    [infoVC.stockName setText:[posDict objectForKey:@"company_name"]];
-    NSString *entry = [spaces stringByAppendingString:[posDict objectForKey:@"entry_price_display"]];
-    [infoVC.entryPrice setText:entry];
-    NSString *last = [spaces stringByAppendingString:[posDict objectForKey:@"last_price_display"]];
-    [infoVC.lastPrice setText:last];
+    NSString *symbol = [[posDict objectForKey:@"stock_symbol"]leadingSpaces
+    ];
+    [infoVC.contentField1 setText:@""];
+
+    NSString *entry = [[posDict objectForKey:@"entry_price_display"]leadingSpaces];
+    [infoVC.contentField2 setText:entry];
+    NSString *last = [[posDict objectForKey:@"last_price_display"]leadingSpaces];
+    [infoVC.contentField3 setText:last];
     
-    [infoVC setFields:symbol :@" Entry Price :" :@" Last Price : " :@" Open Date : " :@" Return % : "];
+    [infoVC setFields:@" Trade Type : " :@" Entry Price :" :@" Last Price : " :@" Open Date : " :@" Return % : "];
     
     
-    NSString *openDate = [spaces stringByAppendingString:[posDict objectForKey:@"open_date_display"]];
-    [infoVC.openDate setText:openDate];
+    NSString *openDate = [[posDict objectForKey:@"open_date_display"]leadingSpaces];
+    [infoVC.contentField4 setText:openDate];
     
-    NSString *rtrn = [spaces stringByAppendingString:[posDict objectForKey:@"pct_gain_display"]];
-    [infoVC.returnPercent setText:rtrn];
+    NSString *rtrn = [[posDict objectForKey:@"pct_gain_display"]leadingSpaces];
+    [infoVC.contentField5 setText:rtrn];
     
     [popoverVC setShadowsHidden:YES];
-    popoverVC.contentView.title = symbol;
-    popoverVC.contentView.title = [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
+    popoverVC.contentView.title = [[[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[posDict objectForKey:@"stock_symbol"] formatStockSymbol]];
+
     
     NSNumber *pctGain = [posDict objectForKey:@"pct_gain"];
     NSString *val = [pctGain stringValue];
-    //NSLog(@"val : %@",val);
     if ([pctGain doubleValue] >0) {
         [infoVC greenText];
     }

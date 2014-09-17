@@ -10,7 +10,7 @@
 
 @class InfoViewController,FPPopoverController;
 
-@interface AddOpsViewController : UIViewController
+@interface AddOpsViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
 
 
 
