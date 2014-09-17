@@ -12,6 +12,7 @@
 #import "FPPopoverController.h"
 #import "InfoViewController.h"
 #import "MenuTableViewController.h"
+#import "NSString+Formatting.h"
 
 @interface AddOpsViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -41,21 +42,22 @@
     
     NSDictionary *dict = [AddOpsData objectAtIndex:indexPath.row];
     
-    NSString *spaces = @"  ";
+
     NSString *symbol = [@" " stringByAppendingString:[dict objectForKey:@"symbol"]];
-    [infoVC.contentField1 setText:symbol];
+    
     NSString *entry = [dict objectForKey:@"entry_price_display"];
-    [infoVC.contentField2 setText:entry];
+    [infoVC.contentField2 setText:[entry leadingSpaces]];
     
     
-    [infoVC setFields:symbol :@"  entry price : " :@"  : " :@"  : " :@"  : "];
+    [infoVC setFields:@"  Trade Type : " :@"  Entry price : " :@"  Open Date : " :@"  : " :@"  : "];
     
     
-    NSString *openDate = [spaces stringByAppendingString:[dict objectForKey:@"date_display"]];
+    NSString *openDate = [[dict objectForKey:@"date_display"]leadingSpaces];
     [infoVC.contentField3 setText:openDate];
     
     [popoverVC setShadowsHidden:YES];
-    popoverVC.contentView.title = [[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
+    popoverVC.contentView.title = [[[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[dict objectForKey:@"symbol"] formatStockSymbol]];
+    
     int x = popoverVC.view.frame.size.height;
     NSLog(@"height - %i",x);
     
