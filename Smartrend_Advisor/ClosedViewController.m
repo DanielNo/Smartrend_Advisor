@@ -12,6 +12,7 @@
 #import "FPPopoverController.h"
 #import "InfoViewController.h"
 #import "MenuTableViewController.h"
+#import "NSString+Formatting.h"
 
 @interface ClosedViewController (){
 AFHTTPRequestOperationManager *manager;
@@ -40,22 +41,27 @@ AFHTTPRequestOperationManager *manager;
     
     NSDictionary *dict = [closedData objectAtIndex:indexPath.row];
     
-    NSString *spaces = @"  ";
-    NSString *symbol = [spaces stringByAppendingString:[dict objectForKey:@"stock_symbol"]];
+    NSString *symbol = [dict objectForKey:@"stock_symbol"];
     NSString *entryPrice = [dict objectForKey:@"entry_price_display"];
     NSString *lastPrice = [dict objectForKey:@"last_price_display"];
     NSString *openDate = [dict objectForKey:@"open_date_display"];
     NSString *closeDate = [dict objectForKey:@"close_date_display"];
     NSString *pctGain = [dict objectForKey:@"pct_gain_display"];
-    [infoVC.contentField1 setText:symbol];
-    [infoVC.contentField2 setText:openDate];
+
     
     
-    [infoVC setFields:symbol :@"  Open Date : " :@"  Close Date : " :@"  Entry Price : " :@"  Last Price : "];
-    [infoVC.contentField3 setText:entryPrice];
+    
+    
+    [infoVC setFields:@"  Trade Type : " :@"  Open Date : " :@"  Close Date : " :@"  Entry Price : " :@"  Last Price : "];
+    
+    [infoVC.contentField2 setText:[openDate leadingSpaces]];
+    [infoVC.contentField3 setText:[closeDate leadingSpaces]];
+    [infoVC.contentField4 setText:[entryPrice leadingSpaces]];
+    [infoVC.contentField5 setText:[lastPrice leadingSpaces]];
     
     [popoverVC setShadowsHidden:YES];
-    popoverVC.contentView.title = [[closedData objectAtIndex:indexPath.row]objectForKey:@"company_name"];
+    popoverVC.contentView.title = [[[closedData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[dict objectForKey:@"stock_symbol"] formatStockSymbol]];
+    
     int x = popoverVC.view.frame.size.height;
     NSLog(@"height - %i",x);
     

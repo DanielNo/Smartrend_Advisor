@@ -11,7 +11,7 @@
 @implementation NSString (Formatting)
 
 -(NSString *)formatStockSymbol{
-    return [NSString stringWithFormat:@" (%@) ",self];
+    return [NSString stringWithFormat:@" (%@)",self];
     
 }
 

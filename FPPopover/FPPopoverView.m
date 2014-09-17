@@ -75,6 +75,10 @@
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+        _titleLabel.numberOfLines = 1;
+        _titleLabel.adjustsFontSizeToFitWidth = YES;
+        
+        
         
         //self.tint = FPPopoverDefaultTint;
         self.tint = FPPopoverPurpleTint;

@@ -44,9 +44,7 @@
     
     NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.row];
 
-    NSString *spaces = @"  ";
-    NSString *symbol = [[posDict objectForKey:@"stock_symbol"]leadingSpaces
-    ];
+    NSString *symbol = [posDict objectForKey:@"stock_symbol"];
     [infoVC.contentField1 setText:@""];
 
     NSString *entry = [[posDict objectForKey:@"entry_price_display"]leadingSpaces];
