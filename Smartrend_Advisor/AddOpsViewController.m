@@ -16,6 +16,7 @@
 
 @interface AddOpsViewController (){
     AFHTTPRequestOperationManager *manager;
+    CGRect itemSize;
 }
 
 @end
@@ -37,7 +38,6 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.selected = YES;
     
     
     NSDictionary *dict = [AddOpsData objectAtIndex:indexPath.row];
@@ -49,13 +49,13 @@
     [infoVC.contentField2 setText:[entry leadingSpaces]];
     
     
-    [infoVC setFields:@"  Trade Type : " :@"  Entry price : " :@"  Open Date : " :@"  : " :@"  : "];
+    
     
     
     NSString *openDate = [[dict objectForKey:@"date_display"]leadingSpaces];
     [infoVC.contentField3 setText:openDate];
     
-    [popoverVC setShadowsHidden:YES];
+    
     popoverVC.contentView.title = [[[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[dict objectForKey:@"symbol"] formatStockSymbol]];
     
     int x = popoverVC.view.frame.size.height;
@@ -88,20 +88,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    CGSize itemSize;
-    
-    //use for iphone 6
-    //itemSize.width = screenRect.size.width/3;
-    int width = screenRect.size.width/3;
-    //NSLog(@"width %i", width);
-    
-    itemSize.width = 106; // 106
-    itemSize.height = 49;
-    
-    
-    return itemSize;
+        return itemSize.size;
     
 }
 
@@ -214,6 +201,14 @@
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    int width = screenRect.size.width/3;
+    itemSize.size.width = width;
+    itemSize.size.height = 49;
+    
+    
+    [infoVC setFields:@"  Trade Type : " :@"  Entry price : " :@"  Open Date : " :@"  : " :@"  : "];
+    [popoverVC setShadowsHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning

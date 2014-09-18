@@ -16,6 +16,7 @@
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
+    CGRect itemSize;
     
 }
 
@@ -39,7 +40,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.selected = YES;
+    //cell.selected = YES;
     
     
     NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.row];
@@ -52,7 +53,7 @@
     NSString *last = [[posDict objectForKey:@"last_price_display"]leadingSpaces];
     [infoVC.contentField3 setText:last];
     
-    [infoVC setFields:@" Trade Type : " :@" Entry Price :" :@" Last Price : " :@" Open Date : " :@" Return % : "];
+    
     
     
     NSString *openDate = [[posDict objectForKey:@"open_date_display"]leadingSpaces];
@@ -61,7 +62,7 @@
     NSString *rtrn = [[posDict objectForKey:@"pct_gain_display"]leadingSpaces];
     [infoVC.contentField5 setText:rtrn];
     
-    [popoverVC setShadowsHidden:YES];
+    
     popoverVC.contentView.title = [[[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[posDict objectForKey:@"stock_symbol"] formatStockSymbol]];
 
     [infoVC.field6 removeFromSuperview];
@@ -103,20 +104,10 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    CGSize itemSize;
-    
-    //use for iphone 6
-    //itemSize.width = screenRect.size.width/3;
-    int width = screenRect.size.width/3;
-    //NSLog(@"width %i", width);
-    
-    itemSize.width = 106; // 106
-    itemSize.height = 49;
     
     
-    return itemSize;
+    
+    return itemSize.size;
     
 }
 
@@ -295,7 +286,13 @@
     [spinner setColor:[UIColor grayColor]];
     
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    int width = screenRect.size.width/3;
+    itemSize.size.width = width;
+    itemSize.size.height = 49;
     
+    [infoVC setFields:@" Trade Type : " :@" Entry Price :" :@" Last Price : " :@" Open Date : " :@" Return % : "];
+    [popoverVC setShadowsHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -16,6 +16,7 @@
 
 @interface ClosedViewController (){
 AFHTTPRequestOperationManager *manager;
+    CGRect itemSize;
 }
 @end
 
@@ -52,14 +53,13 @@ AFHTTPRequestOperationManager *manager;
     
     
     
-    [infoVC setFields:@"  Trade Type : " :@"  Open Date : " :@"  Close Date : " :@"  Entry Price : " :@"  Last Price : "];
+
     
     [infoVC.contentField2 setText:[openDate leadingSpaces]];
     [infoVC.contentField3 setText:[closeDate leadingSpaces]];
     [infoVC.contentField4 setText:[entryPrice leadingSpaces]];
     [infoVC.contentField5 setText:[lastPrice leadingSpaces]];
     
-    [popoverVC setShadowsHidden:YES];
     popoverVC.contentView.title = [[[closedData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[dict objectForKey:@"stock_symbol"] formatStockSymbol]];
     
     int x = popoverVC.view.frame.size.height;
@@ -92,20 +92,7 @@ AFHTTPRequestOperationManager *manager;
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    
-    CGSize itemSize;
-    
-    //use for iphone 6
-    //itemSize.width = screenRect.size.width/3;
-    int width = screenRect.size.width/3;
-    //NSLog(@"width %i", width);
-    
-    itemSize.width = 106; // 106
-    itemSize.height = 49;
-    
-    
-    return itemSize;
+    return itemSize.size;
     
 }
 
@@ -213,6 +200,14 @@ AFHTTPRequestOperationManager *manager;
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    int width = screenRect.size.width/3;
+    itemSize.size.width = width;
+    itemSize.size.height = 49;
+    
+    [popoverVC setShadowsHidden:YES];
+    [infoVC setFields:@"  Trade Type : " :@"  Open Date : " :@"  Close Date : " :@"  Entry Price : " :@"  Last Price : "];
     
 }
 
