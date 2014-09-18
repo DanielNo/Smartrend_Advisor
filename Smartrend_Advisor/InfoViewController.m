@@ -16,7 +16,7 @@
 @end
 
 @implementation InfoViewController
-@synthesize contentField1,contentField2,contentField3,contentField4,contentField5,contentField6,field1,field2,field3,field4,field5;
+@synthesize contentField1,contentField2,contentField3,contentField4,contentField5,contentField6,field1,field2,field3,field4,field5,field6;
 
 
 
@@ -50,8 +50,7 @@
     CGRect fieldRect3 = CGRectMake(0, height*2, width,height );
     CGRect fieldRect4 = CGRectMake(0, height*3, width,height );
     CGRect fieldRect5 = CGRectMake(0, height*4, width,height );
-    
-    
+    CGRect fieldRect6 = CGRectMake(0, height*5, width,height );
     
     
     
@@ -61,8 +60,7 @@
     CGRect content3Rect = CGRectMake(width,height*2 , width,height );
     CGRect content4Rect = CGRectMake(width, height*3 , width,height );
     CGRect content5Rect = CGRectMake(width, height*4, width,height );
-    
-    
+    CGRect content6Rect = CGRectMake(width, height*5, width,height );
     
     
     
@@ -75,11 +73,13 @@
     contentField3 = [[UILabel alloc]initWithFrame:content3Rect];
     contentField4 = [[UILabel alloc]initWithFrame:content4Rect];
     contentField5 = [[UILabel alloc]initWithFrame:content5Rect];
+    contentField6 = [[UILabel alloc]initWithFrame:content6Rect];
     field1 = [[UILabel alloc]initWithFrame:fieldRect1];
     field2 = [[UILabel alloc]initWithFrame:fieldRect2];
     field3 = [[UILabel alloc]initWithFrame:fieldRect3];
     field4 = [[UILabel alloc]initWithFrame:fieldRect4];
     field5 = [[UILabel alloc]initWithFrame:fieldRect5];
+    field6 = [[UILabel alloc]initWithFrame:fieldRect6];
     CGFloat borderWidth = 1.0;
     CGColorRef borderColor = [UIColor blackColor].CGColor;
     
@@ -93,6 +93,8 @@
     field4.layer.borderWidth = borderWidth;
     field5.layer.borderColor = borderColor;
     field5.layer.borderWidth = borderWidth;
+    field6.layer.borderColor = borderColor;
+    field6.layer.borderWidth = borderWidth;
     
     contentField1.layer.borderColor = borderColor;
     contentField1.layer.borderWidth = borderWidth;
@@ -104,12 +106,15 @@
     contentField4.layer.borderWidth = borderWidth;
     contentField5.layer.borderColor = borderColor;
     contentField5.layer.borderWidth = borderWidth;
+    contentField6.layer.borderColor = borderColor;
+    contentField6.layer.borderWidth = borderWidth;
     
     [contentField1 setTextAlignment:NSTextAlignmentLeft];
     [contentField2 setTextAlignment:NSTextAlignmentLeft];
     [contentField3 setTextAlignment:NSTextAlignmentLeft];
     [contentField4 setTextAlignment:NSTextAlignmentLeft];
     [contentField5 setTextAlignment:NSTextAlignmentLeft];
+    [contentField6 setTextAlignment:NSTextAlignmentLeft];
     
     /*
     [stockSymbol setBackgroundColor:[UIColor blueColor]];
@@ -127,11 +132,13 @@
     [self.view addSubview:contentField3];
     [self.view addSubview:contentField4];
     [self.view addSubview:contentField5];
+    [self.view addSubview:contentField6];
     [self.view addSubview:field1];
     [self.view addSubview:field2];
     [self.view addSubview:field3];
     [self.view addSubview:field4];
     [self.view addSubview:field5];
+    [self.view addSubview:field6];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.

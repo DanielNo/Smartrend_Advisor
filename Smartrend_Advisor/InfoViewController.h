@@ -31,6 +31,8 @@
 @property (strong,nonatomic) UILabel *field3;
 @property (strong,nonatomic) UILabel *field4;
 @property (strong,nonatomic) UILabel *field5;
+@property (strong,nonatomic) UILabel *field6;
+
 
 -(void)setFields:(NSString *)name1 :(NSString *)name2 :(NSString *)name3 :(NSString *)name4 :(NSString *)name5;
 -(void)redText;

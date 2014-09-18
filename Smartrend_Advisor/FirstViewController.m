@@ -64,7 +64,8 @@
     [popoverVC setShadowsHidden:YES];
     popoverVC.contentView.title = [[[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[posDict objectForKey:@"stock_symbol"] formatStockSymbol]];
 
-    
+    [infoVC.field6 removeFromSuperview];
+    [infoVC.contentField6 removeFromSuperview];
     NSNumber *pctGain = [posDict objectForKey:@"pct_gain"];
     NSString *val = [pctGain stringValue];
     if ([pctGain doubleValue] >0) {
