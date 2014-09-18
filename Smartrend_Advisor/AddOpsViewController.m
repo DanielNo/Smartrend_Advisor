@@ -196,6 +196,8 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
+    
     [spinner setHidesWhenStopped:YES];
     refreshControl = [[UIRefreshControl alloc] init];
     //[refreshControl setAlpha:0];

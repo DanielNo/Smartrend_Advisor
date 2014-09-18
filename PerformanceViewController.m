@@ -8,11 +8,88 @@
 
 #import "PerformanceViewController.h"
 
-@interface PerformanceViewController ()
+@interface PerformanceViewController (){
+    AFHTTPRequestOperationManager *manager;
+}
+
 
 @end
 
 @implementation PerformanceViewController
+
+@synthesize spinner;
+
+
+#pragma mark - class methods
+
+-(void)performanceStats{
+    [manager GET:@"finovus_performance_stats" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+        //NSLog(@"performance stats: %@",responseObject);
+        //self.performanceStatData = responseObject;
+        [spinner stopAnimating];
+
+        
+        
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        [error localizedDescription];
+        NSLog(@"error : %@",error);
+        
+    }];
+    
+    
+    
+}
+
+
+-(void)performanceChart{
+    [spinner startAnimating];
+    [manager GET:@"finovus_performance_chart" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+        [responseObject description];
+        //NSLog(@"performance chart: %@",responseObject);
+        //self.performanceStatData = responseObject;
+        
+        
+        
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        [error localizedDescription];
+        NSLog(@"error : %@",error);
+        
+    }];
+    
+    
+    
+}
+
+#pragma mark - view lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
+    [manager setCredential:creds];
+    [self setupUI];
+    [self performanceChart];
+    [self performanceStats];
+    
+    // Do any additional setup after loading the view.
+}
+
+-(void)setupUI{
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,18 +98,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

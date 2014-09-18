@@ -113,7 +113,7 @@ AFHTTPRequestOperationManager *manager;
     
     [manager GET:@"finovus_closed_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
         
-        NSLog(@"closed positions: %@",responseObject);
+       // NSLog(@"closed positions: %@",responseObject);
         
         self.closedData = responseObject;
         NSDictionary *response = [closedData objectAtIndex:0];
@@ -133,14 +133,14 @@ AFHTTPRequestOperationManager *manager;
 }
 
 -(void)refreshCollectionView{
-    NSLog(@"refresh");
+    NSLog(@"refresh2");
     if([self isViewLoaded] && self.view.window){
         [self closedPositions];
-        NSLog(@"active");
+        NSLog(@"active2");
     }
     else{
         
-        NSLog(@"inactive");
+        NSLog(@"inactive2");
     }
     
     
@@ -191,7 +191,7 @@ AFHTTPRequestOperationManager *manager;
 -(void)setupUI{
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
     [spinner setHidesWhenStopped:YES];
     refreshControl = [[UIRefreshControl alloc] init];
     //[refreshControl setAlpha:0];

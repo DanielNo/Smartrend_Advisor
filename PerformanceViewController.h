@@ -10,4 +10,12 @@
 
 @interface PerformanceViewController : UIViewController
 
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
+
+
+
+
+
 @end

@@ -182,15 +182,15 @@
 }
 
 -(void)refreshCollectionView{
-    NSLog(@"refresh");
+    NSLog(@"refresh1");
     if([self isViewLoaded] && self.view.window){
         [self performanceStats];
         [self openPositions];
-        NSLog(@"active");
+        NSLog(@"active1");
     }
     else{
         
-        NSLog(@"inactive");
+        NSLog(@"inactive1");
     }
 
 
@@ -229,9 +229,7 @@
     
     [self setupUI];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
     
 
     
@@ -256,7 +254,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)setupUI{
+-(void)setupUI{\
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
+    
     self.collectionView.alwaysBounceVertical = YES;
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];
     
