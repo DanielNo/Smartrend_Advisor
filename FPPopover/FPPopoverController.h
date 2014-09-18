@@ -83,5 +83,7 @@ typedef void (^FPPopoverCompletion)();
 /** @brief Refresh popover **/
 -(void)setupView;
 
+-(void)adjustClosedContentSize;
+-(void)adjustAddOpsContentSize;
 
 @end

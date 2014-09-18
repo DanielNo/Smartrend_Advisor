@@ -59,6 +59,7 @@ AFHTTPRequestOperationManager *manager;
     [infoVC.contentField3 setText:[closeDate leadingSpaces]];
     [infoVC.contentField4 setText:[entryPrice leadingSpaces]];
     [infoVC.contentField5 setText:[lastPrice leadingSpaces]];
+    [infoVC.contentField6 setText:[pctGain leadingSpaces]];
     
     popoverVC.contentView.title = [[[closedData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[dict objectForKey:@"stock_symbol"] formatStockSymbol]];
     
@@ -193,9 +194,11 @@ AFHTTPRequestOperationManager *manager;
     
     [spinner setHidesWhenStopped:YES];
     refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl setAlpha:0];
+    //[refreshControl setAlpha:0];
     [refreshControl addTarget:self action:@selector(refreshCollectionView)
              forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    
     self.collectionView.alwaysBounceVertical = YES;
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
@@ -208,7 +211,8 @@ AFHTTPRequestOperationManager *manager;
     
     [popoverVC setShadowsHidden:YES];
     [infoVC setFields:@"  Trade Type : " :@"  Open Date : " :@"  Close Date : " :@"  Entry Price : " :@"  Last Price : "];
-    
+    [infoVC.field6 setText:@"  Return % : "];
+    [popoverVC adjustClosedContentSize];
 }
 
 - (void)didReceiveMemoryWarning

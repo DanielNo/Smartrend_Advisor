@@ -274,7 +274,7 @@
     SP.layer.borderWidth = borderWidth;
     
     refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl setAlpha:0];
+    //[refreshControl setAlpha:0];
     [refreshControl addTarget:self action:@selector(refreshCollectionView)
              forControlEvents:UIControlEventValueChanged];
     [settingsBtn addTarget:self action:@selector(settingsBtnPressed:) forControlEvents:UIControlEventTouchUpInside];

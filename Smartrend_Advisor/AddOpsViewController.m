@@ -54,7 +54,12 @@
     
     NSString *openDate = [[dict objectForKey:@"date_display"]leadingSpaces];
     [infoVC.contentField3 setText:openDate];
-    
+    [infoVC.contentField4 removeFromSuperview];
+    [infoVC.contentField5 removeFromSuperview];
+    [infoVC.contentField6 removeFromSuperview];
+    [infoVC.field4 removeFromSuperview];
+    [infoVC.field5 removeFromSuperview];
+    [infoVC.field6 removeFromSuperview];
     
     popoverVC.contentView.title = [[[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[dict objectForKey:@"symbol"] formatStockSymbol]];
     
@@ -193,10 +198,14 @@
     
     [spinner setHidesWhenStopped:YES];
     refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl setAlpha:0];
+    //[refreshControl setAlpha:0];
     [refreshControl addTarget:self action:@selector(refreshCollectionView)
              forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    
+    
     self.collectionView.alwaysBounceVertical = YES;
+    
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
@@ -209,6 +218,10 @@
     
     [infoVC setFields:@"  Trade Type : " :@"  Entry price : " :@"  Open Date : " :@"  : " :@"  : "];
     [popoverVC setShadowsHidden:YES];
+    [popoverVC adjustAddOpsContentSize];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

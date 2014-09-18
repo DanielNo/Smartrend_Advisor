@@ -9,7 +9,7 @@
 
 #import "FPPopoverController.h"
 
-int popoverHeight = 40;
+int popoverHeight;
 double contentViewHeight;
 //ivars
 @interface FPPopoverController()
@@ -174,6 +174,21 @@ double contentViewHeight;
         [_viewController addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
+}
+
+-(void)adjustClosedContentSize{
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    
+    _contentSize = CGSizeMake(screenWidth,screenHeight/2 + (double)popoverHeight );
+}
+
+-(void)adjustAddOpsContentSize{
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    
+    _contentSize = CGSizeMake(screenWidth,screenHeight/2 - (double)popoverHeight*2 );
+    
 }
 
 
