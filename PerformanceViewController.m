@@ -89,11 +89,11 @@
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
-    manager.responseSerializer = [AFImageResponseSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
     [manager setCredential:creds];
     [self setupUI];
-    //[self performanceStats];
+    [self performanceStats];
     
     // Do any additional setup after loading the view.
 }
