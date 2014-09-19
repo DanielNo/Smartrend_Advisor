@@ -7,6 +7,7 @@
 //
 
 #import "PerformanceViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface PerformanceViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -17,7 +18,7 @@
 
 @implementation PerformanceViewController
 
-@synthesize spinner;
+@synthesize spinner,imageView;
 
 
 #pragma mark - class methods
@@ -41,26 +42,43 @@
     
 }
 
-
--(void)performanceChart{
-    [spinner startAnimating];
-    [manager GET:@"finovus_performance_chart" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        [responseObject description];
-        //NSLog(@"performance chart: %@",responseObject);
-        //self.performanceStatData = responseObject;
-        
-        
-        
-        
-    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        [error localizedDescription];
-        NSLog(@"error : %@",error);
+-(void)getDJIA{
+        NSURLRequest *djia = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:@"http://images.comtex.com/finovus/charts/djia.png"]];
+    
+    [imageView setImageWithURLRequest:djia placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+        imageView.image = image;
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
         
     }];
     
     
+}
+
+-(void)getSP500{
+        NSURLRequest *sp500 = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:@"http://images.comtex.com/finovus/charts/sp50.png"]];
+    
+    [imageView setImageWithURLRequest:sp500 placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+        imageView.image = image;
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+        
+    }];
+    
     
 }
+
+-(void)getNASDAQ{
+    NSURLRequest *nasdaq = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:@"http://images.comtex.com/finovus/charts/nasd.png"]];
+    
+    [imageView setImageWithURLRequest:nasdaq placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+        imageView.image = image;
+    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+        
+    }];
+    
+    
+}
+
+
 
 #pragma mark - view lifecycle
 
@@ -71,12 +89,11 @@
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer = [AFImageResponseSerializer serializer];
     NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
     [manager setCredential:creds];
     [self setupUI];
-    [self performanceChart];
-    [self performanceStats];
+    //[self performanceStats];
     
     // Do any additional setup after loading the view.
 }

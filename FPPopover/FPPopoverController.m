@@ -106,6 +106,8 @@ double contentViewHeight;
 	return [self initWithViewController:viewController delegate:nil];
 }
 
+
+
 -(id)initWithViewController:(UIViewController*)viewController
 				   delegate:(id<FPPopoverControllerDelegate>)delegate
 {

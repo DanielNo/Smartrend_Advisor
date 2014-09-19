@@ -40,7 +40,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    //cell.selected = YES;
+    
     
     
     NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.row];
@@ -52,7 +52,7 @@
     [infoVC.contentField2 setText:entry];
     NSString *last = [[posDict objectForKey:@"last_price_display"]leadingSpaces];
     [infoVC.contentField3 setText:last];
-    
+    NSString *tradeType = [posDict objectForKey:@"trade_type"];
     
     
     
@@ -200,23 +200,23 @@
 -(void)settingsBtnPressed:(id)sender{
     MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
     
-    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
+    FPPopoverController *settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
     
     //popover.arrowDirection = FPPopoverArrowDirectionAny;
-    popover.tint = FPPopoverDefaultTint;
+    settingsPopover.tint = FPPopoverDefaultTint;
+    [settingsPopover setShadowsHidden:YES];
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
-        popover.contentSize = CGSizeMake(300, 500);
+        settingsPopover.contentSize = CGSizeMake(300, 500);
     }
     else{
-        popover.contentSize = CGSizeMake(200, 300);
+        settingsPopover.contentSize = CGSizeMake(200, 300);
     }
-    popover.arrowDirection = FPPopoverNoArrow;
-    popover.border = NO;
+    settingsPopover.arrowDirection = FPPopoverNoArrow;
+    settingsPopover.border = NO;
     
-    //sender is the UIButton view
-    [popover presentPopoverFromView:self.navBar];
+    [settingsPopover presentPopoverFromView:navBar];
     
     
 }

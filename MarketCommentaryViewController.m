@@ -8,11 +8,52 @@
 
 #import "MarketCommentaryViewController.h"
 
-@interface MarketCommentaryViewController ()
+@interface MarketCommentaryViewController (){
+    AFHTTPRequestOperationManager *manager;
+}
 
 @end
 
 @implementation MarketCommentaryViewController
+
+@synthesize spinner;
+
+#pragma mark - class methods
+
+-(void)marketCommentary{
+    [spinner startAnimating];
+    
+    [manager GET:@"finovus_market_commentary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+        //NSLog(@"open positions : %@",responseObject);
+        
+
+
+        
+        
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        [error localizedDescription];
+        NSLog(@"error : %@",error);
+        
+    }];
+}
+
+-(void)technicalCommentary{
+    [spinner startAnimating];
+    
+    [manager GET:@"finovus_technical_commentary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+
+        
+        [spinner stopAnimating];        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        [error localizedDescription];
+        NSLog(@"error : %@",error);
+        
+    }];
+}
+
+
+#pragma mark - view lifecycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,8 +66,29 @@
 
 - (void)viewDidLoad
 {
+    [self setupUI];
+    
+    
+    
+    
+    
+    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
+    [manager setCredential:creds];
+    
+    
+    [self marketCommentary];
+    [self technicalCommentary];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+-(void)setupUI{
+    
 }
 
 - (void)didReceiveMemoryWarning

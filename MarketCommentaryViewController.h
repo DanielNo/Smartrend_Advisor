@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MarketCommentaryViewController : UIViewController
+@interface MarketCommentaryViewController : UIViewController{
+    
+}
+
+
+
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
+
+
+
+
+
+
 
 @end

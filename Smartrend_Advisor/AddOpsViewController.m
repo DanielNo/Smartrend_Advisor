@@ -46,6 +46,8 @@
     NSString *symbol = [@" " stringByAppendingString:[dict objectForKey:@"symbol"]];
     
     NSString *entry = [dict objectForKey:@"entry_price_display"];
+    
+    NSString *action = [dict objectForKey:@"action"];
     [infoVC.contentField2 setText:[entry leadingSpaces]];
     
     
@@ -67,7 +69,7 @@
     NSLog(@"height - %i",x);
     
     //[popoverVC setContentSize:CGSizeMake(400,400 )];
-    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 100)];
     [popoverVC presentPopoverFromView:layoutView];
     
     
@@ -116,11 +118,7 @@
         NSLog(@"additional operations: %@",responseObject);
         
         self.AddOpsData = responseObject;
-        NSDictionary *response = [AddOpsData objectAtIndex:0];
-        NSString *date = [response objectForKey:@"date_display"];
-        NSString *companyName = [response objectForKey:@"company_name"];
-        NSString *symbol = [response objectForKey:@"symbol"];
-        NSString *action = [response objectForKey:@"action"];
+   
         
         
         [spinner stopAnimating];

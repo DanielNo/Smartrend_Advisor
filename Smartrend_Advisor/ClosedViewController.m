@@ -48,7 +48,7 @@ AFHTTPRequestOperationManager *manager;
     NSString *openDate = [dict objectForKey:@"open_date_display"];
     NSString *closeDate = [dict objectForKey:@"close_date_display"];
     NSString *pctGain = [dict objectForKey:@"pct_gain_display"];
-
+    NSString *tradeType = [dict objectForKey:@"trade_type"];
     
     
     
@@ -61,13 +61,13 @@ AFHTTPRequestOperationManager *manager;
     [infoVC.contentField5 setText:[lastPrice leadingSpaces]];
     [infoVC.contentField6 setText:[pctGain leadingSpaces]];
     
-    popoverVC.contentView.title = [[[closedData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[dict objectForKey:@"stock_symbol"] formatStockSymbol]];
+    popoverVC.contentView.title = [[[closedData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[symbol formatStockSymbol]];
     
     int x = popoverVC.view.frame.size.height;
     NSLog(@"height - %i",x);
     
     //[popoverVC setContentSize:CGSizeMake(400,400 )];
-    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 100)];
     [popoverVC presentPopoverFromView:layoutView];
     
     
@@ -116,7 +116,6 @@ AFHTTPRequestOperationManager *manager;
        // NSLog(@"closed positions: %@",responseObject);
         
         self.closedData = responseObject;
-        NSDictionary *response = [closedData objectAtIndex:0];
         
         
         [spinner stopAnimating];
