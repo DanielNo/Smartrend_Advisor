@@ -156,7 +156,6 @@
     }];
     
     
-    
 }
 
 -(void)openPositions{
@@ -203,20 +202,23 @@
     FPPopoverController *settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
     
     //popover.arrowDirection = FPPopoverArrowDirectionAny;
-    settingsPopover.tint = FPPopoverDefaultTint;
-    [settingsPopover setShadowsHidden:YES];
+
+    settingsPopover.title = nil;
     
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         settingsPopover.contentSize = CGSizeMake(300, 500);
     }
     else{
-        settingsPopover.contentSize = CGSizeMake(200, 300);
+        settingsPopover.contentSize = CGSizeMake(200, 218);
     }
     settingsPopover.arrowDirection = FPPopoverNoArrow;
-    settingsPopover.border = NO;
+    settingsPopover.border = YES;
     
-    [settingsPopover presentPopoverFromView:navBar];
+    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, 55 ,0 ,0 )];
+    [layoutView setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:layoutView];
+    [settingsPopover presentPopoverFromView:layoutView];
     
     
 }
@@ -254,7 +256,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)setupUI{\
+-(void)setupUI{
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
