@@ -41,7 +41,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAR-Rw-FIp">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAR-Rw-FIp">
                                 <rect key="frame" x="0.0" y="64" width="320" height="220"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -51,6 +51,7 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dl0-k8-a13">
                                 <rect key="frame" x="16" y="292" width="288" height="130"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="43N-Iz-OEZ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="500" constant="130" id="azd-U1-7ns"/>
@@ -62,7 +63,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IEm-cl-g9i">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="IEm-cl-g9i" customClass="DataCollectionViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="72" height="26"/>
@@ -72,8 +73,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="rCr-qj-2gU" id="BRD-3h-kJb"/>
-                                    <outlet property="delegate" destination="rCr-qj-2gU" id="tOJ-OK-iXD"/>
+                                    <outlet property="dataSource" destination="rCr-qj-2gU" id="0Cq-xg-Bp9"/>
+                                    <outlet property="delegate" destination="rCr-qj-2gU" id="dHU-yq-vld"/>
                                 </connections>
                             </collectionView>
                         </subviews>

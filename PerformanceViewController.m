@@ -31,7 +31,8 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     NSLog(@"items : %lu",[performanceData count]);
-    return [performanceData count];
+    //return [performanceData count];
+    return 20;
     
 }
 
@@ -45,14 +46,81 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
  
     DataCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"dataCell" forIndexPath:indexPath];
+    NSNumber *num;
+    id item;
     
-    [cell.label setText:@"cell "];
-    
+    switch (indexPath.item) {
+        case (0):
+            cell.label.text = @"";
+            break;
+        case (1):
+            cell.label.text = @"STAD";
+            break;
+        case (2):
+            cell.label.text = @"S&P500";
+            break;
+        case (3):
+            cell.label.text = @"NASDAQ";
+            break;
+        case (4):
+            cell.label.text = @"DAY";
+            break;
+        case (5):
+            cell.label.text = [[[performanceData objectAtIndex:0]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
+            break;
+        case (6):
+            
+            cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
+            break;
+        case (7):
+            
+            cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
+            break;
+        case (8):
+            cell.label.text = @"WEEK";
+            break;
+        case (9):
+            cell.label.text = [[[performanceData objectAtIndex:1]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
+            break;
+        case (10):
+            cell.label.text = [[[[performanceData objectAtIndex:1]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
+            break;
+        case (11):
+            cell.label.text = [[[[performanceData objectAtIndex:1]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
+            break;
+        case (12):
+            cell.label.text = @"MONTH";
+            break;
+        case (13):
+            cell.label.text = [[[performanceData objectAtIndex:2]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
+            break;
+        case (14):
+            cell.label.text = [[[[performanceData objectAtIndex:2]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
+            break;
+        case (15):
+            cell.label.text = [[[[performanceData objectAtIndex:2]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
+            break;
+        case (16):
+            cell.label.text = @"YTD";
+            break;
+        case (17):
+            cell.label.text = [[[performanceData objectAtIndex:3]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
+            break;
+        case (18):
+            cell.label.text = [[[[performanceData objectAtIndex:3]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
+            break;
+        case (19):
+            cell.label.text = [[[[performanceData objectAtIndex:3]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
+            break;
+            
+        default:
+            break;
+    }
     
     return cell;
 }
 
-/*
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     
@@ -61,7 +129,7 @@
     return itemSize.size;
     
 }
- */
+
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
@@ -147,8 +215,7 @@
     NSURLCredential *creds = [[NSURLCredential alloc]initWithUser:@"api" password:@"ST2010api" persistence:NSURLCredentialPersistenceForSession];
     [manager setCredential:creds];
     
-    
-    
+    [self setupUI];
     [self performanceStats];
     
     //[self getDJIA];
@@ -156,7 +223,10 @@
     [self getSP500];
     [super viewDidLoad];
 
-    [self setupUI];
+    int height2 = self.statsCollectionView.frame.size.height;
+
+    NSLog(@"collection view height %i",height2);
+    
 
    int h = self.statsCollectionView.frame.size.height;
         NSLog(@"collectionview height : %i ",h);
@@ -168,9 +238,33 @@
     
     [self.statsCollectionView registerNib:[UINib nibWithNibName:@"DataCollectionViewCell" bundle:[NSBundle mainBundle]]
         forCellWithReuseIdentifier:@"dataCell"];
+    
+    
+    
+
 }
 
 -(void)createGraph{
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    int height = (self.statsCollectionView.frame.size.height-10)/5;
+    int width = self.statsCollectionView.frame.size.width/4;
+    NSLog(@"height %i",height);
+    NSLog(@"width %i",width);
+    CGSize size = CGSizeMake(width, height);
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setItemSize:size];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setMinimumLineSpacing:0.0f];
+    [flowLayout setMinimumInteritemSpacing:0.0f];
+    itemSize.size = flowLayout.itemSize;
+    
+    [self.statsCollectionView setCollectionViewLayout:flowLayout];
+    int height2 = self.statsCollectionView.frame.size.height;
+    
+    NSLog(@"collection view height %i",height2);
     
 }
 
