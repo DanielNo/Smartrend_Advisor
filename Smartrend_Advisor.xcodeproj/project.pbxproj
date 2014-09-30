@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3015623E19D9E9DF001EDCD7 /* DataCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3015623D19D9E9DF001EDCD7 /* DataCollectionViewCell.xib */; };
+		3015624119D9ECE3001EDCD7 /* DataCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3015624019D9ECE3001EDCD7 /* DataCollectionViewCell.m */; };
 		3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3034CE3619B9FF7C008BB3FF /* companyCell.m */; };
 		305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */; };
 		305C5BC419C3728600E73AC5 /* ClosedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC319C3728600E73AC5 /* ClosedViewController.m */; };
@@ -50,6 +52,9 @@
 /* Begin PBXFileReference section */
 		1662094CED64481A81F2D7DF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		290A9BFCF464475E9AC59B54 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3015623D19D9E9DF001EDCD7 /* DataCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataCollectionViewCell.xib; sourceTree = "<group>"; };
+		3015623F19D9ECE3001EDCD7 /* DataCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCollectionViewCell.h; sourceTree = "<group>"; };
+		3015624019D9ECE3001EDCD7 /* DataCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCollectionViewCell.m; sourceTree = "<group>"; };
 		3034CE3519B9FF7C008BB3FF /* companyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = companyCell.h; sourceTree = "<group>"; };
 		3034CE3619B9FF7C008BB3FF /* companyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = companyCell.m; sourceTree = "<group>"; };
 		305C5BBF19C3726E00E73AC5 /* PerformanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerformanceViewController.h; path = ../PerformanceViewController.h; sourceTree = "<group>"; };
@@ -125,6 +130,9 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				3015623F19D9ECE3001EDCD7 /* DataCollectionViewCell.h */,
+				3015624019D9ECE3001EDCD7 /* DataCollectionViewCell.m */,
+				3015623D19D9E9DF001EDCD7 /* DataCollectionViewCell.xib */,
 				30DED3C119C9FD780078E8B0 /* NSString+Formatting.h */,
 				30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */,
 				305C5BC819C73E2C00E73AC5 /* MenuTableViewController.h */,
@@ -311,6 +319,7 @@
 			files = (
 				30DCEA8419B8B54D006521D4 /* Main_iPad.storyboard in Resources */,
 				30DCEA8C19B8B54D006521D4 /* Images.xcassets in Resources */,
+				3015623E19D9E9DF001EDCD7 /* DataCollectionViewCell.xib in Resources */,
 				30DCEA8119B8B54D006521D4 /* Main_iPhone.storyboard in Resources */,
 				30DCEA7819B8B54D006521D4 /* InfoPlist.strings in Resources */,
 			);
@@ -368,6 +377,7 @@
 				305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
 				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
+				3015624119D9ECE3001EDCD7 /* DataCollectionViewCell.m in Sources */,
 				30DED3C319C9FD780078E8B0 /* NSString+Formatting.m in Sources */,
 				30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */,
 				305C5BC419C3728600E73AC5 /* ClosedViewController.m in Sources */,

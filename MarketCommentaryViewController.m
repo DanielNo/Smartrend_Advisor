@@ -16,7 +16,7 @@
 
 @implementation MarketCommentaryViewController
 
-@synthesize spinner;
+@synthesize spinner; //techCommentary;
 
 #pragma mark - class methods
 
@@ -24,7 +24,7 @@
     [spinner startAnimating];
     
     [manager GET:@"finovus_market_commentary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        //NSLog(@"open positions : %@",responseObject);
+        NSLog(@"market commentary : %@",responseObject);
         
 
 
@@ -43,7 +43,12 @@
     
     [manager GET:@"finovus_technical_commentary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
 
+        NSLog(@"technical commentary : %@",responseObject);
         
+        NSString *str = [[responseObject objectAtIndex:0]objectForKey:@"commentary_text"];
+        //[techCommentary setText:str];
+        
+
         [spinner stopAnimating];        
     }failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [error localizedDescription];

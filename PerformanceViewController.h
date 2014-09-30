@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PerformanceViewController : UIViewController
+@interface PerformanceViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
 
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
+@property (strong,nonatomic) NSArray *performanceData;
+@property (weak, nonatomic) IBOutlet UICollectionView *statsCollectionView;
 
 
 

@@ -38,22 +38,61 @@
                         <viewControllerLayoutGuide type="bottom" id="Cth-S3-IvN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jgx-RX-xEQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAR-Rw-FIp">
-                                <rect key="frame" x="16" y="72" width="288" height="251"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAR-Rw-FIp">
+                                <rect key="frame" x="0.0" y="64" width="320" height="220"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="6DG-UG-8Uy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="Kz4-1K-QGp"/>
+                                </constraints>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dl0-k8-a13">
+                                <rect key="frame" x="16" y="292" width="288" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="43N-Iz-OEZ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="500" constant="130" id="azd-U1-7ns"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cN1-jQ-8LF">
+                                    <size key="itemSize" width="72" height="26"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IEm-cl-g9i">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="72" height="26"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="rCr-qj-2gU" id="BRD-3h-kJb"/>
+                                    <outlet property="delegate" destination="rCr-qj-2gU" id="tOJ-OK-iXD"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Cth-S3-IvN" firstAttribute="top" secondItem="dl0-k8-a13" secondAttribute="bottom" priority="750" constant="8" id="0Fa-tu-S4s"/>
+                            <constraint firstItem="dl0-k8-a13" firstAttribute="top" secondItem="eAR-Rw-FIp" secondAttribute="bottom" constant="8" id="E3C-m0-1T6"/>
+                            <constraint firstItem="eAR-Rw-FIp" firstAttribute="top" secondItem="mKd-Zl-ibm" secondAttribute="bottom" id="ffJ-ZZ-T7z"/>
+                            <constraint firstAttribute="centerX" secondItem="eAR-Rw-FIp" secondAttribute="centerX" id="tFp-wn-rAM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y44-z5-96L"/>
                     <connections>
                         <outlet property="imageView" destination="eAR-Rw-FIp" id="gbU-ZS-XlB"/>
+                        <outlet property="statsCollectionView" destination="dl0-k8-a13" id="0a1-EA-dnG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ft3-Pa-A1G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="286" y="98"/>
+            <point key="canvasLocation" x="281" y="98"/>
         </scene>
         <!--Market Commentary View Controller-->
         <scene sceneID="fh1-Yc-uB3">
@@ -64,18 +103,19 @@
                         <viewControllerLayoutGuide type="bottom" id="yqU-3K-tv7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bkW-DI-1nJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2kB-Ty-y2l">
                                 <rect key="frame" x="142" y="265" width="37" height="37"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjg-Sx-gB4">
-                                <rect key="frame" x="16" y="72" width="288" height="252"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-ZX-Km3">
+                                <rect key="frame" x="16" y="72" width="288" height="321"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="b8A-ln-f2K"/>
@@ -177,15 +217,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="106" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="symbol_buy" translatesAutoresizingMaskIntoConstraints="NO" id="Fsj-gk-2N6">
+                                                    <rect key="frame" x="68" y="10" width="30" height="30"/>
+                                                </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WWWW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEJ-qk-cQm">
-                                                    <rect key="frame" x="6" y="10" width="66" height="30"/>
+                                                    <rect key="frame" x="8" y="10" width="64" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fsj-gk-2N6">
-                                                    <rect key="frame" x="68" y="6" width="38" height="38"/>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -230,11 +270,11 @@
             </objects>
             <point key="canvasLocation" x="286" y="-562"/>
         </scene>
-        <!--Open Positions-->
+        <!--Custom Nav Controller-->
         <scene sceneID="bf6-7O-MJe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yxi-JU-cLX" customClass="CustomNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Open Positions" image="first" id="2X5-Vc-3Oi"/>
+                    <tabBarItem key="tabBarItem" title="" image="nav_bar_home" id="2X5-Vc-3Oi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GCN-8c-8u7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -253,11 +293,11 @@
             </objects>
             <point key="canvasLocation" x="-115" y="-562"/>
         </scene>
-        <!--Performance-->
+        <!--Custom Nav Controller-->
         <scene sceneID="y4e-ME-Yhc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RYq-cU-5jP" customClass="CustomNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Performance" id="nzG-Ap-HgY"/>
+                    <tabBarItem key="tabBarItem" title="" image="nav_bar_performance" id="nzG-Ap-HgY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cUX-go-pgM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -272,11 +312,11 @@
             </objects>
             <point key="canvasLocation" x="-115" y="98"/>
         </scene>
-        <!--Commentary-->
+        <!--Custom Nav Controller-->
         <scene sceneID="RcQ-Ss-9rS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kl6-1p-3Nk" customClass="CustomNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Commentary" id="gRj-Ic-9s3"/>
+                    <tabBarItem key="tabBarItem" title="" image="nav_bar_commentary" id="gRj-Ic-9s3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ewt-BY-Lfh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -364,11 +404,11 @@
             </objects>
             <point key="canvasLocation" x="1269" y="117"/>
         </scene>
-        <!--Additional Opportunities-->
+        <!--Custom Nav Controller-->
         <scene sceneID="Ggq-nk-qBa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bOR-Kn-75s" customClass="CustomNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Additional Opportunities" id="HzK-gh-Qab"/>
+                    <tabBarItem key="tabBarItem" title="" image="nav_bar_addops" id="HzK-gh-Qab"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0vC-f3-JrS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -456,11 +496,11 @@
             </objects>
             <point key="canvasLocation" x="1269" y="-562"/>
         </scene>
-        <!--Closed Positions-->
+        <!--Custom Nav Controller-->
         <scene sceneID="dPh-aZ-2cZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Hz-LV-v1E" customClass="CustomNavController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Closed Positions" id="gzz-Yi-5td"/>
+                    <tabBarItem key="tabBarItem" title="" image="nav_bar_closed" id="gzz-Yi-5td"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xQF-76-5LI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -477,11 +517,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="nav_bar_addops" width="25" height="25"/>
+        <image name="nav_bar_closed" width="25" height="25"/>
+        <image name="nav_bar_commentary" width="25" height="25"/>
+        <image name="nav_bar_home" width="25" height="25"/>
+        <image name="nav_bar_performance" width="25" height="25"/>
+        <image name="symbol_buy" width="33" height="33"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
