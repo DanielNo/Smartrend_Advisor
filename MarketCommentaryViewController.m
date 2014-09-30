@@ -16,7 +16,7 @@
 
 @implementation MarketCommentaryViewController
 
-@synthesize spinner; //techCommentary;
+@synthesize spinner,textView; //techCommentary;
 
 #pragma mark - class methods
 
@@ -46,7 +46,9 @@
         NSLog(@"technical commentary : %@",responseObject);
         
         NSString *str = [[responseObject objectAtIndex:0]objectForKey:@"commentary_text"];
-        //[techCommentary setText:str];
+        
+        [textView setText:str];
+        
         
 
         [spinner stopAnimating];        

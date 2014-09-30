@@ -9,6 +9,7 @@
 #import "PerformanceViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "DataCollectionViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PerformanceViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -46,9 +47,8 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
  
     DataCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"dataCell" forIndexPath:indexPath];
-    NSNumber *num;
-    id item;
-    
+    cell.layer.borderColor = [UIColor blackColor].CGColor;
+    cell.layer.borderWidth = 1.0f;
     switch (indexPath.item) {
         case (0):
             cell.label.text = @"";
@@ -73,7 +73,6 @@
             cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
             break;
         case (7):
-            
             cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
             break;
         case (8):
@@ -182,6 +181,11 @@
     
     [imageView setImageWithURLRequest:sp500 placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
         imageView.image = image;
+        CGSize size = image.size;
+        int height = size.height;
+        int width = size.width;
+        NSLog(@"dl image height : %i ",height);
+        NSLog(@"dl image width : %i ",width);
     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
         
     }];
@@ -249,7 +253,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    int height = (self.statsCollectionView.frame.size.height-10)/5;
+    int height = (self.statsCollectionView.frame.size.height)/5;
     int width = self.statsCollectionView.frame.size.width/4;
     NSLog(@"height %i",height);
     NSLog(@"width %i",width);

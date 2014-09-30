@@ -41,12 +41,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAR-Rw-FIp">
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAR-Rw-FIp">
                                 <rect key="frame" x="0.0" y="64" width="320" height="220"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="6DG-UG-8Uy"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="Kz4-1K-QGp"/>
+                                    <constraint firstAttribute="width" constant="320" id="Kz4-1K-QGp"/>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dl0-k8-a13">
@@ -80,7 +80,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="Cth-S3-IvN" firstAttribute="top" secondItem="dl0-k8-a13" secondAttribute="bottom" priority="750" constant="8" id="0Fa-tu-S4s"/>
-                            <constraint firstItem="dl0-k8-a13" firstAttribute="top" secondItem="eAR-Rw-FIp" secondAttribute="bottom" constant="8" id="E3C-m0-1T6"/>
+                            <constraint firstItem="dl0-k8-a13" firstAttribute="top" secondItem="eAR-Rw-FIp" secondAttribute="bottom" constant="1" id="E3C-m0-1T6"/>
                             <constraint firstItem="eAR-Rw-FIp" firstAttribute="top" secondItem="mKd-Zl-ibm" secondAttribute="bottom" id="ffJ-ZZ-T7z"/>
                             <constraint firstAttribute="centerX" secondItem="eAR-Rw-FIp" secondAttribute="centerX" id="tFp-wn-rAM"/>
                         </constraints>
@@ -110,18 +110,23 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2kB-Ty-y2l">
                                 <rect key="frame" x="142" y="265" width="37" height="37"/>
                             </activityIndicatorView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-ZX-Km3">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-ZX-Km3">
                                 <rect key="frame" x="16" y="72" width="288" height="321"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="yqU-3K-tv7" firstAttribute="top" secondItem="Ftr-ZX-Km3" secondAttribute="bottom" constant="20" id="4bi-Ix-UwO"/>
+                            <constraint firstItem="Ftr-ZX-Km3" firstAttribute="top" secondItem="AHA-1f-fxt" secondAttribute="bottom" constant="20" id="DYP-gB-Vdg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b8A-ln-f2K"/>
                     <connections>
                         <outlet property="spinner" destination="2kB-Ty-y2l" id="y0P-iZ-DnR"/>
+                        <outlet property="textView" destination="Ftr-ZX-Km3" id="mvd-st-ne2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xX-nv-Ddp" userLabel="First Responder" sceneMemberID="firstResponder"/>
