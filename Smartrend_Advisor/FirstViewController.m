@@ -17,6 +17,8 @@
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
     CGRect itemSize;
+    UIImage *buyIMG;
+    UIImage *shortIMG;
     
 }
 
@@ -43,7 +45,7 @@
     
     
     
-    NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.row];
+    NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.item];
 
     NSString *symbol = [posDict objectForKey:@"stock_symbol"];
     [infoVC.contentField1 setText:@""];
@@ -56,6 +58,7 @@
     
     
     
+    
     NSString *openDate = [[posDict objectForKey:@"open_date_display"]leadingSpaces];
     [infoVC.contentField4 setText:openDate];
     
@@ -63,16 +66,16 @@
     [infoVC.contentField5 setText:rtrn];
     
     
-    popoverVC.contentView.title = [[[openPositionData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[posDict objectForKey:@"stock_symbol"] formatStockSymbol]];
+    popoverVC.contentView.title = [[[openPositionData objectAtIndex:indexPath.item]objectForKey:@"company_name"]stringByAppendingString:[[posDict objectForKey:@"stock_symbol"] formatStockSymbol]];
 
     [infoVC.field6 removeFromSuperview];
     [infoVC.contentField6 removeFromSuperview];
     NSNumber *pctGain = [posDict objectForKey:@"pct_gain"];
     NSString *val = [pctGain stringValue];
-    if ([pctGain doubleValue] >0) {
+    if ([tradeType compare:@"1"]==NSOrderedSame && [pctGain doubleValue] >0) {
         [infoVC greenText];
     }
-    else{
+    else if([tradeType compare:@"1"]==NSOrderedSame  && [pctGain doubleValue] <0){
         [infoVC redText];
     }
     
@@ -94,10 +97,18 @@
     
     companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
     [cell.name setText: [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"]];
+    NSString *tradeType = [[openPositionData objectAtIndex:indexPath.row] objectForKey:@"trade_type"];
+    
     
     
     cell.contentView.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1] : [UIColor whiteColor];
 
+    if ([tradeType caseInsensitiveCompare:@"1"]==NSOrderedSame) {
+        [cell.imageView setImage:buyIMG];
+    }
+    else{
+        [cell.imageView setImage:shortIMG];
+    }
     
     return cell;
 }
@@ -181,6 +192,7 @@
 }
 
 -(void)refreshCollectionView{
+    
     NSLog(@"refresh1");
     if([self isViewLoaded] && self.view.window){
         [self performanceStats];
@@ -260,6 +272,9 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
+    
+    buyIMG = [UIImage imageNamed:@"symbol_buy"];
+    shortIMG = [UIImage imageNamed:@"symbol_short"];
     
     self.collectionView.alwaysBounceVertical = YES;
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];

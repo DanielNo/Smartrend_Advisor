@@ -14,15 +14,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         // Initialization code
     }
     return self;
 }
 
--(void)setHighlighted:(BOOL)highlighted{
-    [super setHighlighted:highlighted];
-    [self setNeedsDisplay];
-}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

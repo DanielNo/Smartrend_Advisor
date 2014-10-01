@@ -17,6 +17,8 @@
 @interface AddOpsViewController (){
     AFHTTPRequestOperationManager *manager;
     CGRect itemSize;
+    UIImage *buyIMG;
+    UIImage *sellIMG;
 }
 
 @end
@@ -85,6 +87,13 @@
     
     companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
     [cell.name setText: [[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"symbol"]];
+    NSString *action = [[AddOpsData objectAtIndex:indexPath.item ] objectForKey:@"action"];
+    if ([action caseInsensitiveCompare:@"buy"] == NSOrderedSame) {
+        [cell.imageView setImage:buyIMG];
+    }
+    else if ([action caseInsensitiveCompare:@"sell"] == NSOrderedSame){
+        [cell.imageView setImage:sellIMG];
+    }
     
     
     cell.contentView.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1] : [UIColor whiteColor];
@@ -195,6 +204,8 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
+    buyIMG = [UIImage imageNamed:@"symbol_buy"];
+    sellIMG = [UIImage imageNamed:@"symbol_sell"];
     
     [spinner setHidesWhenStopped:YES];
     refreshControl = [[UIRefreshControl alloc] init];

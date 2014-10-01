@@ -17,6 +17,9 @@
 @interface ClosedViewController (){
 AFHTTPRequestOperationManager *manager;
     CGRect itemSize;
+    UIImage *sellIMG;
+    UIImage *coverIMG;
+    UIColor *cellColor;
 }
 @end
 
@@ -81,11 +84,29 @@ AFHTTPRequestOperationManager *manager;
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
-    [cell.name setText: [[closedData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"]];
+    cell.layer.shouldRasterize = YES;
+    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    [cell.name setText: [[closedData objectAtIndex:indexPath.item]objectForKey:@"stock_symbol"]];
+    
+    NSString *tradeType = [[closedData objectAtIndex:indexPath.item ] objectForKey:@"trade_type"];
     
     
-    cell.contentView.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1] : [UIColor whiteColor];
+    //1 = sell else = cover
+    cell.imageView.image =  [tradeType compare:@"1"] == NSOrderedSame ? sellIMG : coverIMG;
+    
+    /*
+    if ([tradeType compare:@"1"] == NSOrderedSame) {
+        [cell.imageView setImage:sellIMG];
+        
+    }
+    else{
+        [cell.imageView setImage:coverIMG];
+    }
+    */
+    
+    cell.contentView.backgroundColor = (indexPath.row % 2 == 0) ? cellColor : [UIColor whiteColor];
     
     
     return cell;
@@ -191,6 +212,11 @@ AFHTTPRequestOperationManager *manager;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
+    coverIMG = [UIImage imageNamed:@"symbol_cover"];
+    sellIMG = [UIImage imageNamed:@"symbol_sell"];
+    cellColor = [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1];
+    
+    
     [spinner setHidesWhenStopped:YES];
     refreshControl = [[UIRefreshControl alloc] init];
     //[refreshControl setAlpha:0];
