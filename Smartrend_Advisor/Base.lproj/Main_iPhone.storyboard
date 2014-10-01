@@ -106,12 +106,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2kB-Ty-y2l">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2kB-Ty-y2l">
                                 <rect key="frame" x="142" y="265" width="37" height="37"/>
                             </activityIndicatorView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-ZX-Km3">
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-ZX-Km3">
                                 <rect key="frame" x="16" y="72" width="288" height="321"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -119,6 +119,8 @@
                         <constraints>
                             <constraint firstItem="yqU-3K-tv7" firstAttribute="top" secondItem="Ftr-ZX-Km3" secondAttribute="bottom" constant="20" id="4bi-Ix-UwO"/>
                             <constraint firstItem="Ftr-ZX-Km3" firstAttribute="top" secondItem="AHA-1f-fxt" secondAttribute="bottom" constant="20" id="DYP-gB-Vdg"/>
+                            <constraint firstAttribute="centerX" secondItem="2kB-Ty-y2l" secondAttribute="centerX" id="Pbm-Yb-AfV"/>
+                            <constraint firstAttribute="centerY" secondItem="2kB-Ty-y2l" secondAttribute="centerY" id="ild-bH-KHE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b8A-ln-f2K"/>
@@ -336,10 +338,10 @@
             </objects>
             <point key="canvasLocation" x="-115" y="806"/>
         </scene>
-        <!--First-->
+        <!--AddOpsViewController-->
         <scene sceneID="4rL-ue-3Qy">
             <objects>
-                <viewController title="First" automaticallyAdjustsScrollViewInsets="NO" id="4H2-mm-lMj" customClass="AddOpsViewController" sceneMemberID="viewController">
+                <viewController title="First" automaticallyAdjustsScrollViewInsets="NO" id="4H2-mm-lMj" userLabel="AddOpsViewController" customClass="AddOpsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UBa-to-d2S"/>
                         <viewControllerLayoutGuide type="bottom" id="lfO-C6-uCk"/>
@@ -429,10 +431,10 @@
             </objects>
             <point key="canvasLocation" x="801" y="117"/>
         </scene>
-        <!--First-->
+        <!--ClosedViewController-->
         <scene sceneID="CgH-4h-vQN">
             <objects>
-                <viewController title="First" automaticallyAdjustsScrollViewInsets="NO" id="MnS-mq-KgP" customClass="ClosedViewController" sceneMemberID="viewController">
+                <viewController title="First" automaticallyAdjustsScrollViewInsets="NO" id="MnS-mq-KgP" userLabel="ClosedViewController" customClass="ClosedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cTq-BD-4QU"/>
                         <viewControllerLayoutGuide type="bottom" id="yhZ-TX-KQE"/>

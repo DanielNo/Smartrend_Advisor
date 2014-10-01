@@ -16,6 +16,7 @@
 
 @interface AddOpsViewController (){
     AFHTTPRequestOperationManager *manager;
+    AFNetworkReachabilityManager *networkManager;
     CGRect itemSize;
     UIImage *buyIMG;
     UIImage *sellIMG;
@@ -204,6 +205,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"reachable" object:nil];
     buyIMG = [UIImage imageNamed:@"symbol_buy"];
     sellIMG = [UIImage imageNamed:@"symbol_sell"];
     

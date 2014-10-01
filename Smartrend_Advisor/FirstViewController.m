@@ -16,6 +16,7 @@
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
+    AFNetworkReachabilityManager *networkManager;
     CGRect itemSize;
     UIImage *buyIMG;
     UIImage *shortIMG;
@@ -269,9 +270,14 @@
 }
 
 -(void)setupUI{
+
+    
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"reachable" object:nil];
     
     buyIMG = [UIImage imageNamed:@"symbol_buy"];
     shortIMG = [UIImage imageNamed:@"symbol_short"];

@@ -16,6 +16,7 @@
 
 @interface ClosedViewController (){
 AFHTTPRequestOperationManager *manager;
+    AFNetworkReachabilityManager *networkManager;
     CGRect itemSize;
     UIImage *sellIMG;
     UIImage *coverIMG;
@@ -212,6 +213,8 @@ AFHTTPRequestOperationManager *manager;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"reachable" object:nil];
+    
     coverIMG = [UIImage imageNamed:@"symbol_cover"];
     sellIMG = [UIImage imageNamed:@"symbol_sell"];
     cellColor = [UIColor colorWithRed:226/255.0f green:227/255.0f blue:254/255.0f alpha:1];

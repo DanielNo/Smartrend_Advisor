@@ -13,6 +13,7 @@
 
 @interface PerformanceViewController (){
     AFHTTPRequestOperationManager *manager;
+    AFNetworkReachabilityManager *networkManager;
     CGRect itemSize;
 }
 

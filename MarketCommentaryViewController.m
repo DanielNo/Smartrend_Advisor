@@ -10,6 +10,7 @@
 
 @interface MarketCommentaryViewController (){
     AFHTTPRequestOperationManager *manager;
+    AFNetworkReachabilityManager *networkManager;
 }
 
 @end
@@ -59,6 +60,21 @@
     }];
 }
 
+-(void)refreshData{
+    if([self isViewLoaded] && self.view.window){
+        [self technicalCommentary];
+        NSLog(@"active2");
+    }
+    else{
+        
+        NSLog(@"inactive2");
+    }
+    
+    
+    //[refreshControl endRefreshing];
+    
+}
+
 
 #pragma mark - view lifecycle
 
@@ -95,6 +111,8 @@
 }
 
 -(void)setupUI{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:@"foreground" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:@"reachable" object:nil];
     
 }
 

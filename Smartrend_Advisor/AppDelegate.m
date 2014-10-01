@@ -14,6 +14,27 @@
 {
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"reachable" object:nil];
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"unreachable" object:nil];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"reachable" object:nil];
+                break;
+            case AFNetworkReachabilityStatusUnknown:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }];
     return YES;
 }
 							
