@@ -207,6 +207,16 @@
     
 }
 
+-(void)refreshData{
+    [self getDJIA];
+    [self getNASDAQ];
+    [self getSP500];
+    [self performanceStats];
+    
+    
+    
+}
+
 
 
 #pragma mark - view lifecycle
@@ -243,7 +253,7 @@
     
     [self.statsCollectionView registerNib:[UINib nibWithNibName:@"DataCollectionViewCell" bundle:[NSBundle mainBundle]]
         forCellWithReuseIdentifier:@"dataCell"];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:@"reachable" object:nil];
     
     
 
