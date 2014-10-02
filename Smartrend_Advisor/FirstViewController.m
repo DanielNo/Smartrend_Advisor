@@ -75,9 +75,11 @@
     NSString *val = [pctGain stringValue];
     if ([tradeType compare:@"1"]==NSOrderedSame && [pctGain doubleValue] >0) {
         [infoVC greenText];
+        [popoverVC.contentView.titleLabel setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
     }
     else if([tradeType compare:@"1"]==NSOrderedSame  && [pctGain doubleValue] <0){
         [infoVC redText];
+        [popoverVC.contentView.titleLabel setTextColor:[UIColor redColor]];
     }
     
     
@@ -95,8 +97,12 @@
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.item];
     companyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CompanyCell" forIndexPath:indexPath];
+    
+    
+    
+
     [cell.name setText: [[openPositionData objectAtIndex:indexPath.row]objectForKey:@"stock_symbol"]];
     NSString *tradeType = [[openPositionData objectAtIndex:indexPath.row] objectForKey:@"trade_type"];
     
@@ -110,6 +116,16 @@
     else{
         [cell.imageView setImage:shortIMG];
     }
+    NSNumber *pctGain = [posDict objectForKey:@"pct_gain"];
+    if ( [pctGain doubleValue] >=0) {
+        [cell.name setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+    }
+    else if([pctGain doubleValue] <0){
+        [cell.name setTextColor:[UIColor redColor]];
+    }
+    
+    
+    
     
     return cell;
 }
@@ -174,11 +190,11 @@
     [spinner startAnimating];
     
     [manager GET:@"finovus_open_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        //NSLog(@"open positions : %@",responseObject);
+        NSLog(@"open positions : %@",responseObject);
         
 
         self.openPositionData = responseObject;
-        NSLog(@"count %lu",[openPositionData count]);
+        NSLog(@"open positions count %lu",[openPositionData count]);
         [self.collectionView reloadData];
         [spinner stopAnimating];
 
@@ -248,7 +264,7 @@
     
 
     
-    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
+    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api2.comtex.com/finovus/"]];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     

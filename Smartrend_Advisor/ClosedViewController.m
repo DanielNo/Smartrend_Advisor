@@ -35,6 +35,7 @@ AFHTTPRequestOperationManager *manager;
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSLog(@"items : %lu",[closedData count]);
     return [closedData count];
 }
 
@@ -51,9 +52,9 @@ AFHTTPRequestOperationManager *manager;
     NSString *lastPrice = [dict objectForKey:@"last_price_display"];
     NSString *openDate = [dict objectForKey:@"open_date_display"];
     NSString *closeDate = [dict objectForKey:@"close_date_display"];
-    NSString *pctGain = [dict objectForKey:@"pct_gain_display"];
+    NSString *pctGainDisplay = [dict objectForKey:@"pct_gain_display"];
     NSString *tradeType = [dict objectForKey:@"trade_type"];
-    
+    NSNumber *pctGain = [dict objectForKey:@"pct_gain"];
     
     
     
@@ -63,7 +64,7 @@ AFHTTPRequestOperationManager *manager;
     [infoVC.contentField3 setText:[closeDate leadingSpaces]];
     [infoVC.contentField4 setText:[entryPrice leadingSpaces]];
     [infoVC.contentField5 setText:[lastPrice leadingSpaces]];
-    [infoVC.contentField6 setText:[pctGain leadingSpaces]];
+    [infoVC.contentField6 setText:[pctGainDisplay leadingSpaces]];
     
     popoverVC.contentView.title = [[[closedData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[symbol formatStockSymbol]];
     
@@ -71,9 +72,30 @@ AFHTTPRequestOperationManager *manager;
     NSLog(@"height - %i",x);
     
     //[popoverVC setContentSize:CGSizeMake(400,400 )];
+    
+    
+    
+    
+    if ([pctGain doubleValue] >=0.0) {
+        [popoverVC.contentView.titleLabel setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+        [infoVC.contentField6 setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+    }
+    else{
+     [popoverVC.contentView.titleLabel setTextColor:[UIColor redColor]];
+         [infoVC.contentField6 setTextColor:[UIColor redColor]];
+     
+     }
+     
+    
+    
+    
+    
+    
     UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 100)];
     [popoverVC presentPopoverFromView:layoutView];
     
+    
+
     
     
     [self.view setAlpha:0.5];
@@ -92,6 +114,23 @@ AFHTTPRequestOperationManager *manager;
     [cell.name setText: [[closedData objectAtIndex:indexPath.item]objectForKey:@"stock_symbol"]];
     
     NSString *tradeType = [[closedData objectAtIndex:indexPath.item ] objectForKey:@"trade_type"];
+    NSNumber *pctGain = [[closedData objectAtIndex:indexPath.item]objectForKey:@"pct_gain"];
+    
+    
+    if ([pctGain doubleValue] >=0.0) {
+       
+        [cell.name setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+
+    }
+    else
+    {
+        
+        [cell.name setTextColor:[UIColor redColor]];
+       
+        
+    }
+    
+    
     
     
     //1 = sell else = cover
@@ -135,11 +174,12 @@ AFHTTPRequestOperationManager *manager;
     
     [manager GET:@"finovus_closed_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
         
-       // NSLog(@"closed positions: %@",responseObject);
+        NSLog(@"closed positions: %@",responseObject);
+  
         
         self.closedData = responseObject;
         
-        
+              NSLog(@"closed positions count %lu",[closedData count]);
         [spinner stopAnimating];
         [self.collectionView reloadData];
         
@@ -192,7 +232,7 @@ AFHTTPRequestOperationManager *manager;
     
     
     
-    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
+    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api2.comtex.com/finovus/"]];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     

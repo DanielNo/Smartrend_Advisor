@@ -20,9 +20,11 @@
     //default FPPopoverArrowDirectionUp
     FPPopoverArrowDirection _arrowDirection;
     UIView *_contentView;
-    UILabel *_titleLabel;
+    //UILabel *_titleLabel;
 }
+
 @end
+
 
 
 @interface FPPopoverView(Private)
@@ -36,6 +38,7 @@
 @synthesize tint = _tint;
 @synthesize draw3dBorder = _draw3dBorder;
 @synthesize border = _border;
+@synthesize titleLabel = _titleLabel;
 
 -(void)dealloc
 {

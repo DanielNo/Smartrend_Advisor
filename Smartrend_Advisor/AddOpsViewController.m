@@ -35,6 +35,7 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSLog(@"add ops count : %lu",[AddOpsData count]);
     return [AddOpsData count];
 }
 
@@ -183,7 +184,7 @@
     
     
     
-    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
+    manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api2.comtex.com/finovus/"]];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     
