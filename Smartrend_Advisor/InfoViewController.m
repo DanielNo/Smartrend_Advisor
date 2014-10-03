@@ -16,7 +16,7 @@
 @end
 
 @implementation InfoViewController
-@synthesize contentField1,contentField2,contentField3,contentField4,contentField5,contentField6,field1,field2,field3,field4,field5,field6;
+@synthesize contentField1,contentField2,contentField3,contentField4,contentField5,contentField6,field1,field2,field3,field4,field5,field6,tradeTypeField;
 
 
 
@@ -143,6 +143,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+
 
 -(void)greenText{
     [contentField5 setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];

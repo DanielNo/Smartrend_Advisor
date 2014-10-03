@@ -26,6 +26,8 @@
 @property (strong,nonatomic) UILabel *contentField5;
 @property (strong,nonatomic) UILabel *contentField6;
 
+@property(strong,nonatomic) UIView *tradeTypeField;
+
 @property (strong,nonatomic) UILabel *field1;
 @property (strong,nonatomic) UILabel *field2;
 @property (strong,nonatomic) UILabel *field3;
