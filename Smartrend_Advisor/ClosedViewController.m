@@ -13,6 +13,7 @@
 #import "InfoViewController.h"
 #import "MenuTableViewController.h"
 #import "NSString+Formatting.h"
+#import "TradeTypeView.h"
 
 @interface ClosedViewController (){
 AFHTTPRequestOperationManager *manager;
@@ -86,7 +87,14 @@ AFHTTPRequestOperationManager *manager;
      
      }
      
-    
+    if ([tradeType compare:@"1"]==NSOrderedSame) {
+        [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_sell"]];
+        [infoVC.contentField1.stockTicker setText:@"(Sell)"];
+    }
+    else{
+        [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_cover"]];
+        [infoVC.contentField1.stockTicker setText:@"(Cover)"];
+    }
     
     
     

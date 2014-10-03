@@ -9,6 +9,7 @@
 #import "InfoViewController.h"
 #import "FPPopoverController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TradeTypeView.h"
 
 
 @interface InfoViewController ()
@@ -67,7 +68,18 @@
     //self.view.frame
     
     
-    contentField1 = [[UILabel alloc]initWithFrame:content1Rect];
+    contentField1 = [[TradeTypeView alloc]initWithFrame:content1Rect];
+
+    [contentField1 setBackgroundColor:[UIColor whiteColor]];
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //stockName = [[UILabel alloc]initWithFrame:stockNameRect];
     contentField2 = [[UILabel alloc]initWithFrame:content2Rect];
     contentField3 = [[UILabel alloc]initWithFrame:content3Rect];
@@ -109,21 +121,17 @@
     contentField6.layer.borderColor = borderColor;
     contentField6.layer.borderWidth = borderWidth;
     
-    [contentField1 setTextAlignment:NSTextAlignmentLeft];
+    //[contentField1 setTextAlignment:NSTextAlignmentLeft];
     [contentField2 setTextAlignment:NSTextAlignmentLeft];
     [contentField3 setTextAlignment:NSTextAlignmentLeft];
     [contentField4 setTextAlignment:NSTextAlignmentLeft];
     [contentField5 setTextAlignment:NSTextAlignmentLeft];
     [contentField6 setTextAlignment:NSTextAlignmentLeft];
     
-    /*
-    [stockSymbol setBackgroundColor:[UIColor blueColor]];
-    [stockName setBackgroundColor:[UIColor yellowColor]];
-    [entryPrice setBackgroundColor:[UIColor whiteColor]];
-    [lastPrice setBackgroundColor:[UIColor grayColor]];
-    [openDate setBackgroundColor:[UIColor purpleColor]];
-    [returnPercent setBackgroundColor:[UIColor orangeColor]];
-    */
+
+    
+    
+    
     
     
     [self.view addSubview:contentField1];

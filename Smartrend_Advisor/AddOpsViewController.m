@@ -13,6 +13,7 @@
 #import "InfoViewController.h"
 #import "MenuTableViewController.h"
 #import "NSString+Formatting.h"
+#import "TradeTypeView.h"
 
 @interface AddOpsViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -55,6 +56,22 @@
     [infoVC.contentField2 setText:[entry leadingSpaces]];
     
     
+    if ([action compare:@"sell"]==NSOrderedSame) {
+        [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_sell"]];
+        [infoVC.contentField1.stockTicker setText:@"(Sell)"];
+    }
+    else if([action compare:@"buy"]==NSOrderedSame){
+        [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_buy"]];
+        [infoVC.contentField1.stockTicker setText:@"(Buy)"];
+    }
+    else if([action compare:@"short"]==NSOrderedSame){
+        [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_short"]];
+        [infoVC.contentField1.stockTicker setText:@"(Short)"];
+    }
+    else if([action compare:@"cover"]==NSOrderedSame){
+        [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_cover"]];
+        [infoVC.contentField1.stockTicker setText:@"(Cover)"];
+    }
     
     
     

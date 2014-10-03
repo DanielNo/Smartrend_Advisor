@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class TradeTypeView;
 @interface InfoViewController : UIViewController
 
 /*
@@ -19,7 +19,7 @@
 @property (strong,nonatomic) UILabel *returnPercent;
 */
 
-@property (strong,nonatomic) UILabel *contentField1;
+@property (strong,nonatomic) TradeTypeView *contentField1;
 @property (strong,nonatomic) UILabel *contentField2;
 @property (strong,nonatomic) UILabel *contentField3;
 @property (strong,nonatomic) UILabel *contentField4;

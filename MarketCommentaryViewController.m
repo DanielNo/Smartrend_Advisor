@@ -93,7 +93,7 @@
     
     
     
-    
+    [textView flashScrollIndicators];
     
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     

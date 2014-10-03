@@ -13,6 +13,7 @@
 #import "InfoViewController.h"
 #import "MenuTableViewController.h"
 #import "NSString+Formatting.h"
+#import "TradeTypeView.h"
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -49,7 +50,7 @@
     NSDictionary *posDict = [openPositionData objectAtIndex:indexPath.item];
 
     NSString *symbol = [posDict objectForKey:@"stock_symbol"];
-    [infoVC.contentField1 setText:@""];
+    //[infoVC.contentField1 setText:@""];
 
     NSString *entry = [[posDict objectForKey:@"entry_price_display"]leadingSpaces];
     [infoVC.contentField2 setText:entry];
@@ -68,6 +69,7 @@
     
     
     popoverVC.contentView.title = [[[openPositionData objectAtIndex:indexPath.item]objectForKey:@"company_name"]stringByAppendingString:[[posDict objectForKey:@"stock_symbol"] formatStockSymbol]];
+   
 
     [infoVC.field6 removeFromSuperview];
     [infoVC.contentField6 removeFromSuperview];
@@ -81,6 +83,31 @@
         [infoVC redText];
         [popoverVC.contentView.titleLabel setTextColor:[UIColor redColor]];
     }
+    
+    if ([tradeType compare:@"1"]==NSOrderedSame) {
+        [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_buy"]];
+         [infoVC.contentField1.stockTicker setText:@"(Buy)"];
+    }
+    else{
+        [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_short"]];
+        [infoVC.contentField1.stockTicker setText:@"(Short)"];
+    }
+    
+    
+    
+    /*
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    attachment.image = [UIImage imageNamed:@"symbol_buy"];
+    
+    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+    
+    NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:@"yo "];
+    [myString appendAttributedString:attachmentString];
+    
+    infoVC.contentField1.attributedText = myString;
+    */
+    
+    
     
     
     
