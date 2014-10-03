@@ -48,7 +48,7 @@ AFHTTPRequestOperationManager *manager;
     
     NSDictionary *dict = [closedData objectAtIndex:indexPath.row];
     
-    NSString *symbol = [dict objectForKey:@"stock_symbol"];
+    NSString *symbol = [[dict objectForKey:@"stock_symbol"] removeAllWhitespace];
     NSString *entryPrice = [dict objectForKey:@"entry_price_display"];
     NSString *lastPrice = [dict objectForKey:@"last_price_display"];
     NSString *openDate = [dict objectForKey:@"open_date_display"];

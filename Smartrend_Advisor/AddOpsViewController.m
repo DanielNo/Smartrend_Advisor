@@ -48,7 +48,7 @@
     NSDictionary *dict = [AddOpsData objectAtIndex:indexPath.row];
     
 
-    NSString *symbol = [@" " stringByAppendingString:[dict objectForKey:@"symbol"]];
+    NSString *symbol = [[dict objectForKey:@"symbol"] removeAllWhitespace];
     
     NSString *entry = [dict objectForKey:@"entry_price_display"];
     
@@ -84,7 +84,7 @@
     [infoVC.field5 removeFromSuperview];
     [infoVC.field6 removeFromSuperview];
     
-    popoverVC.contentView.title = [[[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[[dict objectForKey:@"symbol"] formatStockSymbol]];
+    popoverVC.contentView.title = [[[AddOpsData objectAtIndex:indexPath.row]objectForKey:@"company_name"]stringByAppendingString:[symbol formatStockSymbol]];
     
     int x = popoverVC.view.frame.size.height;
     NSLog(@"height - %i",x);

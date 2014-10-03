@@ -66,8 +66,28 @@
     if(cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [cell setBackgroundColor:[UIColor blackColor]];
+        [cell.textLabel setTextColor:[UIColor whiteColor]];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"cell %d",indexPath.row];
+    
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = @"About";
+            break;
+        case 1:
+            cell.textLabel.text = @"Legend";
+            break;
+        case 2:
+            cell.textLabel.text = @"Tutorial";
+            break;
+        case 3:
+            cell.textLabel.text = @"Settings";
+            break;
+            
+        default:
+            break;
+    }
+
     
     return cell;
     

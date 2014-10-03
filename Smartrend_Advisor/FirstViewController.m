@@ -68,7 +68,7 @@
     [infoVC.contentField5 setText:rtrn];
     
     
-    popoverVC.contentView.title = [[[openPositionData objectAtIndex:indexPath.item]objectForKey:@"company_name"]stringByAppendingString:[[posDict objectForKey:@"stock_symbol"] formatStockSymbol]];
+    popoverVC.contentView.title = [[[openPositionData objectAtIndex:indexPath.item]objectForKey:@"company_name"]stringByAppendingString:[[symbol removeAllWhitespace] formatStockSymbol]];
    
 
     [infoVC.field6 removeFromSuperview];
@@ -266,7 +266,7 @@
         settingsPopover.contentSize = CGSizeMake(300, 500);
     }
     else{
-        settingsPopover.contentSize = CGSizeMake(200, 218);
+        settingsPopover.contentSize = CGSizeMake(150, 218);
     }
     settingsPopover.arrowDirection = FPPopoverNoArrow;
     settingsPopover.border = YES;

@@ -15,6 +15,13 @@
     
 }
 
+- (NSString *) removeAllWhitespace
+{
+    return [self stringByReplacingOccurrencesOfString:@"\\s" withString:@""
+                                              options:NSRegularExpressionSearch
+                                                range:NSMakeRange(0, [self length])];
+}
+
 -(NSString *)leadingSpaces{
     return [@"  " stringByAppendingString:self];
 }

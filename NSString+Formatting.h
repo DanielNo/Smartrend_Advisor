@@ -11,5 +11,6 @@
 @interface NSString (Formatting)
 -(NSString *)formatStockSymbol;
 -(NSString *)leadingSpaces;
+- (NSString *) removeAllWhitespace;
 
 @end
