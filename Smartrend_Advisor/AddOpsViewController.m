@@ -247,7 +247,7 @@
     itemSize.size.height = 49;
     
     
-    [infoVC setFields:@"  Trade Type : " :@"  Entry price : " :@"  Open Date : " :@"  : " :@"  : "];
+    [infoVC setFields:@"  Trade Type: " :@"  Entry price: " :@"  Open Date: " :@"  : " :@"  : "];
     [popoverVC setShadowsHidden:YES];
     [popoverVC adjustAddOpsContentSize];
     

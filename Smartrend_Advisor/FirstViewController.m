@@ -359,7 +359,7 @@
     itemSize.size.width = width;
     itemSize.size.height = 49;
     
-    [infoVC setFields:@" Trade Type : " :@" Entry Price :" :@" Last Price : " :@" Open Date : " :@" Return % : "];
+    [infoVC setFields:@" Trade Type: " :@" Entry Price:" :@" Last Price: " :@" Open Date: " :@" Return %: "];
     [popoverVC setShadowsHidden:YES];
 }
 

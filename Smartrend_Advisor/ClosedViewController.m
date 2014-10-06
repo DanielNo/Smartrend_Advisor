@@ -286,8 +286,8 @@ AFHTTPRequestOperationManager *manager;
     itemSize.size.height = 49;
     
     [popoverVC setShadowsHidden:YES];
-    [infoVC setFields:@"  Trade Type : " :@"  Open Date : " :@"  Close Date : " :@"  Entry Price : " :@"  Last Price : "];
-    [infoVC.field6 setText:@"  Return % : "];
+    [infoVC setFields:@"  Trade Type: " :@"  Open Date: " :@"  Close Date: " :@"  Entry Price: " :@"  Last Price: "];
+    [infoVC.field6 setText:@"  Return %: "];
     [popoverVC adjustClosedContentSize];
 }
 
