@@ -228,6 +228,7 @@
     }failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [error localizedDescription];
         NSLog(@"error : %@",error);
+        [spinner stopAnimating];
         
     }];
     
@@ -326,6 +327,9 @@
     shortIMG = [UIImage imageNamed:@"symbol_short"];
     
     self.collectionView.alwaysBounceVertical = YES;
+    
+    
+    
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];
     
     self.navigationItem.rightBarButtonItem = rightButton;

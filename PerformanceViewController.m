@@ -10,11 +10,14 @@
 #import "UIImageView+AFNetworking.h"
 #import "DataCollectionViewCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ImageCollectionViewCell.h"
 
 @interface PerformanceViewController (){
     AFHTTPRequestOperationManager *manager;
     AFNetworkReachabilityManager *networkManager;
     CGRect itemSize;
+    CGRect itemSize2;
+    UIImage *placeholder;
 }
 
 
@@ -22,7 +25,7 @@
 
 @implementation PerformanceViewController
 
-@synthesize spinner,imageView,performanceData,statsCollectionView;
+@synthesize spinner,performanceData,statsCollectionView,imageCollectionView,urlArray;
 
 #pragma mark - collectionview methods
 
@@ -32,9 +35,21 @@
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSLog(@"items : %lu",[performanceData count]);
+    //NSLog(@"items : %lu",[performanceData count]);
     //return [performanceData count];
-    return 20;
+    
+    
+    
+    int items;
+    
+    if (collectionView.tag ==1) {
+        items = 3;
+    }
+    else if (collectionView.tag ==2) {
+        items = 20;
+    }
+    
+    return items;
     
 }
 
@@ -46,10 +61,30 @@
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (collectionView.tag ==1) {
+        ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCell" forIndexPath:indexPath];
+        //cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        cell.imageView.contentMode = UIViewContentModeScaleToFill;
+        
+        [cell.imageView setImageWithURL:[urlArray objectAtIndex:indexPath.item] placeholderImage:nil];
+        
+        
+        
+        
+
+        return cell;
+    }
+    else if (collectionView.tag ==2){
+        
+    
  
     DataCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"dataCell" forIndexPath:indexPath];
     cell.layer.borderColor = [UIColor blackColor].CGColor;
     cell.layer.borderWidth = 1.0f;
+    [cell.label setAdjustsFontSizeToFitWidth:YES];
+    
+    
     switch (indexPath.item) {
         case (0):
             cell.label.text = @"";
@@ -117,14 +152,21 @@
             break;
     }
     
+        return cell;
+    }
+    UICollectionViewCell *cell;
     return cell;
 }
 
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
+
+    if (collectionView.tag == 1) {
+        return itemSize2.size;
+    }
+    else if (collectionView.tag ==2){
+        return itemSize.size;
+    }
     
     return itemSize.size;
     
@@ -146,6 +188,8 @@
     [manager GET:@"finovus_performance_stats" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
         //NSLog(@"performance stats: %@",responseObject);
         self.performanceData = responseObject;
+    
+        
         
         [spinner stopAnimating];
 
@@ -162,55 +206,11 @@
     
 }
 
--(void)getDJIA{
-        NSURLRequest *djia = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:@"http://images.comtex.com/finovus/charts/djia.png"]];
-    
-    [imageView setImageWithURLRequest:djia placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-        imageView.image = image;
-        
-        
-        
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-        
-    }];
-    
-    
-}
 
--(void)getSP500{
-        NSURLRequest *sp500 = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:@"http://images.comtex.com/finovus/charts/sp50.png"]];
-    
-    [imageView setImageWithURLRequest:sp500 placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-        imageView.image = image;
-        CGSize size = image.size;
-        int height = size.height;
-        int width = size.width;
-        NSLog(@"dl image height : %i ",height);
-        NSLog(@"dl image width : %i ",width);
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-        
-    }];
-    
-    int x = imageView.frame.size.height;
-    NSLog(@"imageview height : %i ",x);
-}
 
--(void)getNASDAQ{
-    NSURLRequest *nasdaq = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:@"http://images.comtex.com/finovus/charts/nasd.png"]];
-    
-    [imageView setImageWithURLRequest:nasdaq placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-        imageView.image = image;
-    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-        
-    }];
-    
-    
-}
 
 -(void)refreshData{
-    [self getDJIA];
-    [self getNASDAQ];
-    [self getSP500];
+    //[self getGraphImages];
     [self performanceStats];
     
     
@@ -221,8 +221,10 @@
 
 #pragma mark - view lifecycle
 
+
 - (void)viewDidLoad
 {
+
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -233,9 +235,10 @@
     [self setupUI];
     [self performanceStats];
     
-    //[self getDJIA];
-    [self getNASDAQ];
-    [self getSP500];
+    //[self getGraphImages];
+
+    
+    
     [super viewDidLoad];
 
     int height2 = self.statsCollectionView.frame.size.height;
@@ -250,18 +253,37 @@
 }
 
 -(void)setupUI{
+    placeholder = [UIImage imageNamed:@"placeholder"];
+
+    NSURL *sp500 = [[NSURL alloc]initWithString:@"http://images.comtex.com/finovus/charts/sp50.png"];
+    
+    NSURL *djia = [[NSURL alloc]initWithString:@"http://images.comtex.com/finovus/charts/djia.png"];
+    
+    NSURL *nasdaq = [[NSURL alloc]initWithString:@"http://images.comtex.com/finovus/charts/nasd.png"];
+    urlArray = [NSArray arrayWithObjects:sp500,djia,nasdaq, nil];
+    
+    
+   //  NSUInteger x = [imageArray count];
+    //NSLog(@"img count : %lu",x);
+    
     
     [self.statsCollectionView registerNib:[UINib nibWithNibName:@"DataCollectionViewCell" bundle:[NSBundle mainBundle]]
-        forCellWithReuseIdentifier:@"dataCell"];
+               forCellWithReuseIdentifier:@"dataCell"];
+    [self.imageCollectionView registerNib:[UINib nibWithNibName:@"ImageCollectionViewCell" bundle:[NSBundle mainBundle]]
+               forCellWithReuseIdentifier:@"imageCell"];
+    self.imageCollectionView.pagingEnabled = YES;
+    
+    
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:@"reachable" object:nil];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     
     
 
 }
 
--(void)createGraph{
-    
-}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     int height = (self.statsCollectionView.frame.size.height)/5;
@@ -276,6 +298,16 @@
     [flowLayout setMinimumInteritemSpacing:0.0f];
     itemSize.size = flowLayout.itemSize;
     
+    CGSize size2 = CGSizeMake(320, 220);
+    UICollectionViewFlowLayout *flowLayout2 = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout2 setItemSize:size2];
+    [flowLayout2 setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flowLayout2 setMinimumLineSpacing:0.0f];
+    [flowLayout2 setMinimumInteritemSpacing:0.0f];
+    itemSize2.size = flowLayout2.itemSize;
+    
+    
+    [self.imageCollectionView setCollectionViewLayout:flowLayout2];
     [self.statsCollectionView setCollectionViewLayout:flowLayout];
     int height2 = self.statsCollectionView.frame.size.height;
     

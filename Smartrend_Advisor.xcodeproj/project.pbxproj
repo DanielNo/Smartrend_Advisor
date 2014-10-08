@@ -330,6 +330,59 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>30C3F85119E2ECED009E26EB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ImageCollectionViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>30C3F85219E2ECED009E26EB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ImageCollectionViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>30C3F85319E2ECED009E26EB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>ImageCollectionViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>30C3F85419E2ECED009E26EB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>30C3F85219E2ECED009E26EB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>30C3F85519E2ECED009E26EB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>30C3F85319E2ECED009E26EB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>30C74B6019C341A6002C2DF0</key>
 		<dict>
 			<key>fileEncoding</key>
@@ -367,6 +420,9 @@
 		<dict>
 			<key>children</key>
 			<array>
+				<string>30C3F85119E2ECED009E26EB</string>
+				<string>30C3F85219E2ECED009E26EB</string>
+				<string>30C3F85319E2ECED009E26EB</string>
 				<string>30C3F84819DF12C7009E26EB</string>
 				<string>30C3F84919DF12C7009E26EB</string>
 				<string>3015623F19D9ECE3001EDCD7</string>
@@ -464,6 +520,7 @@
 				<string>305C5BC119C3726E00E73AC5</string>
 				<string>30DCEA7E19B8B54D006521D4</string>
 				<string>30EA96AE19BE451E002F50E2</string>
+				<string>30C3F85419E2ECED009E26EB</string>
 				<string>3015624119D9ECE3001EDCD7</string>
 				<string>30DED3C319C9FD780078E8B0</string>
 				<string>30EA96AA19BE43CB002F50E2</string>
@@ -509,6 +566,7 @@
 				<string>30DCEA8C19B8B54D006521D4</string>
 				<string>3015623E19D9E9DF001EDCD7</string>
 				<string>30DCEA8119B8B54D006521D4</string>
+				<string>30C3F85519E2ECED009E26EB</string>
 				<string>30DCEA7819B8B54D006521D4</string>
 			</array>
 			<key>isa</key>

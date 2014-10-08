@@ -12,12 +12,10 @@
 
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong,nonatomic) NSArray *performanceData;
 @property (weak, nonatomic) IBOutlet UICollectionView *statsCollectionView;
 
-
-
+@property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
+@property (strong,nonatomic) NSArray *urlArray;
 
 @end
