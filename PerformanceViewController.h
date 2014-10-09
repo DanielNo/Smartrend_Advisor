@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PerformanceViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
+@interface PerformanceViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
@@ -18,5 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 @property (strong,nonatomic) NSArray *urlArray;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end

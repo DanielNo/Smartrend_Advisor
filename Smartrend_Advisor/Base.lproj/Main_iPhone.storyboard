@@ -42,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-0C-gwc">
-                                <rect key="frame" x="0.0" y="98" width="320" height="187"/>
+                                <rect key="frame" x="0.0" y="87" width="320" height="187"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="cju-RG-zoD"/>
                                     <constraint firstAttribute="width" constant="320" id="kRJ-J2-hdf"/>
@@ -96,8 +96,8 @@
                                     <outlet property="delegate" destination="rCr-qj-2gU" id="dHU-yq-vld"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXn-KA-gWc">
-                                <rect key="frame" x="0.0" y="64" width="320" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" ambiguous="YES" text="Performance - S&amp;P500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXn-KA-gWc">
+                                <rect key="frame" x="0.0" y="64" width="320" height="22"/>
                                 <color key="backgroundColor" red="0.25490196079999999" green="0.074509803920000006" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="8js-lk-zMJ"/>
@@ -107,17 +107,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pageControl opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="reZ-2H-frN">
+                                <rect key="frame" x="120" y="262" width="80" height="37"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Cth-S3-IvN" firstAttribute="top" secondItem="dl0-k8-a13" secondAttribute="bottom" priority="750" constant="8" id="0Fa-tu-S4s"/>
                             <constraint firstItem="dl0-k8-a13" firstAttribute="top" secondItem="tdA-0C-gwc" secondAttribute="bottom" constant="1" id="PMl-C7-p9a"/>
+                            <constraint firstItem="reZ-2H-frN" firstAttribute="top" secondItem="tdA-0C-gwc" secondAttribute="bottom" constant="-12" id="VDi-3J-2Xs"/>
                             <constraint firstItem="rXn-KA-gWc" firstAttribute="top" secondItem="mKd-Zl-ibm" secondAttribute="bottom" id="iEQ-2q-Kib"/>
-                            <constraint firstItem="tdA-0C-gwc" firstAttribute="top" secondItem="rXn-KA-gWc" secondAttribute="bottom" id="jdx-Im-DTj"/>
+                            <constraint firstItem="tdA-0C-gwc" firstAttribute="top" secondItem="rXn-KA-gWc" secondAttribute="bottom" constant="1" id="jdx-Im-DTj"/>
+                            <constraint firstItem="dl0-k8-a13" firstAttribute="top" secondItem="reZ-2H-frN" secondAttribute="bottom" constant="8" id="tno-1b-24T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y44-z5-96L"/>
                     <connections>
                         <outlet property="imageCollectionView" destination="tdA-0C-gwc" id="aDK-af-rYd"/>
+                        <outlet property="pageControl" destination="reZ-2H-frN" id="mLa-mm-NXX"/>
                         <outlet property="statsCollectionView" destination="dl0-k8-a13" id="0a1-EA-dnG"/>
                         <outlet property="titleBanner" destination="rXn-KA-gWc" id="j8w-S6-VHp"/>
                     </connections>

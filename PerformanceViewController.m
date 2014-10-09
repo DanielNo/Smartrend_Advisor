@@ -25,7 +25,29 @@
 
 @implementation PerformanceViewController
 
-@synthesize spinner,performanceData,statsCollectionView,imageCollectionView,urlArray,titleBanner;
+@synthesize spinner,performanceData,statsCollectionView,imageCollectionView,urlArray,titleBanner,pageControl;
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    CGFloat pageWidth = self.imageCollectionView.frame.size.width;
+    self.pageControl.currentPage = self.imageCollectionView.contentOffset.x / pageWidth;
+    
+    switch (pageControl.currentPage) {
+        case 0:
+            titleBanner.text = @"Performance - S&P500";
+            break;
+        case 1:
+            titleBanner.text = @"Performance - DJIA";
+            break;
+        case 2:
+            titleBanner.text = @"Performance - NASDAQ";
+            break;
+
+            
+        default:
+            break;
+    }
+    
+    NSLog(@"decelerate");
+}
 
 #pragma mark - collectionview methods
 
@@ -65,20 +87,6 @@
     
     if (collectionView.tag ==1) {
         
-        switch (indexPath.item) {
-            case 0:
-                titleBanner.text = @"Performance - S&P500";
-                break;
-            case 1:
-                titleBanner.text = @"Performance - DJIA";
-                break;
-            case 2:
-                titleBanner.text = @"Performance - NASDAQ";
-                break;
-                
-            default:
-                break;
-        }
         
         
         
@@ -105,7 +113,6 @@
     [cell.label setAdjustsFontSizeToFitWidth:YES];
         cell.backgroundColor = [UIColor colorWithRed:229/255.0f green:229.0/255.0f blue:239/255.0f alpha:1.0];
     
-    
     switch (indexPath.item) {
         case (0):
             cell.label.text = @"";
@@ -120,7 +127,9 @@
             cell.label.text = @"NASDAQ";
             break;
         case (4):
+            [cell alignLeft];
             cell.label.text = @"DAY";
+            [cell.label setTextAlignment:NSTextAlignmentLeft];
             break;
         case (5):
             cell.label.text = [[[performanceData objectAtIndex:0]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
@@ -134,6 +143,7 @@
             break;
         case (8):
             cell.label.text = @"WEEK";
+            [cell.label setTextAlignment:NSTextAlignmentLeft];
             break;
         case (9):
             cell.label.text = [[[performanceData objectAtIndex:1]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
@@ -146,6 +156,7 @@
             break;
         case (12):
             cell.label.text = @"MONTH";
+            [cell.label setTextAlignment:NSTextAlignmentLeft];
             break;
         case (13):
             cell.label.text = [[[performanceData objectAtIndex:2]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
@@ -158,6 +169,7 @@
             break;
         case (16):
             cell.label.text = @"YTD";
+            [cell.label setTextAlignment:NSTextAlignmentLeft];
             break;
         case (17):
             cell.label.text = [[[performanceData objectAtIndex:3]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
@@ -274,6 +286,7 @@
 }
 
 -(void)setupUI{
+    imageCollectionView.delegate = self;
     placeholder = [UIImage imageNamed:@"placeholder"];
 
     NSURL *sp500 = [[NSURL alloc]initWithString:@"http://images.comtex.com/finovus/charts/sp50.png"];

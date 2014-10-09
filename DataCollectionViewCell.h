@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
+-(void)alignLeft;
 
 @end

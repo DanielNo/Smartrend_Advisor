@@ -21,7 +21,7 @@
     CGRect itemSize;
     UIImage *buyIMG;
     UIImage *shortIMG;
-    
+    UIColor *green;
 }
 
 @end
@@ -80,7 +80,7 @@
     NSString *val = [pctGain stringValue];
     if ([tradeType compare:@"1"]==NSOrderedSame && [pctGain doubleValue] >0) {
         [infoVC greenText];
-        [popoverVC.contentView.titleLabel setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+        [popoverVC.contentView.titleLabel setTextColor:green];
     }
     else if([tradeType compare:@"1"]==NSOrderedSame  && [pctGain doubleValue] <0){
         [infoVC redText];
@@ -148,7 +148,7 @@
     }
     NSNumber *pctGain = [posDict objectForKey:@"pct_gain"];
     if ( [pctGain doubleValue] >=0) {
-        [cell.name setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+        [cell.name setTextColor:green];
     }
     else if([pctGain doubleValue] <0){
         [cell.name setTextColor:[UIColor redColor]];
@@ -323,6 +323,7 @@
 
 -(void)setupUI{
 
+    green = [UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0];
     
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];

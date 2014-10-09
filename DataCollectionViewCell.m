@@ -11,4 +11,13 @@
 @implementation DataCollectionViewCell
 @synthesize label;
 
+
+-(void)awakeFromNib{
+    [self.label sizeToFit];
+}
+
+-(void)alignLeft{
+    self.label.textAlignment = NSTextAlignmentLeft;
+}
+
 @end
