@@ -12,10 +12,7 @@
     
 }
 
-
-
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 

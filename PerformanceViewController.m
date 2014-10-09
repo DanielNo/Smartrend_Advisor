@@ -109,7 +109,7 @@
  
     DataCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"dataCell" forIndexPath:indexPath];
     cell.layer.borderColor = [UIColor blackColor].CGColor;
-    cell.layer.borderWidth = 1.0f;
+    cell.layer.borderWidth = 1.2f;
     [cell.label setAdjustsFontSizeToFitWidth:YES];
         cell.backgroundColor = [UIColor colorWithRed:229/255.0f green:229.0/255.0f blue:239/255.0f alpha:1.0];
     
@@ -321,9 +321,8 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     int height = (self.statsCollectionView.frame.size.height)/5;
-    int width = self.statsCollectionView.frame.size.width/4;
-    NSLog(@"height %i",height);
-    NSLog(@"width %i",width);
+    double width = self.statsCollectionView.frame.size.width/4;
+
     CGSize size = CGSizeMake(width, height);
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:size];

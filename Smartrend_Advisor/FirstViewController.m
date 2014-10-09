@@ -95,23 +95,7 @@
         [infoVC.contentField1.tradeImage setImage:[UIImage imageNamed:@"symbol_short"]];
         [infoVC.contentField1.stockTicker setText:@"(Short)"];
     }
-    
-    
-    
-    /*
-    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-    attachment.image = [UIImage imageNamed:@"symbol_buy"];
-    
-    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
-    
-    NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:@"yo "];
-    [myString appendAttributedString:attachmentString];
-    
-    infoVC.contentField1.attributedText = myString;
-    */
-    
-    
-    
+
     
     
     
