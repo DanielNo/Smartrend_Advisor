@@ -29,6 +29,9 @@
 @implementation FirstViewController
 @synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC,settingsBtn,navBar;
 
+-(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
+    NSLog(@"popover dismissed");
+}
 
 #pragma mark - collection view methods
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -255,6 +258,7 @@
 
 -(void)settingsBtnPressed:(id)sender{
     MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    controller.delegate = self;
     
     FPPopoverController *settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
     
@@ -272,9 +276,13 @@
     settingsPopover.arrowDirection = FPPopoverNoArrow;
     settingsPopover.border = YES;
     
+    
     UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, 55 ,0 ,0 )];
     [layoutView setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:layoutView];
+    
+    
+    
     [settingsPopover presentPopoverFromView:layoutView];
     
     
@@ -347,6 +355,7 @@
     
     refreshControl = [[UIRefreshControl alloc] init];
     //[refreshControl setAlpha:0];
+    
     [refreshControl addTarget:self action:@selector(refreshCollectionView)
              forControlEvents:UIControlEventValueChanged];
     [settingsBtn addTarget:self action:@selector(settingsBtnPressed:) forControlEvents:UIControlEventTouchUpInside];

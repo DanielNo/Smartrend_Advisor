@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DismissPopoverDelegate <NSObject>
+
+@required;
+-(void)pressed;
+
+
+@end
+
 @interface MenuTableViewController : UITableViewController
+
+
+@property(nonatomic,assign)id<DismissPopoverDelegate>delegate;
 
 @end

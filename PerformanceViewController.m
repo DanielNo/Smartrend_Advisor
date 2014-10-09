@@ -25,7 +25,7 @@
 
 @implementation PerformanceViewController
 
-@synthesize spinner,performanceData,statsCollectionView,imageCollectionView,urlArray;
+@synthesize spinner,performanceData,statsCollectionView,imageCollectionView,urlArray,titleBanner;
 
 #pragma mark - collectionview methods
 
@@ -62,7 +62,27 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     if (collectionView.tag ==1) {
+        
+        switch (indexPath.item) {
+            case 0:
+                titleBanner.text = @"Performance - S&P500";
+                break;
+            case 1:
+                titleBanner.text = @"Performance - DJIA";
+                break;
+            case 2:
+                titleBanner.text = @"Performance - NASDAQ";
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+        
+        
         ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCell" forIndexPath:indexPath];
         //cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
         cell.imageView.contentMode = UIViewContentModeScaleToFill;
@@ -83,6 +103,7 @@
     cell.layer.borderColor = [UIColor blackColor].CGColor;
     cell.layer.borderWidth = 1.0f;
     [cell.label setAdjustsFontSizeToFitWidth:YES];
+        cell.backgroundColor = [UIColor colorWithRed:229/255.0f green:229.0/255.0f blue:239/255.0f alpha:1.0];
     
     
     switch (indexPath.item) {
@@ -186,7 +207,7 @@
 
 -(void)performanceStats{
     [manager GET:@"finovus_performance_stats" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        //NSLog(@"performance stats: %@",responseObject);
+        NSLog(@"performance stats: %@",responseObject);
         self.performanceData = responseObject;
     
         

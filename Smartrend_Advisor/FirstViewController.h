@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuTableViewController.h"
+#import "FPPopoverController.h"
 
 @class InfoViewController,FPPopoverController,CustomNavBar;
 
-@interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
+@interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
 
 
 

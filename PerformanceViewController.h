@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong,nonatomic) NSArray *performanceData;
 @property (weak, nonatomic) IBOutlet UICollectionView *statsCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *titleBanner;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 @property (strong,nonatomic) NSArray *urlArray;
