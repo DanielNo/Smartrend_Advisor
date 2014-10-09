@@ -155,7 +155,7 @@
 
 
 -(void)greenText{
-    [contentField5 setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+    [contentField5 setTextColor:[UIColor colorWithRed:77/255.0f green:184/255.0f blue:72/255.0f alpha:1.0]];
 }
 
 -(void)redText{

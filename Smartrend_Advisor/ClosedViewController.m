@@ -22,6 +22,7 @@ AFHTTPRequestOperationManager *manager;
     UIImage *sellIMG;
     UIImage *coverIMG;
     UIColor *cellColor;
+    UIColor *green;
 }
 @end
 
@@ -78,8 +79,8 @@ AFHTTPRequestOperationManager *manager;
     
     
     if ([pctGain doubleValue] >=0.0) {
-        [popoverVC.contentView.titleLabel setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
-        [infoVC.contentField6 setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+        [popoverVC.contentView.titleLabel setTextColor:green];
+        [infoVC.contentField6 setTextColor:green];
     }
     else{
      [popoverVC.contentView.titleLabel setTextColor:[UIColor redColor]];
@@ -127,7 +128,7 @@ AFHTTPRequestOperationManager *manager;
     
     if ([pctGain doubleValue] >=0.0) {
        
-        [cell.name setTextColor:[UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0]];
+        [cell.name setTextColor:green];
 
     }
     else
@@ -258,6 +259,7 @@ AFHTTPRequestOperationManager *manager;
 }
 
 -(void)setupUI{
+    green = [UIColor colorWithRed:77/255.0f green:184/255.0f blue:72/255.0f alpha:1.0];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];

@@ -41,8 +41,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-0C-gwc">
-                                <rect key="frame" x="0.0" y="87" width="320" height="187"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tdA-0C-gwc">
+                                <rect key="frame" x="0.0" y="87" width="320" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="cju-RG-zoD"/>
                                     <constraint firstAttribute="width" constant="320" id="kRJ-J2-hdf"/>
@@ -73,7 +73,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="43N-Iz-OEZ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="500" constant="50" id="azd-U1-7ns"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="HXl-h7-Vod"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cN1-jQ-8LF">
                                     <size key="itemSize" width="72" height="26"/>
@@ -107,18 +107,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="reZ-2H-frN">
-                                <rect key="frame" x="120" y="262" width="80" height="37"/>
-                                <color key="currentPageIndicatorTintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="reZ-2H-frN">
+                                <rect key="frame" x="120" y="293" width="80" height="37"/>
+                                <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Cth-S3-IvN" firstAttribute="top" secondItem="dl0-k8-a13" secondAttribute="bottom" priority="750" constant="8" id="0Fa-tu-S4s"/>
-                            <constraint firstItem="dl0-k8-a13" firstAttribute="top" secondItem="tdA-0C-gwc" secondAttribute="bottom" constant="1" id="PMl-C7-p9a"/>
-                            <constraint firstItem="reZ-2H-frN" firstAttribute="top" secondItem="tdA-0C-gwc" secondAttribute="bottom" constant="-12" id="VDi-3J-2Xs"/>
+                            <constraint firstItem="Cth-S3-IvN" firstAttribute="top" secondItem="dl0-k8-a13" secondAttribute="bottom" priority="750" constant="-1" id="0Fa-tu-S4s"/>
+                            <constraint firstItem="dl0-k8-a13" firstAttribute="top" secondItem="reZ-2H-frN" secondAttribute="bottom" constant="-15" id="Ar6-cE-CHK"/>
                             <constraint firstItem="rXn-KA-gWc" firstAttribute="top" secondItem="mKd-Zl-ibm" secondAttribute="bottom" id="iEQ-2q-Kib"/>
                             <constraint firstItem="tdA-0C-gwc" firstAttribute="top" secondItem="rXn-KA-gWc" secondAttribute="bottom" constant="1" id="jdx-Im-DTj"/>
-                            <constraint firstItem="dl0-k8-a13" firstAttribute="top" secondItem="reZ-2H-frN" secondAttribute="bottom" constant="8" id="tno-1b-24T"/>
+                            <constraint firstItem="reZ-2H-frN" firstAttribute="top" secondItem="tdA-0C-gwc" secondAttribute="bottom" constant="-14" id="u2s-4F-AIv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y44-z5-96L"/>
