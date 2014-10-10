@@ -16,8 +16,18 @@
     [self.label sizeToFit];
 }
 
--(void)alignLeft{
-    self.label.textAlignment = NSTextAlignmentLeft;
+
+-(void)setTitleCell:(NSTextAlignment)alignment{
+    [self.label setTextColor:[UIColor whiteColor]];
+    [self setBackgroundColor:[UIColor colorWithRed:64/255.0f green:19/255.0f blue:140/255.0f alpha:1.0]];
+    self.label.textAlignment = alignment;
+}
+
+-(void)setDataCell{
+    
+    [self.label setTextColor:[UIColor blackColor]];
+    [self setBackgroundColor:[UIColor colorWithRed:229/255.0f green:229.0/255.0f blue:239/255.0f alpha:1.0]];
+    self.label.textAlignment = NSTextAlignmentRight;
 }
 
 @end

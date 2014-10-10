@@ -18,6 +18,7 @@
     CGRect itemSize;
     CGRect itemSize2;
     UIImage *placeholder;
+
 }
 
 
@@ -46,7 +47,6 @@
             break;
     }
     
-    NSLog(@"decelerate");
 }
 
 #pragma mark - collectionview methods
@@ -104,80 +104,101 @@
         return cell;
     }
     else if (collectionView.tag ==2){
-        
+        [collectionView setBackgroundColor:[UIColor blackColor]];
     
  
     DataCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"dataCell" forIndexPath:indexPath];
     cell.layer.borderColor = [UIColor blackColor].CGColor;
     cell.layer.borderWidth = 1.2f;
     [cell.label setAdjustsFontSizeToFitWidth:YES];
-        cell.backgroundColor = [UIColor colorWithRed:229/255.0f green:229.0/255.0f blue:239/255.0f alpha:1.0];
+
     
     switch (indexPath.item) {
         case (0):
             cell.label.text = @"";
+            [cell setBackgroundColor:[UIColor blackColor]];
             break;
         case (1):
-            cell.label.text = @"STAD";
+            [cell setTitleCell:NSTextAlignmentRight];
+            cell.label.text = @"ADVISOR";
+
             break;
         case (2):
+           [cell setTitleCell:NSTextAlignmentRight];
             cell.label.text = @"S&P500";
+
             break;
         case (3):
+            [cell setTitleCell:NSTextAlignmentRight];
             cell.label.text = @"NASDAQ";
+
             break;
         case (4):
-            [cell alignLeft];
+            [cell setTitleCell:NSTextAlignmentLeft];
             cell.label.text = @"DAY";
-            [cell.label setTextAlignment:NSTextAlignmentLeft];
             break;
         case (5):
             cell.label.text = [[[performanceData objectAtIndex:0]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
+            [cell setDataCell];
             break;
         case (6):
-            
+            [cell setDataCell];
             cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
             break;
         case (7):
+            [cell setDataCell];
             cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
             break;
         case (8):
+            [cell setTitleCell:NSTextAlignmentLeft];
             cell.label.text = @"WEEK";
-            [cell.label setTextAlignment:NSTextAlignmentLeft];
+
             break;
         case (9):
+            [cell setDataCell];
             cell.label.text = [[[performanceData objectAtIndex:1]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
             break;
         case (10):
+            [cell setDataCell];
             cell.label.text = [[[[performanceData objectAtIndex:1]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
             break;
         case (11):
+            [cell setDataCell];
             cell.label.text = [[[[performanceData objectAtIndex:1]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
             break;
         case (12):
+            [cell setTitleCell:NSTextAlignmentLeft];
             cell.label.text = @"MONTH";
-            [cell.label setTextAlignment:NSTextAlignmentLeft];
+
+            
             break;
         case (13):
+            [cell setDataCell];
             cell.label.text = [[[performanceData objectAtIndex:2]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
             break;
         case (14):
+            [cell setDataCell];
             cell.label.text = [[[[performanceData objectAtIndex:2]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
             break;
         case (15):
+            [cell setDataCell];
             cell.label.text = [[[[performanceData objectAtIndex:2]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
             break;
         case (16):
+            [cell setTitleCell:NSTextAlignmentLeft];
             cell.label.text = @"YTD";
-            [cell.label setTextAlignment:NSTextAlignmentLeft];
+
             break;
         case (17):
+            [cell setDataCell];
             cell.label.text = [[[performanceData objectAtIndex:3]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
             break;
         case (18):
+            [cell setDataCell];
             cell.label.text = [[[[performanceData objectAtIndex:3]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
             break;
         case (19):
+            [cell setDataCell];
             cell.label.text = [[[[performanceData objectAtIndex:3]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
             break;
             
@@ -219,7 +240,7 @@
 
 -(void)performanceStats{
     [manager GET:@"finovus_performance_stats" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        NSLog(@"performance stats: %@",responseObject);
+        //NSLog(@"performance stats: %@",responseObject);
         self.performanceData = responseObject;
     
         
@@ -311,7 +332,6 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:@"reachable" object:nil];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     
     
 

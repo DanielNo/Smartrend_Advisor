@@ -12,6 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
--(void)alignLeft;
+
+
+-(void)setTitleCell:(NSTextAlignment)alignment;
+-(void)setDataCell;
 
 @end

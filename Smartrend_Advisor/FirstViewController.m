@@ -22,12 +22,14 @@
     UIImage *buyIMG;
     UIImage *shortIMG;
     UIColor *green;
+    UILabel *noOpenPositions;
 }
+@property (weak, nonatomic) IBOutlet UILabel *openPositionsLbl;
 
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC,settingsBtn,navBar;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC,settingsBtn,navBar,openPositionsLbl;
 
 -(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
     NSLog(@"popover dismissed");
@@ -215,6 +217,16 @@
     }failure:^(AFHTTPRequestOperation *operation, NSError *error){
         [error localizedDescription];
         NSLog(@"error : %@",error);
+        
+        //NSInteger x = error.code;
+        //NSLog(@"error code %lu",(long)x);
+        
+        if (error.code == 18446744073709550605) {
+            NSLog(@"internal server error from api");
+            [noOpenPositions setAlpha:1.0];
+        }
+        
+        
         [spinner stopAnimating];
         
     }];
@@ -359,6 +371,15 @@
     
     [infoVC setFields:@" Trade Type: " :@" Entry Price:" :@" Last Price: " :@" Open Date: " :@" Return %: "];
     [popoverVC setShadowsHidden:YES];
+    CGRect openPosRect;
+    openPosRect.size = CGSizeMake(self.view.frame.size.width, 100);
+    openPosRect.origin = CGPointMake(openPositionsLbl.frame.origin.x,openPositionsLbl.frame.origin.y );
+    noOpenPositions = [[UILabel alloc]initWithFrame:openPosRect];
+    [noOpenPositions setText:@"No Open Positions Available"];
+    [noOpenPositions setTextColor:[UIColor whiteColor]];
+    [noOpenPositions setTextAlignment:NSTextAlignmentCenter];
+    [noOpenPositions setAlpha:0.0];
+    [self.view addSubview:noOpenPositions];
 }
 
 - (void)didReceiveMemoryWarning

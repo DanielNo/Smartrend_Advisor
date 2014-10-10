@@ -16,7 +16,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="none" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="TOv-UB-SYo">
                         <rect key="frame" x="8" y="0.0" width="58" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -27,7 +27,7 @@
                 <constraint firstItem="TOv-UB-SYo" firstAttribute="leading" secondItem="t5n-Mh-Or8" secondAttribute="leading" constant="4" id="9lc-e5-67m"/>
                 <constraint firstAttribute="centerX" secondItem="TOv-UB-SYo" secondAttribute="centerX" id="Jky-ZP-gda"/>
                 <constraint firstAttribute="centerY" secondItem="TOv-UB-SYo" secondAttribute="centerY" id="SSe-k0-SM2"/>
-                <constraint firstAttribute="trailing" secondItem="TOv-UB-SYo" secondAttribute="trailing" id="X3x-hP-STU"/>
+                <constraint firstAttribute="trailing" secondItem="TOv-UB-SYo" secondAttribute="trailing" constant="4" id="X3x-hP-STU"/>
             </constraints>
             <size key="customSize" width="66" height="30"/>
             <variation key="default">
