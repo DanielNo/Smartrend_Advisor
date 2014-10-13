@@ -14,6 +14,10 @@
 
 @implementation MenuTableViewController
 
+-(void)pressed{
+    NSLog(@"delegate working");
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];

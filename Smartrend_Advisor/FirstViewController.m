@@ -252,11 +252,13 @@
     [refreshControl endRefreshing];
 }
 
+
+
 -(void)settingsBtnPressed:(id)sender{
     MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
     controller.delegate = self;
     
-    FPPopoverController *settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
+    FPPopoverController *settingsPopover = [[FPPopoverController alloc] initWithViewController:controller delegate:controller.delegate];
     
     //popover.arrowDirection = FPPopoverArrowDirectionAny;
 
