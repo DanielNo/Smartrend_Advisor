@@ -7,18 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FPPopoverController.h"
 
-@protocol DismissPopoverDelegate <NSObject>
-
-@required;
--(void)pressed;
-
-
-@end
-
+@class FirstViewController;
 @interface MenuTableViewController : UITableViewController
 
 
-@property(nonatomic,assign)id<DismissPopoverDelegate>delegate;
+@property(nonatomic,assign)id delegate;
 
 @end

@@ -23,6 +23,7 @@
 - (void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController;
 - (void)presentedNewPopoverController:(FPPopoverController *)newPopoverController 
           shouldDismissVisiblePopover:(FPPopoverController*)visiblePopoverController;
+
 @end
 
 extern int popoverHeight;

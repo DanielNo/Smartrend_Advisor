@@ -14,6 +14,43 @@
 
 @implementation CustomNavController
 
+/*
+
+-(void)settingsBtnPressed:(id)sender{
+    MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    controller.delegate = self;
+    
+    settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
+    
+    //popover.arrowDirection = FPPopoverArrowDirectionAny;
+    
+    settingsPopover.title = nil;
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        settingsPopover.contentSize = CGSizeMake(300, 500);
+    }
+    else{
+        settingsPopover.contentSize = CGSizeMake(150, 218);
+    }
+    settingsPopover.arrowDirection = FPPopoverNoArrow;
+    settingsPopover.border = YES;
+    
+    
+    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, 55 ,0 ,0 )];
+    [layoutView setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:layoutView];
+    
+    
+    
+    [settingsPopover presentPopoverFromView:layoutView];
+    
+    
+}
+
+*/
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,6 +69,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];
+    
+    self.navigationItem.leftBarButtonItem = rightButton;
+
+    [self.navigationItem setRightBarButtonItem:rightButton];
 
 
     // Do any additional setup after loading the view.

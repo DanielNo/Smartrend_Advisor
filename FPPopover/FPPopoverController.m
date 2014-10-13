@@ -107,7 +107,6 @@ double contentViewHeight;
 }
 
 
-
 -(id)initWithViewController:(UIViewController*)viewController
 				   delegate:(id<FPPopoverControllerDelegate>)delegate
 {
@@ -142,11 +141,11 @@ double contentViewHeight;
         CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
         CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
         
-        NSLog(@"screen width : %f",screenWidth);
-        NSLog(@"screen height : %f",screenHeight);
+        //NSLog(@"screen width : %f",screenWidth);
+        //NSLog(@"screen height : %f",screenHeight);
         
         self.contentSize = CGSizeMake(screenWidth,screenHeight/2 ); //default size 240
-        NSLog(@"content size : %f ",_contentSize.height);
+        //NSLog(@"content size : %f ",_contentSize.height);
         
         contentViewHeight = _contentView.frame.size.height;
         

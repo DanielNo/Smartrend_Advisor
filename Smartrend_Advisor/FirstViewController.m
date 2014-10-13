@@ -23,17 +23,20 @@
     UIImage *shortIMG;
     UIColor *green;
     UILabel *noOpenPositions;
+    FPPopoverController *settingsPopover;
 }
 @property (weak, nonatomic) IBOutlet UILabel *openPositionsLbl;
 
 @end
 
 @implementation FirstViewController
-@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dropMenu,dailyReturn,infoVC,popoverVC,settingsBtn,navBar,openPositionsLbl;
+@synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dailyReturn,infoVC,popoverVC,openPositionsLbl;
 
 -(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
     NSLog(@"popover dismissed");
 }
+
+
 
 #pragma mark - collection view methods
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -203,6 +206,7 @@
 }
 
 -(void)openPositions{
+    [noOpenPositions setAlpha:0.0];
     [spinner startAnimating];
     
     [manager GET:@"finovus_open_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -252,13 +256,37 @@
     [refreshControl endRefreshing];
 }
 
-
+-(void)selectedTableRow:(NSUInteger)rowNum
+{
+    NSLog(@"selected row : %d",rowNum);
+    switch (rowNum) {
+        case 0: //About
+            
+            break;
+        case 1: //Legend
+            
+            break;
+        case 2: //Tutorial
+            
+            break;
+        case 3: //Settings
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    
+    [settingsPopover dismissPopoverAnimated:YES];
+}
 
 -(void)settingsBtnPressed:(id)sender{
     MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
     controller.delegate = self;
     
-    FPPopoverController *settingsPopover = [[FPPopoverController alloc] initWithViewController:controller delegate:controller.delegate];
+    settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
     
     //popover.arrowDirection = FPPopoverArrowDirectionAny;
 
@@ -319,6 +347,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+
+
 -(void)setupUI{
 
     green = [UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0];
@@ -338,8 +368,11 @@
     
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];
-    
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    
+    
+    
     
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
@@ -357,7 +390,7 @@
     
     [refreshControl addTarget:self action:@selector(refreshCollectionView)
              forControlEvents:UIControlEventValueChanged];
-    [settingsBtn addTarget:self action:@selector(settingsBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+
     
     
     [self.collectionView addSubview:refreshControl];

@@ -8,15 +8,21 @@
 
 #import "MenuTableViewController.h"
 
+
+#import "FirstViewController.h"
+#import "PerformanceViewController.h"
+#import "ClosedViewController.h"
+#import "AddOpsViewController.h"
+#import "MarketCommentaryViewController.h"
+
+
 @interface MenuTableViewController ()
 
 @end
 
 @implementation MenuTableViewController
 
--(void)pressed{
-    NSLog(@"delegate working");
-}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,6 +37,7 @@
 {
     [super viewDidLoad];
     [self.tableView setScrollEnabled:NO];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -61,14 +68,20 @@
     return 4;
 }
 
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        NSLog(@"btn pressed");
         
-    }
-    
-    
+        if([self.delegate respondsToSelector:@selector(selectedTableRow:)])
+        {
+            NSLog(@"responds");
+            [self.delegate selectedTableRow:indexPath.row];
+            
+        }
+
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
