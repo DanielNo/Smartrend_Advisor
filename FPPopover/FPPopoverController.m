@@ -198,6 +198,13 @@ double CONTENTVIEW_HEIGHT;
     _contentSize = CGSizeMake(screenWidth, screenHeight/2);
 }
 
+-(void)adjustLegendContentSize{
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    _contentSize = CGSizeMake(screenWidth/2, screenHeight/3);
+    
+}
+
 
 -(void)setTint:(FPPopoverTint)tint
 {

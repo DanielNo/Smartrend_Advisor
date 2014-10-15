@@ -87,5 +87,6 @@ typedef void (^FPPopoverCompletion)();
 -(void)adjustClosedContentSize;
 -(void)adjustAddOpsContentSize;
 -(void)adjustAboutContentSize;
+-(void)adjustLegendContentSize;
 
 @end

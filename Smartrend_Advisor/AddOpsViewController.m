@@ -15,6 +15,7 @@
 #import "NSString+Formatting.h"
 #import "TradeTypeView.h"
 #import "UIViewController+Init.h"
+#import "LegendViewController.h"
 
 @interface AddOpsViewController (){
     AFHTTPRequestOperationManager *manager;

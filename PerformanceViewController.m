@@ -13,6 +13,7 @@
 #import "ImageCollectionViewCell.h"
 #import "UIViewController+Init.h"
 #import "MenuTableViewController.h"
+#import "LegendViewController.h"
 
 
 @interface PerformanceViewController (){

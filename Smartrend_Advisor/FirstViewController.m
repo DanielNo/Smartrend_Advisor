@@ -16,6 +16,8 @@
 #import "TradeTypeView.h"
 #import "UIViewController+Init.h"
 #import "AboutViewController.h"
+#import "LegendViewController.h"
+
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -258,7 +260,7 @@
 
 -(void)dismissedPopup{
     NSLog(@"dismissed popup");
-    [self.view setAlpha:1.0];
+    //[self.view setAlpha:1.0];
 }
 
 
@@ -277,6 +279,15 @@
     [aboutPopover setShadowsHidden:YES];
     [aboutPopover adjustAboutContentSize];
     
+    LegendViewController *legendVC = [LegendViewController new];
+    FPPopoverController *legendPopover = [[FPPopoverController alloc]initWithViewController:legendVC];
+    legendPopover.delegate = self;
+    legendPopover.contentView.title = @"Legend";
+    [legendPopover setArrowDirection:FPPopoverNoArrow];
+    [legendPopover setShadowsHidden:YES];
+    [legendPopover adjustLegendContentSize];
+    
+    
     
     NSLog(@"selected row : %d",rowNum);
     switch (rowNum) {
@@ -285,8 +296,9 @@
             [self.view setAlpha:0.5];
             break;
         case 1: //Legend
-            [self.navigationController pushViewController:[UIViewController new] animated:NO];
-            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"hi" style:UIBarButtonItemStyleBordered target:nil action:nil];
+            [legendPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
+            [self.view setAlpha:0.5];
+            
             break;
         case 2: //Tutorial
             
