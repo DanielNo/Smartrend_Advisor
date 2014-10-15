@@ -37,10 +37,10 @@
     //[self.view setFrame:];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     CGSize viewSize = self.view.frame.size;
-    CGFloat height = popoverHeight; // get value of contentview
+    CGFloat height = POPOVER_HEIGHT; // get value of contentview
     CGFloat width = (viewSize.width-20)/2;
     
-    NSLog(@"popover height %i",popoverHeight);
+    NSLog(@"popover height %i",POPOVER_HEIGHT);
     CGFloat xCenter = (self.view.frame.size.width-20)/2;
     
     

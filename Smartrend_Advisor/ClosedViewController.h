@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FPPopoverController.h"
 
 @class InfoViewController,FPPopoverController;
 
-@interface ClosedViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout>
+@interface ClosedViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong,nonatomic) NSArray *closedData;

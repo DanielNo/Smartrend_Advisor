@@ -9,8 +9,8 @@
 
 #import "FPPopoverController.h"
 
-int popoverHeight;
-double contentViewHeight;
+int POPOVER_HEIGHT;
+double CONTENTVIEW_HEIGHT;
 //ivars
 @interface FPPopoverController()
 {
@@ -147,9 +147,9 @@ double contentViewHeight;
         self.contentSize = CGSizeMake(screenWidth,screenHeight/2 ); //default size 240
         //NSLog(@"content size : %f ",_contentSize.height);
         
-        contentViewHeight = _contentView.frame.size.height;
+        CONTENTVIEW_HEIGHT = _contentView.frame.size.height;
         
-        popoverHeight = screenHeight/12.1;
+        POPOVER_HEIGHT = screenHeight/12.1;
 
         _contentView = [[FPPopoverView alloc] initWithFrame:CGRectMake(0, 0, 
                                               self.contentSize.width, self.contentSize.height)];
@@ -181,15 +181,21 @@ double contentViewHeight;
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
     
-    _contentSize = CGSizeMake(screenWidth,screenHeight/2 + (double)popoverHeight );
+    _contentSize = CGSizeMake(screenWidth,screenHeight/2 + (double)POPOVER_HEIGHT );
 }
 
 -(void)adjustAddOpsContentSize{
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
     
-    _contentSize = CGSizeMake(screenWidth,screenHeight/2 - (double)popoverHeight*2 );
+    _contentSize = CGSizeMake(screenWidth,screenHeight/2 - (double)POPOVER_HEIGHT*2 );
     
+}
+
+-(void)adjustAboutContentSize{
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    _contentSize = CGSizeMake(screenWidth, screenHeight/2);
 }
 
 
@@ -290,6 +296,7 @@ double contentViewHeight;
     
     [self setupView];
     self.view.alpha = 0.0;
+    
     [UIView animateWithDuration:0.2 animations:^{
         
         self.view.alpha = self.alpha;

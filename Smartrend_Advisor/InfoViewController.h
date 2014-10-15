@@ -7,18 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FPPopoverController.h"
 @class TradeTypeView;
-@interface InfoViewController : UIViewController
+@interface InfoViewController : UIViewController <FPPopoverControllerDelegate>
 
-/*
-@property (strong,nonatomic) UILabel *stockSymbol;
-@property (strong,nonatomic) UILabel *stockName;
-@property (strong,nonatomic) UILabel *entryPrice;
-@property (strong,nonatomic) UILabel *lastPrice;
-@property (strong,nonatomic) UILabel *openDate;
-@property (strong,nonatomic) UILabel *returnPercent;
-*/
 
+@property(nonatomic,assign)id delegate;
 @property (strong,nonatomic) TradeTypeView *contentField1;
 @property (strong,nonatomic) UILabel *contentField2;
 @property (strong,nonatomic) UILabel *contentField3;

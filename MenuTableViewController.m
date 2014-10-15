@@ -37,6 +37,7 @@
 {
     [super viewDidLoad];
     [self.tableView setScrollEnabled:NO];
+    [self.tableView setBackgroundColor:[UIColor blackColor]];
     
     
     // Uncomment the following line to preserve selection between presentations.

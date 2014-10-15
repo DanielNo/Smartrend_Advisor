@@ -14,6 +14,8 @@
 #import "MenuTableViewController.h"
 #import "NSString+Formatting.h"
 #import "TradeTypeView.h"
+#import "UIViewController+Init.h"
+#import "AboutViewController.h"
 
 @interface FirstViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -34,6 +36,12 @@
 
 -(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
     NSLog(@"popover dismissed");
+    [self.view setAlpha:1.0];
+}
+
+-(void)presentedNewPopoverController:(FPPopoverController *)newPopoverController shouldDismissVisiblePopover:(FPPopoverController *)visiblePopoverController{
+    [self.view setAlpha:0.5];
+    NSLog(@"delegate method");
 }
 
 
@@ -170,9 +178,6 @@
 
 #pragma mark - class methods
 
--(void)dismissedPopup{
-    [self.view setAlpha:1.0];
-}
 
 -(void)performanceStats{
     [spinner startAnimating];
@@ -240,31 +245,48 @@
 }
 
 -(void)refreshCollectionView{
-    
-    NSLog(@"refresh1");
     if([self isViewLoaded] && self.view.window){
         [self performanceStats];
         [self openPositions];
-        NSLog(@"active1");
     }
     else{
-        
-        NSLog(@"inactive1");
     }
 
 
     [refreshControl endRefreshing];
 }
 
+-(void)dismissedPopup{
+    NSLog(@"dismissed popup");
+    [self.view setAlpha:1.0];
+}
+
+
 -(void)selectedTableRow:(NSUInteger)rowNum
 {
+    AboutViewController *aboutVC = [AboutViewController new];
+    FPPopoverController *aboutPopover = [[FPPopoverController alloc]initWithViewController:aboutVC];
+  
+    
+    
+    aboutPopover.delegate = self;
+    
+    
+    aboutPopover.contentView.title = @"Smartrend Advisor";
+    [aboutPopover setArrowDirection:FPPopoverNoArrow];
+    [aboutPopover setShadowsHidden:YES];
+    [aboutPopover adjustAboutContentSize];
+    
+    
     NSLog(@"selected row : %d",rowNum);
     switch (rowNum) {
         case 0: //About
-            
+            [aboutPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
+            [self.view setAlpha:0.5];
             break;
         case 1: //Legend
-            
+            [self.navigationController pushViewController:[UIViewController new] animated:NO];
+            self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"hi" style:UIBarButtonItemStyleBordered target:nil action:nil];
             break;
         case 2: //Tutorial
             
@@ -307,8 +329,7 @@
     [layoutView setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:layoutView];
     
-    
-    
+
     [settingsPopover presentPopoverFromView:layoutView];
     
     
@@ -319,12 +340,9 @@
 
 - (void)viewDidLoad
 {
-    
     [self setupUI];
     
     
-    
-
     
     manager = [[AFHTTPRequestOperationManager manager]initWithBaseURL:[NSURL URLWithString:@"http://api.comtex.com/finovus/"]];
     
@@ -349,8 +367,10 @@
 
 
 
+
 -(void)setupUI{
 
+    [self setupNavBar];
     green = [UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0];
     
     
@@ -367,8 +387,7 @@
     
     
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];
-    self.navigationItem.rightBarButtonItem = rightButton;
+
     
     
     
@@ -377,6 +396,7 @@
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
+    popoverVC.delegate = self;
 
     CGFloat borderWidth = 1.0;
     CGColorRef borderColor = [UIColor blackColor].CGColor;

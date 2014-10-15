@@ -26,8 +26,8 @@
 
 @end
 
-extern int popoverHeight;
-extern double contentViewHeight;
+extern int POPOVER_HEIGHT;
+extern double CONTENTVIEW_HEIGHT;
 
 @interface FPPopoverController : UIViewController
 {
@@ -86,5 +86,6 @@ typedef void (^FPPopoverCompletion)();
 
 -(void)adjustClosedContentSize;
 -(void)adjustAddOpsContentSize;
+-(void)adjustAboutContentSize;
 
 @end

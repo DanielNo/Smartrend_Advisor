@@ -7,10 +7,14 @@
 //
 
 #import "MarketCommentaryViewController.h"
+#import "UIViewController+Init.h"
+#import "FPPopoverController.h"
+#import "MenuTableViewController.h"
 
 @interface MarketCommentaryViewController (){
     AFHTTPRequestOperationManager *manager;
     AFNetworkReachabilityManager *networkManager;
+    FPPopoverController *settingsPopover;
 }
 
 @end
@@ -111,8 +115,41 @@
 }
 
 -(void)setupUI{
+    [self setupNavBar];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:@"foreground" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:@"reachable" object:nil];
+    
+}
+
+-(void)settingsBtnPressed:(id)sender{
+    MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    controller.delegate = self;
+    
+    settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
+    settingsPopover.delegate = self;
+    //popover.arrowDirection = FPPopoverArrowDirectionAny;
+    
+    settingsPopover.title = nil;
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        settingsPopover.contentSize = CGSizeMake(300, 500);
+    }
+    else{
+        settingsPopover.contentSize = CGSizeMake(150, 218);
+    }
+    settingsPopover.arrowDirection = FPPopoverNoArrow;
+    settingsPopover.border = YES;
+    
+    
+    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, 55 ,0 ,0 )];
+    [layoutView setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:layoutView];
+    
+    
+    
+    [settingsPopover presentPopoverFromView:layoutView];
+    
     
 }
 

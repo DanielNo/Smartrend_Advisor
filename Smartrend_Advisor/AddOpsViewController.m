@@ -14,6 +14,7 @@
 #import "MenuTableViewController.h"
 #import "NSString+Formatting.h"
 #import "TradeTypeView.h"
+#import "UIViewController+Init.h"
 
 @interface AddOpsViewController (){
     AFHTTPRequestOperationManager *manager;
@@ -21,6 +22,7 @@
     CGRect itemSize;
     UIImage *buyIMG;
     UIImage *sellIMG;
+    FPPopoverController *settingsPopover;
 }
 
 @end
@@ -28,6 +30,15 @@
 @implementation AddOpsViewController
 @synthesize AddOpsData,infoVC,popoverVC,refreshControl,spinner;
 
+-(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
+    NSLog(@"dismissed");
+    [self.view setAlpha:1.0];
+}
+
+-(void)presentedNewPopoverController:(FPPopoverController *)newPopoverController shouldDismissVisiblePopover:(FPPopoverController *)visiblePopoverController{
+    NSLog(@"presented");
+    [self.view setAlpha:0.5];
+}
 
 #pragma mark - Collectionview methods
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -219,7 +230,7 @@
 }
 
 -(void)setupUI{
-    
+    [self setupNavBar];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
@@ -240,6 +251,7 @@
     infoVC = [InfoViewController new];
     popoverVC = [[FPPopoverController alloc]initWithViewController:infoVC];
     [popoverVC setArrowDirection:FPPopoverNoArrow];
+    popoverVC.delegate =self;
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     int width = screenRect.size.width/3;
@@ -251,6 +263,38 @@
     [popoverVC setShadowsHidden:YES];
     [popoverVC adjustAddOpsContentSize];
     
+    
+    
+}
+
+-(void)settingsBtnPressed:(id)sender{
+    MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    controller.delegate = self;
+    
+    settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
+    
+    //popover.arrowDirection = FPPopoverArrowDirectionAny;
+    
+    settingsPopover.title = nil;
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        settingsPopover.contentSize = CGSizeMake(300, 500);
+    }
+    else{
+        settingsPopover.contentSize = CGSizeMake(150, 218);
+    }
+    settingsPopover.arrowDirection = FPPopoverNoArrow;
+    settingsPopover.border = YES;
+    
+    
+    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, 55 ,0 ,0 )];
+    [layoutView setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:layoutView];
+    
+    
+    
+    [settingsPopover presentPopoverFromView:layoutView];
     
     
 }
