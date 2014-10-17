@@ -12,5 +12,5 @@
 -(NSString *)formatStockSymbol;
 -(NSString *)leadingSpaces;
 - (NSString *) removeAllWhitespace;
-
+-(NSString *)formatPrice;
 @end

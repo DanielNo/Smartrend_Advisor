@@ -193,15 +193,45 @@ double CONTENTVIEW_HEIGHT;
 }
 
 -(void)adjustAboutContentSize{
+    /*
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
     _contentSize = CGSizeMake(screenWidth, screenHeight/2);
+    */
+    
+    float w = [[UIScreen mainScreen]bounds].size.width;
+    float h = [[UIScreen mainScreen]bounds].size.height;
+    
+    if (h<=480.0) {
+        NSLog(@"iphone 4");
+        _contentSize = CGSizeMake(w, h/1.9);
+    }
+    else if(h>480.0){
+        
+        NSLog(@"iphone 5 +");
+        _contentSize = CGSizeMake(w,h/2.25);
+    }
+    
+    
+    
+    
 }
 
 -(void)adjustLegendContentSize{
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    _contentSize = CGSizeMake(screenWidth/2, screenHeight/3);
+
+    float w = [[UIScreen mainScreen]bounds].size.width;
+    float h = [[UIScreen mainScreen]bounds].size.height;
+    
+    if (h<=480.0) {
+        NSLog(@"iphone 4");
+        _contentSize = CGSizeMake(w/2, h/2.5);
+    }
+    else if(h>480.0){
+        
+        NSLog(@"iphone 5 +");
+        _contentSize = CGSizeMake(w/2,h/3);
+    }
+
     
 }
 

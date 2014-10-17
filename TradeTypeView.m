@@ -49,7 +49,6 @@
         
         [self addSubview:tradeImage];
         [self addSubview:stockTicker];
-        NSLog(@"tradetypeview init");
     }
     return self;
 }

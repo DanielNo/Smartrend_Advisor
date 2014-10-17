@@ -41,6 +41,8 @@
     
     int labelWidth = 100;
     
+    int spacing = 5;
+    
     UIImage *buyImg = [UIImage imageNamed:@"symbol_buy"];
     UIImage *sellImg = [UIImage imageNamed:@"symbol_sell"];
     UIImage *shortImg = [UIImage imageNamed:@"symbol_short"];
@@ -51,10 +53,10 @@
     CGRect shortImgRect = CGRectMake(0, imageHeight*2, imageWidth,imageHeight );
     CGRect coverImgRect = CGRectMake(0, imageHeight*3, imageWidth,imageHeight );
     
-    CGRect buyLblRect = CGRectMake(imageWidth,0 , labelWidth,imageHeight );
-    CGRect sellLblRect = CGRectMake(imageWidth,imageHeight , labelWidth,imageHeight );
-    CGRect shortLblRect = CGRectMake(imageWidth,imageHeight*2 , labelWidth,imageHeight );
-    CGRect coverLblRect = CGRectMake(imageWidth,imageHeight*3 , labelWidth,imageHeight );
+    CGRect buyLblRect = CGRectMake(imageWidth + spacing,0 , labelWidth,imageHeight );
+    CGRect sellLblRect = CGRectMake(imageWidth + spacing,imageHeight , labelWidth,imageHeight );
+    CGRect shortLblRect = CGRectMake(imageWidth + spacing,imageHeight*2 , labelWidth,imageHeight );
+    CGRect coverLblRect = CGRectMake(imageWidth + spacing,imageHeight*3 , labelWidth,imageHeight );
     
     
     buyLbl = [[UILabel alloc]initWithFrame:buyLblRect];

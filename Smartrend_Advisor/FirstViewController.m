@@ -37,13 +37,16 @@
 @synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dailyReturn,infoVC,popoverVC,openPositionsLbl;
 
 -(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
-    NSLog(@"popover dismissed");
+    NSLog(@"delegate - dismiss popover");
+
     [self.view setAlpha:1.0];
 }
 
 -(void)presentedNewPopoverController:(FPPopoverController *)newPopoverController shouldDismissVisiblePopover:(FPPopoverController *)visiblePopoverController{
-    [self.view setAlpha:0.5];
-    NSLog(@"delegate method");
+
+    
+   // [self.view setAlpha:0.5];
+    NSLog(@"delegate - present new popover");
 }
 
 
@@ -51,11 +54,12 @@
 #pragma mark - collection view methods
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
+    
 }
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSLog(@"items : %lu",[openPositionData count]);
+    //NSLog(@"items : %lu",[openPositionData count]);
     return [openPositionData count];
 }
 
@@ -70,7 +74,7 @@
     NSString *symbol = [posDict objectForKey:@"stock_symbol"];
     //[infoVC.contentField1 setText:@""];
 
-    NSString *entry = [[posDict objectForKey:@"entry_price_display"]leadingSpaces];
+    NSString *entry = [[posDict objectForKey:@"entry_price_display"] leadingSpaces];
     [infoVC.contentField2 setText:entry];
     NSString *last = [[posDict objectForKey:@"last_price_display"]leadingSpaces];
     [infoVC.contentField3 setText:last];
@@ -217,11 +221,11 @@
     [spinner startAnimating];
     
     [manager GET:@"finovus_open_positions" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        NSLog(@"open positions : %@",responseObject);
+        //NSLog(@"open positions : %@",responseObject);
         
 
         self.openPositionData = responseObject;
-        NSLog(@"open positions count %lu",[openPositionData count]);
+        //NSLog(@"open positions count %lu",[openPositionData count]);
         [self.collectionView reloadData];
         [spinner stopAnimating];
 
@@ -259,13 +263,15 @@
 }
 
 -(void)dismissedPopup{
-    NSLog(@"dismissed popup");
-    //[self.view setAlpha:1.0];
+
 }
 
 
 -(void)selectedTableRow:(NSUInteger)rowNum
 {
+    
+      [self.view setAlpha:0.5];
+    
     AboutViewController *aboutVC = [AboutViewController new];
     FPPopoverController *aboutPopover = [[FPPopoverController alloc]initWithViewController:aboutVC];
   
@@ -288,12 +294,12 @@
     [legendPopover adjustLegendContentSize];
     
     
-    
+  
     NSLog(@"selected row : %d",rowNum);
     switch (rowNum) {
         case 0: //About
             [aboutPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
-            [self.view setAlpha:0.5];
+            //[self.view setAlpha:0.5];
             break;
         case 1: //Legend
             [legendPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
@@ -301,6 +307,7 @@
             
             break;
         case 2: //Tutorial
+
             
             break;
         case 3: //Settings
@@ -311,7 +318,7 @@
             break;
     }
     
-    
+    NSLog(@"select table row");
     
     [settingsPopover dismissPopoverAnimated:YES];
 }
@@ -321,6 +328,8 @@
     controller.delegate = self;
     
     settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
+    
+    //settingsPopover.delegate = self;
     
     //popover.arrowDirection = FPPopoverArrowDirectionAny;
 
@@ -352,6 +361,14 @@
 
 - (void)viewDidLoad
 {
+    NSString *deviceType = [UIDevice currentDevice].model;
+    //NSLog(@"DEVICE TYPE %@", deviceType);
+    
+    int w = [[UIScreen mainScreen]bounds].size.width;
+    int h = [[UIScreen mainScreen]bounds].size.height;
+    
+   // NSLog(@"width : %i height : %i",w,h);
+    
     [self setupUI];
     
     

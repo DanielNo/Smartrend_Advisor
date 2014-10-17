@@ -22,6 +22,10 @@
                                                 range:NSMakeRange(0, [self length])];
 }
 
+-(NSString *)formatPrice{
+    return [@"  $ "stringByAppendingString:self];
+}
+
 -(NSString *)leadingSpaces{
     return [@"  " stringByAppendingString:self];
 }

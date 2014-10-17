@@ -39,7 +39,7 @@ AFHTTPRequestOperationManager *manager;
 
 -(void)presentedNewPopoverController:(FPPopoverController *)newPopoverController shouldDismissVisiblePopover:(FPPopoverController *)visiblePopoverController{
     NSLog(@"presented");
-    [self.view setAlpha:0.5];
+    //[self.view setAlpha:0.5];
 }
 
 #pragma mark - Collectionview methods

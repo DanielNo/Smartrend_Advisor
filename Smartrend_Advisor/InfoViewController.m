@@ -40,7 +40,7 @@
     CGFloat height = POPOVER_HEIGHT; // get value of contentview
     CGFloat width = (viewSize.width-20)/2;
     
-    NSLog(@"popover height %i",POPOVER_HEIGHT);
+    //NSLog(@"popover height %i",POPOVER_HEIGHT);
     CGFloat xCenter = (self.view.frame.size.width-20)/2;
     
     
@@ -65,7 +65,6 @@
     
     
     
-    //self.view.frame
     
     
     contentField1 = [[TradeTypeView alloc]initWithFrame:content1Rect];
