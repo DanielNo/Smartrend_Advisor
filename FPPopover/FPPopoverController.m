@@ -390,8 +390,6 @@ double CONTENTVIEW_HEIGHT;
 
 -(void)dismissPopover
 {
-    
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"dismiss" object:nil];
     //NSLog(@"dismiss3");
     [self.view removeFromSuperview];
     if([self.delegate respondsToSelector:@selector(popoverControllerDidDismissPopover:)])

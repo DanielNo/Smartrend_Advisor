@@ -262,11 +262,6 @@
     [refreshControl endRefreshing];
 }
 
--(void)dismissedPopup{
-
-}
-
-
 -(void)selectedTableRow:(NSUInteger)rowNum
 {
     
@@ -294,8 +289,6 @@
     [legendPopover adjustLegendContentSize];
     
     
-  
-    NSLog(@"selected row : %d",rowNum);
     switch (rowNum) {
         case 0: //About
             [aboutPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
@@ -318,8 +311,6 @@
             break;
     }
     
-    NSLog(@"select table row");
-    
     [settingsPopover dismissPopoverAnimated:YES];
 }
 
@@ -340,7 +331,7 @@
         settingsPopover.contentSize = CGSizeMake(300, 500);
     }
     else{
-        settingsPopover.contentSize = CGSizeMake(150, 218);
+        settingsPopover.contentSize = CGSizeMake(140, 218);
     }
     settingsPopover.arrowDirection = FPPopoverNoArrow;
     settingsPopover.border = YES;
@@ -403,7 +394,6 @@
     green = [UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0];
     
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
     

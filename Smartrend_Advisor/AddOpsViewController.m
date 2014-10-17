@@ -189,9 +189,7 @@
     [refreshControl endRefreshing];
 }
 
--(void)dismissedPopup{
-    [self.view setAlpha:1.0];
-}
+
 
 
 #pragma mark - View Lifecycle
@@ -232,7 +230,7 @@
 
 -(void)setupUI{
     [self setupNavBar];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
+
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"reachable" object:nil];

@@ -230,9 +230,7 @@ AFHTTPRequestOperationManager *manager;
 }
 
 
--(void)dismissedPopup{
-    [self.view setAlpha:1.0];
-}
+
 
 
 #pragma mark - View Lifecycle
@@ -275,7 +273,7 @@ AFHTTPRequestOperationManager *manager;
     [self setupNavBar];
     green = [UIColor colorWithRed:77/255.0f green:184/255.0f blue:72/255.0f alpha:1.0];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dismissedPopup) name:@"dismiss" object:nil];
+
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"reachable" object:nil];
     
