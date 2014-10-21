@@ -299,9 +299,7 @@
     
     [super viewDidLoad];
 
-    int height2 = self.statsCollectionView.frame.size.height;
 
-    NSLog(@"collection view height %i",height2);
     
 
    int h = self.statsCollectionView.frame.size.height;

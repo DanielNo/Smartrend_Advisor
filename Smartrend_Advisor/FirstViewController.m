@@ -15,8 +15,11 @@
 #import "NSString+Formatting.h"
 #import "TradeTypeView.h"
 #import "UIViewController+Init.h"
+
 #import "AboutViewController.h"
 #import "LegendViewController.h"
+#import "PushNotificationsViewController.h"
+#import "TutorialViewController.h"
 
 
 @interface FirstViewController (){
@@ -37,7 +40,7 @@
 @synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dailyReturn,infoVC,popoverVC,openPositionsLbl;
 
 -(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
-    NSLog(@"delegate - dismiss popover");
+    //NSLog(@"delegate - dismiss popover");
 
     [self.view setAlpha:1.0];
 }
@@ -46,7 +49,7 @@
 
     
    // [self.view setAlpha:0.5];
-    NSLog(@"delegate - present new popover");
+   // NSLog(@"delegate - present new popover");
 }
 
 
@@ -265,19 +268,14 @@
 -(void)selectedTableRow:(NSUInteger)rowNum
 {
     
+    
       [self.view setAlpha:0.5];
     
     AboutViewController *aboutVC = [AboutViewController new];
     FPPopoverController *aboutPopover = [[FPPopoverController alloc]initWithViewController:aboutVC];
-  
-    
-    
     aboutPopover.delegate = self;
-    
-    
     aboutPopover.contentView.title = @"Smartrend Advisor";
     [aboutPopover setArrowDirection:FPPopoverNoArrow];
-    [aboutPopover setShadowsHidden:YES];
     [aboutPopover adjustAboutContentSize];
     
     LegendViewController *legendVC = [LegendViewController new];
@@ -285,25 +283,48 @@
     legendPopover.delegate = self;
     legendPopover.contentView.title = @"Legend";
     [legendPopover setArrowDirection:FPPopoverNoArrow];
-    [legendPopover setShadowsHidden:YES];
     [legendPopover adjustLegendContentSize];
+    
+    
+    TutorialViewController *tutorialVC = [[TutorialViewController alloc]init];
+    FPPopoverController *tutorialPopover = [[FPPopoverController alloc]initWithViewController:tutorialVC];
+    tutorialPopover.delegate = self;
+    [tutorialPopover setArrowDirection:FPPopoverNoArrow];
+    tutorialPopover.contentView.title = @"Tutorial";
+    [tutorialPopover adjustTutorialContentSize];
+    
+    
+    
+    
+    
+    
+    PushNotificationsViewController *pushVC = [PushNotificationsViewController new];
+    FPPopoverController *pushNotificationPopover = [[FPPopoverController alloc]initWithViewController:pushVC];
+    pushNotificationPopover.delegate = self;
+    [pushNotificationPopover setArrowDirection:FPPopoverNoArrow];
+    pushNotificationPopover.contentView.title = @"Settings";
+    [pushNotificationPopover adjustPushContentSize];
+    
+    
+    
+
     
     
     switch (rowNum) {
         case 0: //About
             [aboutPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
-            //[self.view setAlpha:0.5];
             break;
         case 1: //Legend
             [legendPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
-            [self.view setAlpha:0.5];
             
             break;
         case 2: //Tutorial
-
-            
+  
+            //[tutorialPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
+            [self showTutorialView];
             break;
         case 3: //Settings
+            [pushNotificationPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
             
             break;
             
@@ -352,6 +373,7 @@
 
 - (void)viewDidLoad
 {
+    [self showTutorialView];
     NSString *deviceType = [UIDevice currentDevice].model;
     //NSLog(@"DEVICE TYPE %@", deviceType);
     
@@ -379,6 +401,7 @@
     [super viewDidLoad];
     
    
+    
     
     
     

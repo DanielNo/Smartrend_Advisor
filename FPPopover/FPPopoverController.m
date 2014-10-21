@@ -193,11 +193,6 @@ double CONTENTVIEW_HEIGHT;
 }
 
 -(void)adjustAboutContentSize{
-    /*
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    _contentSize = CGSizeMake(screenWidth, screenHeight/2);
-    */
     
     float w = [[UIScreen mainScreen]bounds].size.width;
     float h = [[UIScreen mainScreen]bounds].size.height;
@@ -233,6 +228,19 @@ double CONTENTVIEW_HEIGHT;
     }
 
     
+}
+
+-(void)adjustPushContentSize{
+    
+    float w = [[UIScreen mainScreen]bounds].size.width;
+    _contentSize = CGSizeMake(w,120);
+}
+
+-(void)adjustTutorialContentSize{
+    
+    float w = [[UIScreen mainScreen]bounds].size.width;
+    float h = [[UIScreen mainScreen]bounds].size.height;
+    _contentSize = CGSizeMake(w,h/2);
 }
 
 

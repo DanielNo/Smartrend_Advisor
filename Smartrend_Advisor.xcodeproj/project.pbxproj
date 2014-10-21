@@ -18,6 +18,8 @@
 		305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */; };
 		305C5BCA19C73E2C00E73AC5 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */; };
 		305C5BCD19C759F400E73AC5 /* MarketCommentaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */; };
+		30B9455819F195D5008502D0 /* PushNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9455719F195D5008502D0 /* PushNotificationsViewController.m */; };
+		30B9455E19F1AB6A008502D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9455D19F1AB6A008502D0 /* TutorialViewController.m */; };
 		30C3F84A19DF12C7009E26EB /* TradeTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F84919DF12C7009E26EB /* TradeTypeView.m */; };
 		30C3F85419E2ECED009E26EB /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F85219E2ECED009E26EB /* ImageCollectionViewCell.m */; };
 		30C3F85519E2ECED009E26EB /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C3F85319E2ECED009E26EB /* ImageCollectionViewCell.xib */; };
@@ -37,6 +39,7 @@
 		30DCEA9519B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
 		30DCEA9D19B8B54D006521D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */; };
 		30DCEA9F19B8B54D006521D4 /* Smartrend_AdvisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */; };
+		30DDE15919F6EC5D00E2CD39 /* TutorialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DDE15819F6EC5D00E2CD39 /* TutorialCollectionViewCell.m */; };
 		30DED3C319C9FD780078E8B0 /* NSString+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */; };
 		30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A419BE43CB002F50E2 /* FPPopoverController.m */; };
 		30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A619BE43CB002F50E2 /* FPPopoverView.m */; };
@@ -79,6 +82,10 @@
 		305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarketCommentaryViewController.h; path = ../MarketCommentaryViewController.h; sourceTree = "<group>"; };
 		305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarketCommentaryViewController.m; path = ../MarketCommentaryViewController.m; sourceTree = "<group>"; };
+		30B9455619F195D5008502D0 /* PushNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushNotificationsViewController.h; sourceTree = "<group>"; };
+		30B9455719F195D5008502D0 /* PushNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushNotificationsViewController.m; sourceTree = "<group>"; };
+		30B9455C19F1AB6A008502D0 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		30B9455D19F1AB6A008502D0 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		30C3F84819DF12C7009E26EB /* TradeTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeTypeView.h; sourceTree = "<group>"; };
 		30C3F84919DF12C7009E26EB /* TradeTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeTypeView.m; sourceTree = "<group>"; };
 		30C3F85119E2ECED009E26EB /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
@@ -106,6 +113,8 @@
 		30DCEA9A19B8B54D006521D4 /* Smartrend_AdvisorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Smartrend_AdvisorTests-Info.plist"; sourceTree = "<group>"; };
 		30DCEA9C19B8B54D006521D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smartrend_AdvisorTests.m; sourceTree = "<group>"; };
+		30DDE15719F6EC5D00E2CD39 /* TutorialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialCollectionViewCell.h; path = ../TutorialCollectionViewCell.h; sourceTree = "<group>"; };
+		30DDE15819F6EC5D00E2CD39 /* TutorialCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialCollectionViewCell.m; path = ../TutorialCollectionViewCell.m; sourceTree = "<group>"; };
 		30DED3C119C9FD780078E8B0 /* NSString+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Formatting.h"; sourceTree = "<group>"; };
 		30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Formatting.m"; sourceTree = "<group>"; };
 		30EA96A219BE43CB002F50E2 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
@@ -148,6 +157,10 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				30B9455C19F1AB6A008502D0 /* TutorialViewController.h */,
+				30B9455D19F1AB6A008502D0 /* TutorialViewController.m */,
+				30B9455619F195D5008502D0 /* PushNotificationsViewController.h */,
+				30B9455719F195D5008502D0 /* PushNotificationsViewController.m */,
 				3001930519EEE86800AB4305 /* LegendViewController.h */,
 				3001930619EEE86800AB4305 /* LegendViewController.m */,
 				3001930219ED9AD900AB4305 /* AboutViewController.h */,
@@ -205,6 +218,8 @@
 			children = (
 				30DCEA7C19B8B54D006521D4 /* AppDelegate.h */,
 				30DCEA7D19B8B54D006521D4 /* AppDelegate.m */,
+				30DDE15719F6EC5D00E2CD39 /* TutorialCollectionViewCell.h */,
+				30DDE15819F6EC5D00E2CD39 /* TutorialCollectionViewCell.m */,
 				30DCEA7F19B8B54D006521D4 /* Main_iPhone.storyboard */,
 				30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */,
 				30DCEA8519B8B54D006521D4 /* FirstViewController.h */,
@@ -420,6 +435,7 @@
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
 				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
 				30C3F85419E2ECED009E26EB /* ImageCollectionViewCell.m in Sources */,
+				30B9455819F195D5008502D0 /* PushNotificationsViewController.m in Sources */,
 				3015624119D9ECE3001EDCD7 /* DataCollectionViewCell.m in Sources */,
 				3001930419ED9ADA00AB4305 /* AboutViewController.m in Sources */,
 				30DED3C319C9FD780078E8B0 /* NSString+Formatting.m in Sources */,
@@ -431,6 +447,8 @@
 				30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */,
 				305C5BCD19C759F400E73AC5 /* MarketCommentaryViewController.m in Sources */,
 				3001930719EEE86800AB4305 /* LegendViewController.m in Sources */,
+				30B9455E19F1AB6A008502D0 /* TutorialViewController.m in Sources */,
+				30DDE15919F6EC5D00E2CD39 /* TutorialCollectionViewCell.m in Sources */,
 				30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */,
 				30DCEA8719B8B54D006521D4 /* FirstViewController.m in Sources */,
 				30C3F84A19DF12C7009E26EB /* TradeTypeView.m in Sources */,
@@ -526,6 +544,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -559,6 +578,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

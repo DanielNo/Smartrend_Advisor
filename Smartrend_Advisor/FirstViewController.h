@@ -12,7 +12,7 @@
 
 @class InfoViewController,FPPopoverController;
 
-@interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
+@interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
 
 
 

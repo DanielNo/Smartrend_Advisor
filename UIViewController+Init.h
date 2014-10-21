@@ -13,6 +13,7 @@
 
 
 -(void)setupNavBar;
-
+-(void)showTutorialView;
+-(void)dismissTutorialView;
 
 @end

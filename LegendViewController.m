@@ -29,8 +29,6 @@
 
 
 
-
-
 -(void)viewDidLoad{
     [self.view setBackgroundColor:[UIColor whiteColor]];
     float height = self.view.frame.size.height/4;
