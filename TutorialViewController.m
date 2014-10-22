@@ -16,23 +16,50 @@
 }
 
 @synthesize tutorialCollectionView;
+@synthesize pageControl;
 
 
 -(void)viewDidLoad{
-
-    
-    
-
-    
-    itemSize = self.tutorialCollectionView.frame.size;
-    [tutorialCollectionView setBackgroundColor:[UIColor yellowColor]];
-    [tutorialCollectionView setPagingEnabled:YES];
-        
-    
-    
     tutorialImagesArray = [[NSArray alloc]initWithObjects:[UIImage imageNamed:@"Tutorial_1"], [UIImage imageNamed:@"Tutorial_2"], [UIImage imageNamed:@"Tutorial_3"], [UIImage imageNamed:@"Tutorial_4"], [UIImage imageNamed:@"Tutorial_5"], nil];
+    pageControl.numberOfPages = [tutorialImagesArray count];
+    
+    UINib *cellNib = [UINib nibWithNibName:@"TutorialCollectionViewCell" bundle:nil];
+    [self.tutorialCollectionView registerNib:cellNib forCellWithReuseIdentifier:@"tutorialCell"];
+    
+    
+
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    CGSize statusbarSize = [[UIApplication sharedApplication] statusBarFrame].size;
+    
+    CGRect collectionviewRect = CGRectMake(0,statusbarSize.height ,screenSize.width ,screenSize.height-37 );
+    //[tutorialCollectionView setFrame:collectionviewRect];
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flowLayout setMinimumInteritemSpacing:0.0f];
+    [flowLayout setMinimumLineSpacing:0.0f];
+    [flowLayout setItemSize:CGSizeMake(collectionviewRect.size.width, collectionviewRect.size.height)];
+    [self.tutorialCollectionView setCollectionViewLayout:flowLayout];
+    
+    
+    
+    
+
+    
+    itemSize = collectionviewRect.size;
+    [tutorialCollectionView setPagingEnabled:YES];
+    
+    
+    
+    
     
 }
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    CGFloat pageWidth = self.tutorialCollectionView.frame.size.width;
+    self.pageControl.currentPage = self.tutorialCollectionView.contentOffset.x / pageWidth;
+}
+
 
 - (IBAction)dismissTutorial:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
@@ -53,8 +80,10 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     TutorialCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"tutorialCell" forIndexPath:indexPath];
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.imageView.contentMode = UIViewContentModeScaleToFill;
     cell.imageView.image= [tutorialImagesArray objectAtIndex:indexPath.item];
+    
+    
     
     return cell;
 }

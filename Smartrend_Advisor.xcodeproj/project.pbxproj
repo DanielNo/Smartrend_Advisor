@@ -39,12 +39,13 @@
 		30DCEA9519B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
 		30DCEA9D19B8B54D006521D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */; };
 		30DCEA9F19B8B54D006521D4 /* Smartrend_AdvisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */; };
-		30DDE15919F6EC5D00E2CD39 /* TutorialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DDE15819F6EC5D00E2CD39 /* TutorialCollectionViewCell.m */; };
 		30DED3C319C9FD780078E8B0 /* NSString+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */; };
 		30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A419BE43CB002F50E2 /* FPPopoverController.m */; };
 		30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A619BE43CB002F50E2 /* FPPopoverView.m */; };
 		30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A819BE43CB002F50E2 /* FPTouchView.m */; };
 		30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96AD19BE451E002F50E2 /* InfoViewController.m */; };
+		30F540D719F7F7D400E9A81B /* TutorialCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F540D519F7F7D400E9A81B /* TutorialCollectionViewCell.xib */; };
+		30F540D819F7FAF800E9A81B /* TutorialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F540D419F7F7D400E9A81B /* TutorialCollectionViewCell.m */; };
 		CB596019B4664D59B194C5F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290A9BFCF464475E9AC59B54 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,9 @@
 		30EA96A819BE43CB002F50E2 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		30EA96AC19BE451E002F50E2 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		30EA96AD19BE451E002F50E2 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		30F540D319F7F7D400E9A81B /* TutorialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialCollectionViewCell.h; path = ../TutorialCollectionViewCell.h; sourceTree = "<group>"; };
+		30F540D419F7F7D400E9A81B /* TutorialCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialCollectionViewCell.m; path = ../TutorialCollectionViewCell.m; sourceTree = "<group>"; };
+		30F540D519F7F7D400E9A81B /* TutorialCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TutorialCollectionViewCell.xib; path = ../TutorialCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB17EDC932AA1F160D3CE0FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +221,9 @@
 			isa = PBXGroup;
 			children = (
 				30DCEA7C19B8B54D006521D4 /* AppDelegate.h */,
+				30F540D319F7F7D400E9A81B /* TutorialCollectionViewCell.h */,
+				30F540D419F7F7D400E9A81B /* TutorialCollectionViewCell.m */,
+				30F540D519F7F7D400E9A81B /* TutorialCollectionViewCell.xib */,
 				30DCEA7D19B8B54D006521D4 /* AppDelegate.m */,
 				30DDE15719F6EC5D00E2CD39 /* TutorialCollectionViewCell.h */,
 				30DDE15819F6EC5D00E2CD39 /* TutorialCollectionViewCell.m */,
@@ -376,6 +383,7 @@
 				30DCEA8419B8B54D006521D4 /* Main_iPad.storyboard in Resources */,
 				30DCEA8C19B8B54D006521D4 /* Images.xcassets in Resources */,
 				3015623E19D9E9DF001EDCD7 /* DataCollectionViewCell.xib in Resources */,
+				30F540D719F7F7D400E9A81B /* TutorialCollectionViewCell.xib in Resources */,
 				30DCEA8119B8B54D006521D4 /* Main_iPhone.storyboard in Resources */,
 				30C3F85519E2ECED009E26EB /* ImageCollectionViewCell.xib in Resources */,
 				30DCEA7819B8B54D006521D4 /* InfoPlist.strings in Resources */,
@@ -430,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30F540D819F7FAF800E9A81B /* TutorialCollectionViewCell.m in Sources */,
 				30C74B6219C341A6002C2DF0 /* CustomNavController.m in Sources */,
 				305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
@@ -448,7 +457,6 @@
 				305C5BCD19C759F400E73AC5 /* MarketCommentaryViewController.m in Sources */,
 				3001930719EEE86800AB4305 /* LegendViewController.m in Sources */,
 				30B9455E19F1AB6A008502D0 /* TutorialViewController.m in Sources */,
-				30DDE15919F6EC5D00E2CD39 /* TutorialCollectionViewCell.m in Sources */,
 				30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */,
 				30DCEA8719B8B54D006521D4 /* FirstViewController.m in Sources */,
 				30C3F84A19DF12C7009E26EB /* TradeTypeView.m in Sources */,

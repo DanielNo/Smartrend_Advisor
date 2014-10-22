@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TutorialViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface TutorialViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UICollectionView *tutorialCollectionView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
