@@ -30,7 +30,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavBar];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeAlpha) name:@"tutorialDismissed" object:nil];
     // Do any additional setup after loading the view.
+}
+
+-(void)changeAlpha{
+    [self.view setAlpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning {

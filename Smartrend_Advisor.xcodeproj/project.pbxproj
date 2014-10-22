@@ -22,7 +22,6 @@
 		30C3F84A19DF12C7009E26EB /* TradeTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F84919DF12C7009E26EB /* TradeTypeView.m */; };
 		30C3F85419E2ECED009E26EB /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F85219E2ECED009E26EB /* ImageCollectionViewCell.m */; };
 		30C3F85519E2ECED009E26EB /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C3F85319E2ECED009E26EB /* ImageCollectionViewCell.xib */; };
-		30C74B6219C341A6002C2DF0 /* CustomNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C74B6119C341A6002C2DF0 /* CustomNavController.m */; };
 		30DCEA6E19B8B54D006521D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6D19B8B54D006521D4 /* Foundation.framework */; };
 		30DCEA7019B8B54D006521D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */; };
 		30DCEA7219B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
@@ -46,6 +45,7 @@
 		30F540D719F7F7D400E9A81B /* TutorialCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F540D519F7F7D400E9A81B /* TutorialCollectionViewCell.xib */; };
 		30F540D819F7FAF800E9A81B /* TutorialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F540D419F7F7D400E9A81B /* TutorialCollectionViewCell.m */; };
 		30F540DB19F81A6E00E9A81B /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F540DA19F81A6E00E9A81B /* CustomViewController.m */; };
+		30F540DE19F839DA00E9A81B /* CustomNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F540DD19F839DA00E9A81B /* CustomNavController.m */; };
 		CB596019B4664D59B194C5F2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 290A9BFCF464475E9AC59B54 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,8 +90,6 @@
 		30C3F85119E2ECED009E26EB /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
 		30C3F85219E2ECED009E26EB /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
 		30C3F85319E2ECED009E26EB /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		30C74B6019C341A6002C2DF0 /* CustomNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavController.h; sourceTree = "<group>"; };
-		30C74B6119C341A6002C2DF0 /* CustomNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavController.m; sourceTree = "<group>"; };
 		30DCEA6A19B8B54D006521D4 /* Smartrend_Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smartrend_Advisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DCEA6D19B8B54D006521D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +128,8 @@
 		30F540D519F7F7D400E9A81B /* TutorialCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TutorialCollectionViewCell.xib; path = ../TutorialCollectionViewCell.xib; sourceTree = "<group>"; };
 		30F540D919F81A6E00E9A81B /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
 		30F540DA19F81A6E00E9A81B /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
+		30F540DC19F839DA00E9A81B /* CustomNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavController.h; sourceTree = "<group>"; };
+		30F540DD19F839DA00E9A81B /* CustomNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavController.m; sourceTree = "<group>"; };
 		DB17EDC932AA1F160D3CE0FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,8 +183,8 @@
 				30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */,
 				305C5BC819C73E2C00E73AC5 /* MenuTableViewController.h */,
 				305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */,
-				30C74B6019C341A6002C2DF0 /* CustomNavController.h */,
-				30C74B6119C341A6002C2DF0 /* CustomNavController.m */,
+				30F540DC19F839DA00E9A81B /* CustomNavController.h */,
+				30F540DD19F839DA00E9A81B /* CustomNavController.m */,
 				30EA96A119BE43CB002F50E2 /* FPPopover */,
 				3034CE3519B9FF7C008BB3FF /* companyCell.h */,
 				3034CE3619B9FF7C008BB3FF /* companyCell.m */,
@@ -439,10 +439,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				30F540D819F7FAF800E9A81B /* TutorialCollectionViewCell.m in Sources */,
-				30C74B6219C341A6002C2DF0 /* CustomNavController.m in Sources */,
 				305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
 				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
+				30F540DE19F839DA00E9A81B /* CustomNavController.m in Sources */,
 				30C3F85419E2ECED009E26EB /* ImageCollectionViewCell.m in Sources */,
 				30B9455819F195D5008502D0 /* PushNotificationsViewController.m in Sources */,
 				3015624119D9ECE3001EDCD7 /* DataCollectionViewCell.m in Sources */,

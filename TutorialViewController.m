@@ -63,6 +63,7 @@
 
 - (IBAction)dismissTutorial:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"tutorialDismissed" object:nil];
 }
 
 
