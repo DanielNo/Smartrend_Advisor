@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
+#import "CustomViewController.h"
 
 @class InfoViewController,FPPopoverController;
 
-@interface AddOpsViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
+@interface AddOpsViewController : CustomViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
 
 
 

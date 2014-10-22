@@ -14,7 +14,6 @@
 #import "MenuTableViewController.h"
 #import "NSString+Formatting.h"
 #import "TradeTypeView.h"
-#import "UIViewController+Init.h"
 
 #import "AboutViewController.h"
 #import "LegendViewController.h"
@@ -30,7 +29,6 @@
     UIImage *shortIMG;
     UIColor *green;
     UILabel *noOpenPositions;
-    FPPopoverController *settingsPopover;
 }
 @property (weak, nonatomic) IBOutlet UILabel *openPositionsLbl;
 
@@ -39,18 +37,7 @@
 @implementation FirstViewController
 @synthesize openPositionData,performanceStatData,flowLayout,spinner,SP,STA,refreshControl,dailyReturn,infoVC,popoverVC,openPositionsLbl;
 
--(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
-    //NSLog(@"delegate - dismiss popover");
 
-    [self.view setAlpha:1.0];
-}
-
--(void)presentedNewPopoverController:(FPPopoverController *)newPopoverController shouldDismissVisiblePopover:(FPPopoverController *)visiblePopoverController{
-
-    
-   // [self.view setAlpha:0.5];
-   // NSLog(@"delegate - present new popover");
-}
 
 
 
@@ -265,115 +252,14 @@
     [refreshControl endRefreshing];
 }
 
--(void)selectedTableRow:(NSUInteger)rowNum
-{
-    
-    
-      [self.view setAlpha:0.5];
-    
-    AboutViewController *aboutVC = [AboutViewController new];
-    FPPopoverController *aboutPopover = [[FPPopoverController alloc]initWithViewController:aboutVC];
-    aboutPopover.delegate = self;
-    aboutPopover.contentView.title = @"Smartrend Advisor";
-    [aboutPopover setArrowDirection:FPPopoverNoArrow];
-    [aboutPopover adjustAboutContentSize];
-    
-    LegendViewController *legendVC = [LegendViewController new];
-    FPPopoverController *legendPopover = [[FPPopoverController alloc]initWithViewController:legendVC];
-    legendPopover.delegate = self;
-    legendPopover.contentView.title = @"Legend";
-    [legendPopover setArrowDirection:FPPopoverNoArrow];
-    [legendPopover adjustLegendContentSize];
-    
-    
-    TutorialViewController *tutorialVC = [[TutorialViewController alloc]init];
-    FPPopoverController *tutorialPopover = [[FPPopoverController alloc]initWithViewController:tutorialVC];
-    tutorialPopover.delegate = self;
-    [tutorialPopover setArrowDirection:FPPopoverNoArrow];
-    tutorialPopover.contentView.title = @"Tutorial";
-    [tutorialPopover adjustTutorialContentSize];
-    
-    
-    
-    
-    
-    
-    PushNotificationsViewController *pushVC = [PushNotificationsViewController new];
-    FPPopoverController *pushNotificationPopover = [[FPPopoverController alloc]initWithViewController:pushVC];
-    pushNotificationPopover.delegate = self;
-    [pushNotificationPopover setArrowDirection:FPPopoverNoArrow];
-    pushNotificationPopover.contentView.title = @"Settings";
-    [pushNotificationPopover adjustPushContentSize];
-    
-    
-    
 
-    
-    
-    switch (rowNum) {
-        case 0: //About
-            [aboutPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
-            break;
-        case 1: //Legend
-            [legendPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
-            
-            break;
-        case 2: //Tutorial
-  
-            //[tutorialPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
-            [self showTutorialView];
-            break;
-        case 3: //Settings
-            [pushNotificationPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
-            
-            break;
-            
-        default:
-            break;
-    }
-    
-    [settingsPopover dismissPopoverAnimated:YES];
-}
-
--(void)settingsBtnPressed:(id)sender{
-    MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    controller.delegate = self;
-    
-    settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
-    
-    //settingsPopover.delegate = self;
-    
-    //popover.arrowDirection = FPPopoverArrowDirectionAny;
-
-    settingsPopover.title = nil;
-    
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        settingsPopover.contentSize = CGSizeMake(300, 500);
-    }
-    else{
-        settingsPopover.contentSize = CGSizeMake(140, 218);
-    }
-    settingsPopover.arrowDirection = FPPopoverNoArrow;
-    settingsPopover.border = YES;
-    
-    
-    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, 55 ,0 ,0 )];
-    [layoutView setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:layoutView];
-    
-
-    [settingsPopover presentPopoverFromView:layoutView];
-    
-    
-}
 
 #pragma mark - View lifecycle
 
 
 - (void)viewDidLoad
 {
-    [self showTutorialView];
+    //[self showTutorialView];
     NSString *deviceType = [UIDevice currentDevice].model;
     //NSLog(@"DEVICE TYPE %@", deviceType);
     
@@ -413,7 +299,6 @@
 
 -(void)setupUI{
 
-    [self setupNavBar];
     green = [UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0];
     
     

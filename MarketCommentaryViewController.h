@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
+#import "CustomViewController.h"
 
-@interface MarketCommentaryViewController : UIViewController<FPPopoverControllerDelegate>{
+@interface MarketCommentaryViewController : CustomViewController <FPPopoverControllerDelegate>{
     
 }
 

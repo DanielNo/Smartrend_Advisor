@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
+#import "InfoViewController.h"
+#import "CustomViewController.h"
 
-@class InfoViewController,FPPopoverController;
 
-@interface ClosedViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
+
+@interface ClosedViewController : CustomViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong,nonatomic) NSArray *closedData;

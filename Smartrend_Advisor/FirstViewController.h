@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MenuTableViewController.h"
 #import "FPPopoverController.h"
+#import "CustomViewController.h"
 
 @class InfoViewController,FPPopoverController;
 
-@interface FirstViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
+@interface FirstViewController : CustomViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,FPPopoverControllerDelegate>
 
 
 

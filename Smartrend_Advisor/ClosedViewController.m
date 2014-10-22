@@ -14,7 +14,6 @@
 #import "MenuTableViewController.h"
 #import "NSString+Formatting.h"
 #import "TradeTypeView.h"
-#import "UIViewController+Init.h"
 #import "LegendViewController.h"
 
 @interface ClosedViewController (){
@@ -25,22 +24,12 @@ AFHTTPRequestOperationManager *manager;
     UIImage *coverIMG;
     UIColor *cellColor;
     UIColor *green;
-    FPPopoverController *settingsPopover;
+
 }
 @end
 
 @implementation ClosedViewController
 @synthesize closedData,infoVC,popoverVC,refreshControl,spinner;
-
--(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
-    NSLog(@"dismissed");
-    [self.view setAlpha:1.0];
-}
-
--(void)presentedNewPopoverController:(FPPopoverController *)newPopoverController shouldDismissVisiblePopover:(FPPopoverController *)visiblePopoverController{
-    NSLog(@"presented");
-    //[self.view setAlpha:0.5];
-}
 
 #pragma mark - Collectionview methods
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -270,7 +259,6 @@ AFHTTPRequestOperationManager *manager;
 }
 
 -(void)setupUI{
-    [self setupNavBar];
     green = [UIColor colorWithRed:77/255.0f green:184/255.0f blue:72/255.0f alpha:1.0];
     
 
@@ -306,38 +294,6 @@ AFHTTPRequestOperationManager *manager;
     [infoVC setFields:@"  Trade Type: " :@"  Open Date: " :@"  Close Date: " :@"  Entry Price: " :@"  Last Price: "];
     [infoVC.field6 setText:@"  Return %: "];
     [popoverVC adjustClosedContentSize];
-}
-
--(void)settingsBtnPressed:(id)sender{
-    MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    controller.delegate = self;
-    
-    settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
-    
-    //popover.arrowDirection = FPPopoverArrowDirectionAny;
-    
-    settingsPopover.title = nil;
-    
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        settingsPopover.contentSize = CGSizeMake(300, 500);
-    }
-    else{
-        settingsPopover.contentSize = CGSizeMake(150, 218);
-    }
-    settingsPopover.arrowDirection = FPPopoverNoArrow;
-    settingsPopover.border = YES;
-    
-    
-    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, 55 ,0 ,0 )];
-    [layoutView setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:layoutView];
-    
-    
-    
-    [settingsPopover presentPopoverFromView:layoutView];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning

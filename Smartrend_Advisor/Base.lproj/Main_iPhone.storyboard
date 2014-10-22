@@ -190,7 +190,7 @@
                                 <rect key="frame" x="142" y="265" width="37" height="37"/>
                             </activityIndicatorView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-ZX-Km3">
-                                <rect key="frame" x="-40" y="94" width="288" height="303"/>
+                                <rect key="frame" x="16" y="100" width="288" height="303"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

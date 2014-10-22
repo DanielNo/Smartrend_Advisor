@@ -14,7 +14,6 @@
 #import "MenuTableViewController.h"
 #import "NSString+Formatting.h"
 #import "TradeTypeView.h"
-#import "UIViewController+Init.h"
 #import "LegendViewController.h"
 
 @interface AddOpsViewController (){
@@ -23,7 +22,7 @@
     CGRect itemSize;
     UIImage *buyIMG;
     UIImage *sellIMG;
-    FPPopoverController *settingsPopover;
+
 }
 
 @end
@@ -229,7 +228,6 @@
 }
 
 -(void)setupUI{
-    [self setupNavBar];
 
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshCollectionView) name:@"foreground" object:nil];
@@ -266,37 +264,6 @@
     
 }
 
--(void)settingsBtnPressed:(id)sender{
-    MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    controller.delegate = self;
-    
-    settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
-    
-    //popover.arrowDirection = FPPopoverArrowDirectionAny;
-    
-    settingsPopover.title = nil;
-    
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        settingsPopover.contentSize = CGSizeMake(300, 500);
-    }
-    else{
-        settingsPopover.contentSize = CGSizeMake(150, 218);
-    }
-    settingsPopover.arrowDirection = FPPopoverNoArrow;
-    settingsPopover.border = YES;
-    
-    
-    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, 55 ,0 ,0 )];
-    [layoutView setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:layoutView];
-    
-    
-    
-    [settingsPopover presentPopoverFromView:layoutView];
-    
-    
-}
 
 - (void)didReceiveMemoryWarning
 {

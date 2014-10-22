@@ -11,7 +11,6 @@
 #import "DataCollectionViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ImageCollectionViewCell.h"
-#import "UIViewController+Init.h"
 #import "MenuTableViewController.h"
 #import "LegendViewController.h"
 
@@ -22,7 +21,7 @@
     CGRect itemSize;
     CGRect itemSize2;
     UIImage *placeholder;
-    FPPopoverController *settingsPopover;
+
 }
 
 
@@ -309,7 +308,7 @@
 }
 
 -(void)setupUI{
-    [self setupNavBar];
+
     imageCollectionView.delegate = self;
     placeholder = [UIImage imageNamed:@"placeholder"];
 
@@ -368,39 +367,6 @@
     int height2 = self.statsCollectionView.frame.size.height;
     
     NSLog(@"collection view height %i",height2);
-    
-}
-
-
-
--(void)settingsBtnPressed:(id)sender{
-    MenuTableViewController *controller = [[MenuTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    controller.delegate = self;
-    
-    settingsPopover = [[FPPopoverController alloc] initWithViewController:controller];
-    
-    //popover.arrowDirection = FPPopoverArrowDirectionAny;
-    
-    settingsPopover.title = nil;
-    
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        settingsPopover.contentSize = CGSizeMake(300, 500);
-    }
-    else{
-        settingsPopover.contentSize = CGSizeMake(150, 215);
-    }
-    settingsPopover.arrowDirection = FPPopoverNoArrow;
-    settingsPopover.border = YES;
-    
-    
-    UIView *layoutView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*6/8, -8 ,0 ,0 )];
-    [self.view addSubview:layoutView];
-    
-    
-    
-    [settingsPopover presentPopoverFromView:layoutView];
-    
     
 }
 

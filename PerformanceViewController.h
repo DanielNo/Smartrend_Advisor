@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h"
 
-
-@interface PerformanceViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
+@interface PerformanceViewController : CustomViewController <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,FPPopoverControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
