@@ -259,7 +259,7 @@
 
 - (void)viewDidLoad
 {
-    //[self showTutorialView];
+    
     NSString *deviceType = [UIDevice currentDevice].model;
     //NSLog(@"DEVICE TYPE %@", deviceType);
     
@@ -267,6 +267,8 @@
     int h = [[UIScreen mainScreen]bounds].size.height;
     
    // NSLog(@"width : %i height : %i",w,h);
+    
+    
     
     [self setupUI];
     

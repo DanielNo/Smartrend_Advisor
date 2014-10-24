@@ -17,6 +17,7 @@
 		305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */; };
 		305C5BCA19C73E2C00E73AC5 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */; };
 		305C5BCD19C759F400E73AC5 /* MarketCommentaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */; };
+		30B64B4C19F9488900D9EDE7 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B64B4B19F9488900D9EDE7 /* Data.m */; };
 		30B9455819F195D5008502D0 /* PushNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9455719F195D5008502D0 /* PushNotificationsViewController.m */; };
 		30B9455E19F1AB6A008502D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9455D19F1AB6A008502D0 /* TutorialViewController.m */; };
 		30C3F84A19DF12C7009E26EB /* TradeTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F84919DF12C7009E26EB /* TradeTypeView.m */; };
@@ -81,6 +82,8 @@
 		305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarketCommentaryViewController.h; path = ../MarketCommentaryViewController.h; sourceTree = "<group>"; };
 		305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarketCommentaryViewController.m; path = ../MarketCommentaryViewController.m; sourceTree = "<group>"; };
+		30B64B4A19F9488900D9EDE7 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		30B64B4B19F9488900D9EDE7 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
 		30B9455619F195D5008502D0 /* PushNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushNotificationsViewController.h; sourceTree = "<group>"; };
 		30B9455719F195D5008502D0 /* PushNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushNotificationsViewController.m; sourceTree = "<group>"; };
 		30B9455C19F1AB6A008502D0 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				30B64B4A19F9488900D9EDE7 /* Data.h */,
+				30B64B4B19F9488900D9EDE7 /* Data.m */,
 				30F540D919F81A6E00E9A81B /* CustomViewController.h */,
 				30F540DA19F81A6E00E9A81B /* CustomViewController.m */,
 				30B9455C19F1AB6A008502D0 /* TutorialViewController.h */,
@@ -221,10 +226,10 @@
 			isa = PBXGroup;
 			children = (
 				30DCEA7C19B8B54D006521D4 /* AppDelegate.h */,
+				30DCEA7D19B8B54D006521D4 /* AppDelegate.m */,
 				30F540D319F7F7D400E9A81B /* TutorialCollectionViewCell.h */,
 				30F540D419F7F7D400E9A81B /* TutorialCollectionViewCell.m */,
 				30F540D519F7F7D400E9A81B /* TutorialCollectionViewCell.xib */,
-				30DCEA7D19B8B54D006521D4 /* AppDelegate.m */,
 				30DDE15719F6EC5D00E2CD39 /* TutorialCollectionViewCell.h */,
 				30DDE15819F6EC5D00E2CD39 /* TutorialCollectionViewCell.m */,
 				30DCEA7F19B8B54D006521D4 /* Main_iPhone.storyboard */,
@@ -438,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B64B4C19F9488900D9EDE7 /* Data.m in Sources */,
 				30F540D819F7FAF800E9A81B /* TutorialCollectionViewCell.m in Sources */,
 				305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,

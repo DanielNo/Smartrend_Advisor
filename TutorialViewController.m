@@ -28,6 +28,8 @@
     
     
 
+    [self.tutorialCollectionView.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [self.tutorialCollectionView.layer setBorderWidth:1.0];
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     CGSize statusbarSize = [[UIApplication sharedApplication] statusBarFrame].size;
     
