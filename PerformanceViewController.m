@@ -95,8 +95,7 @@
         
         
         ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCell" forIndexPath:indexPath];
-        //cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        cell.imageView.contentMode = UIViewContentModeScaleToFill;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
         
         [cell.imageView setImageWithURL:[urlArray objectAtIndex:indexPath.item] placeholderImage:nil];
         

@@ -80,7 +80,7 @@ static Data* _sharedInstance = nil;
         NSLog(@"default setting : Push notification on");
         b = [NSNumber numberWithBool:YES];
     }
-    
+    self.pushNotification = b;
     return b;
 }
 

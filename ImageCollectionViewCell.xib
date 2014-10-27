@@ -13,8 +13,12 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l47-tI-rL8">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l47-tI-rL8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="320" id="ful-eV-u1S"/>
+                            <constraint firstAttribute="height" constant="220" id="iWR-pz-319"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -26,7 +30,7 @@
             <connections>
                 <outlet property="imageView" destination="l47-tI-rL8" id="TZi-JA-sdq"/>
             </connections>
-            <point key="canvasLocation" x="26" y="176"/>
+            <point key="canvasLocation" x="174" y="313"/>
         </collectionViewCell>
     </objects>
 </document>
