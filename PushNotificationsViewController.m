@@ -37,12 +37,13 @@
 
 
 -(void)loadPushNotificationSwitch{
-    [pushSwitch setOn:[data loadPush] animated:NO];
+    //[pushSwitch setOn:YES animated:NO];
+    [pushSwitch setOn:[[data loadPush] boolValue] animated:NO];
 }
 
 
 -(void)togglePushNotifications:(id)sender{
-    [data savePush:pushSwitch.on];
+    [data savePush:[NSNumber numberWithBool:pushSwitch.on]];
 
 }
 

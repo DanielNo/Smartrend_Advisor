@@ -198,12 +198,9 @@ double CONTENTVIEW_HEIGHT;
     float h = [[UIScreen mainScreen]bounds].size.height;
     
     if (h<=480.0) {
-        NSLog(@"iphone 4");
         _contentSize = CGSizeMake(w, h/1.9);
     }
     else if(h>480.0){
-        
-        NSLog(@"iphone 5 +");
         _contentSize = CGSizeMake(w,h/2.25);
     }
     
@@ -218,12 +215,10 @@ double CONTENTVIEW_HEIGHT;
     float h = [[UIScreen mainScreen]bounds].size.height;
     
     if (h<=480.0) {
-        NSLog(@"iphone 4");
         _contentSize = CGSizeMake(w/2, h/2.5);
     }
     else if(h>480.0){
         
-        NSLog(@"iphone 5 +");
         _contentSize = CGSizeMake(w/2,h/3);
     }
 

@@ -11,11 +11,11 @@
 @interface Data : NSObject
 
 
-@property (assign,nonatomic) BOOL pushNotification;
+@property (assign,nonatomic) NSNumber *pushNotification;
 
 + (Data*)sharedInstance;
--(void)savePush:(BOOL) b;
--(BOOL)loadPush;
+-(void)savePush:(NSNumber *) b;
+-(NSNumber *)loadPush;
 
 
 @end

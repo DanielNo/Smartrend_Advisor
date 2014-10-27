@@ -62,26 +62,25 @@ static Data* _sharedInstance = nil;
     return self;
 }
 
--(void)savePush:(BOOL) b{
+-(void)savePush:(NSNumber *) b{
     self.pushNotification = b;
-    [defaults setBool:pushNotification forKey:@"push"];
+    [defaults setObject:pushNotification forKey:@"push"];
     [defaults synchronize];
 }
 
 
--(BOOL)loadPush{
-    BOOL b;
-    if ([defaults objectForKey:@"push"]!=nil) {
+-(NSNumber *)loadPush{
+    NSNumber *b;
+    if ([defaults objectForKey:@"push"]) {
         b = [defaults objectForKey:@"push"];
-        NSLog(@"push enabled : %d",b);
+        NSLog(@"push enabled : %i",[b boolValue]);
     }
-    /*
     else if([defaults objectForKey:@"push"] == nil)
     {
         NSLog(@"default setting : Push notification on");
-        b = YES;
+        b = [NSNumber numberWithBool:YES];
     }
-     */
+    
     return b;
 }
 

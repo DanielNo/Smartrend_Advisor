@@ -75,7 +75,6 @@
         
         if([self.delegate respondsToSelector:@selector(selectedTableRow:)])
         {
-            NSLog(@"responds");
             [self.delegate selectedTableRow:indexPath.row];
             
         }

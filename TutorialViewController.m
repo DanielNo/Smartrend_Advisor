@@ -22,6 +22,7 @@
 -(void)viewDidLoad{
     tutorialImagesArray = [[NSArray alloc]initWithObjects:[UIImage imageNamed:@"Tutorial_1"], [UIImage imageNamed:@"Tutorial_2"], [UIImage imageNamed:@"Tutorial_3"], [UIImage imageNamed:@"Tutorial_4"], [UIImage imageNamed:@"Tutorial_5"], nil];
     pageControl.numberOfPages = [tutorialImagesArray count];
+    pageControl.userInteractionEnabled = NO;
     
     UINib *cellNib = [UINib nibWithNibName:@"TutorialCollectionViewCell" bundle:nil];
     [self.tutorialCollectionView registerNib:cellNib forCellWithReuseIdentifier:@"tutorialCell"];
@@ -33,7 +34,7 @@
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     CGSize statusbarSize = [[UIApplication sharedApplication] statusBarFrame].size;
     
-    CGRect collectionviewRect = CGRectMake(0,statusbarSize.height ,screenSize.width ,screenSize.height-37 );
+    CGRect collectionviewRect = CGRectMake(0,statusbarSize.height ,screenSize.width ,screenSize.height-pageControl.frame.size.height-statusbarSize.height -22 );
     //[tutorialCollectionView setFrame:collectionviewRect];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
