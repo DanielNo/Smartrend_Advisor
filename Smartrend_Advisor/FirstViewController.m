@@ -29,6 +29,7 @@
     UIImage *shortIMG;
     UIColor *green;
     UILabel *noOpenPositions;
+    NSNumberFormatter *formatter;
 }
 @property (weak, nonatomic) IBOutlet UILabel *openPositionsLbl;
 
@@ -191,8 +192,8 @@
         
         
         [self.STA setText:st];
-        [self.SP setText:[[sp stringValue] stringByAppendingString:@"%"]];
-
+        [self.SP setText:[[formatter stringFromNumber:sp]stringByAppendingString:@"%"]];
+ 
 
         
         
@@ -302,6 +303,13 @@
 -(void)setupUI{
 
     green = [UIColor colorWithRed:27/255.0f green:126/255.0f blue:1/255.0f alpha:1.0];
+    
+    formatter = [[NSNumberFormatter alloc] init];
+    
+    [formatter setMaximumFractionDigits:4];
+    
+    [formatter setMinimumFractionDigits:1];
+    [formatter setMinimumIntegerDigits:1];
     
     
     

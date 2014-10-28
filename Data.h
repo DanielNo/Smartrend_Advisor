@@ -11,7 +11,7 @@
 @interface Data : NSObject
 
 
-@property (assign,nonatomic) NSNumber *pushNotification;
+@property (strong,nonatomic) NSNumber *pushNotification;
 
 + (Data*)sharedInstance;
 -(void)savePush:(NSNumber *) b;

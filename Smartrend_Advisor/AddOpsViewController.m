@@ -31,13 +31,10 @@
 @synthesize AddOpsData,infoVC,popoverVC,refreshControl,spinner;
 
 -(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
-    NSLog(@"dismissed");
     [self.view setAlpha:1.0];
 }
 
 -(void)presentedNewPopoverController:(FPPopoverController *)newPopoverController shouldDismissVisiblePopover:(FPPopoverController *)visiblePopoverController{
-    NSLog(@"presented");
-    [self.view setAlpha:0.5];
 }
 
 #pragma mark - Collectionview methods

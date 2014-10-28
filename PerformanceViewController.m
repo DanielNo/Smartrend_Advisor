@@ -21,6 +21,8 @@
     CGRect itemSize;
     CGRect itemSize2;
     UIImage *placeholder;
+    
+    NSNumberFormatter *formatter;
 
 }
 
@@ -113,8 +115,6 @@
     cell.layer.borderColor = [UIColor blackColor].CGColor;
     cell.layer.borderWidth = 1.2f;
     [cell.label setAdjustsFontSizeToFitWidth:YES];
-
-    
     switch (indexPath.item) {
         case (0):
             cell.label.text = @"";
@@ -140,16 +140,18 @@
             cell.label.text = @"DAY";
             break;
         case (5):
-            cell.label.text = [[[performanceData objectAtIndex:0]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
             [cell setDataCell];
+            //API gives string object for st_pl
+            cell.label.text = [[[performanceData objectAtIndex:0]objectForKey:@"st_pl"]stringByAppendingString:@"%"];
+            
             break;
         case (6):
             [cell setDataCell];
-            cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
+            cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"sp_pl"] stringValue]stringByAppendingString:@"%"];
             break;
         case (7):
             [cell setDataCell];
-            cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
+            cell.label.text = [[[[performanceData objectAtIndex:0]objectForKey:@"nasd_pl"]stringValue ]stringByAppendingString:@"%"];
             break;
         case (8):
             [cell setTitleCell:NSTextAlignmentLeft];
@@ -162,11 +164,11 @@
             break;
         case (10):
             [cell setDataCell];
-            cell.label.text = [[[[performanceData objectAtIndex:1]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
+            cell.label.text = [[formatter stringFromNumber:[[performanceData objectAtIndex:1]objectForKey:@"sp_pl"]]stringByAppendingString:@"%"];
             break;
         case (11):
             [cell setDataCell];
-            cell.label.text = [[[[performanceData objectAtIndex:1]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
+            cell.label.text = [[formatter stringFromNumber:[[performanceData objectAtIndex:1]objectForKey:@"nasd_pl"]]stringByAppendingString:@"%"];
             break;
         case (12):
             [cell setTitleCell:NSTextAlignmentLeft];
@@ -180,11 +182,11 @@
             break;
         case (14):
             [cell setDataCell];
-            cell.label.text = [[[[performanceData objectAtIndex:2]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
+            cell.label.text = [[formatter stringFromNumber:[[performanceData objectAtIndex:2]objectForKey:@"sp_pl"]]stringByAppendingString:@"%"];
             break;
         case (15):
             [cell setDataCell];
-            cell.label.text = [[[[performanceData objectAtIndex:2]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
+            cell.label.text = [[formatter stringFromNumber:[[performanceData objectAtIndex:2]objectForKey:@"nasd_pl"]]stringByAppendingString:@"%"];
             break;
         case (16):
             [cell setTitleCell:NSTextAlignmentLeft];
@@ -197,15 +199,14 @@
             break;
         case (18):
             [cell setDataCell];
-            cell.label.text = [[[[performanceData objectAtIndex:3]objectForKey:@"sp_pl"]stringValue]stringByAppendingString:@"%"];
+            
+            cell.label.text = [[formatter stringFromNumber:[[performanceData objectAtIndex:3]objectForKey:@"sp_pl"]]stringByAppendingString:@"%"];
             break;
         case (19):
             [cell setDataCell];
-            cell.label.text = [[[[performanceData objectAtIndex:3]objectForKey:@"nasd_pl"]stringValue] stringByAppendingString:@"%"];
+            cell.label.text = [[formatter stringFromNumber:[[performanceData objectAtIndex:3]objectForKey:@"nasd_pl"]]stringByAppendingString:@"%"];
             break;
-            
-        default:
-            break;
+
     }
     
         return cell;
@@ -334,7 +335,12 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshData) name:@"reachable" object:nil];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+   formatter = [[NSNumberFormatter alloc] init];
     
+    [formatter setMaximumFractionDigits:4];
+    
+    [formatter setMinimumFractionDigits:1];
+    [formatter setMinimumIntegerDigits:1];
 
 }
 

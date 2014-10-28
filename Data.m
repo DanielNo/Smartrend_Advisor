@@ -84,7 +84,10 @@ static Data* _sharedInstance = nil;
     return b;
 }
 
+-(BOOL)pushCheck{
 
+    return [self.pushNotification boolValue];
+}
 
 
 
