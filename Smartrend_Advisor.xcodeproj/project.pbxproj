@@ -18,6 +18,7 @@
 		305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */; };
 		305C5BCA19C73E2C00E73AC5 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */; };
 		305C5BCD19C759F400E73AC5 /* MarketCommentaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */; };
+		30B048101A001BD90085EFCC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0480F1A001BD90085EFCC /* LoginViewController.m */; };
 		30B64B4C19F9488900D9EDE7 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B64B4B19F9488900D9EDE7 /* Data.m */; };
 		30B9455819F195D5008502D0 /* PushNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9455719F195D5008502D0 /* PushNotificationsViewController.m */; };
 		30B9455E19F1AB6A008502D0 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9455D19F1AB6A008502D0 /* TutorialViewController.m */; };
@@ -74,16 +75,18 @@
 		3034CE3619B9FF7C008BB3FF /* companyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = companyCell.m; sourceTree = "<group>"; };
 		3054E3BF19FE7F3900C73F7A /* TutorialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialCollectionViewCell.h; sourceTree = "<group>"; };
 		3054E3C019FE7F3900C73F7A /* TutorialCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialCollectionViewCell.m; sourceTree = "<group>"; };
-		305C5BBF19C3726E00E73AC5 /* PerformanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerformanceViewController.h; path = ../PerformanceViewController.h; sourceTree = "<group>"; };
-		305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerformanceViewController.m; path = ../PerformanceViewController.m; sourceTree = "<group>"; };
-		305C5BC219C3728600E73AC5 /* ClosedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosedViewController.h; sourceTree = "<group>"; };
-		305C5BC319C3728600E73AC5 /* ClosedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosedViewController.m; sourceTree = "<group>"; };
-		305C5BC519C3729B00E73AC5 /* AddOpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOpsViewController.h; sourceTree = "<group>"; };
-		305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOpsViewController.m; sourceTree = "<group>"; };
+		305C5BBF19C3726E00E73AC5 /* PerformanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceViewController.h; sourceTree = "<group>"; };
+		305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceViewController.m; sourceTree = "<group>"; };
+		305C5BC219C3728600E73AC5 /* ClosedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClosedViewController.h; path = Smartrend_Advisor/ClosedViewController.h; sourceTree = "<group>"; };
+		305C5BC319C3728600E73AC5 /* ClosedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClosedViewController.m; path = Smartrend_Advisor/ClosedViewController.m; sourceTree = "<group>"; };
+		305C5BC519C3729B00E73AC5 /* AddOpsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddOpsViewController.h; path = Smartrend_Advisor/AddOpsViewController.h; sourceTree = "<group>"; };
+		305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddOpsViewController.m; path = Smartrend_Advisor/AddOpsViewController.m; sourceTree = "<group>"; };
 		305C5BC819C73E2C00E73AC5 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
-		305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarketCommentaryViewController.h; path = ../MarketCommentaryViewController.h; sourceTree = "<group>"; };
-		305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarketCommentaryViewController.m; path = ../MarketCommentaryViewController.m; sourceTree = "<group>"; };
+		305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketCommentaryViewController.h; sourceTree = "<group>"; };
+		305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketCommentaryViewController.m; sourceTree = "<group>"; };
+		30B0480E1A001BD90085EFCC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		30B0480F1A001BD90085EFCC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		30B64B4A19F9488900D9EDE7 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		30B64B4B19F9488900D9EDE7 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
 		30B9455619F195D5008502D0 /* PushNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushNotificationsViewController.h; sourceTree = "<group>"; };
@@ -107,8 +110,8 @@
 		30DCEA7D19B8B54D006521D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		30DCEA8019B8B54D006521D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		30DCEA8319B8B54D006521D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		30DCEA8519B8B54D006521D4 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		30DCEA8619B8B54D006521D4 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		30DCEA8519B8B54D006521D4 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = Smartrend_Advisor/FirstViewController.h; sourceTree = "<group>"; };
+		30DCEA8619B8B54D006521D4 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = Smartrend_Advisor/FirstViewController.m; sourceTree = "<group>"; };
 		30DCEA8B19B8B54D006521D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		30DCEA9119B8B54D006521D4 /* Smartrend_AdvisorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Smartrend_AdvisorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DCEA9219B8B54D006521D4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -159,38 +162,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30DCEA6119B8B54D006521D4 = {
+		30B048111A001BED0085EFCC /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				30B64B4A19F9488900D9EDE7 /* Data.h */,
-				30B64B4B19F9488900D9EDE7 /* Data.m */,
-				30F540D919F81A6E00E9A81B /* CustomViewController.h */,
-				30F540DA19F81A6E00E9A81B /* CustomViewController.m */,
-				30B9455C19F1AB6A008502D0 /* TutorialViewController.h */,
-				30B9455D19F1AB6A008502D0 /* TutorialViewController.m */,
-				30B9455619F195D5008502D0 /* PushNotificationsViewController.h */,
-				30B9455719F195D5008502D0 /* PushNotificationsViewController.m */,
-				3001930519EEE86800AB4305 /* LegendViewController.h */,
-				3001930619EEE86800AB4305 /* LegendViewController.m */,
-				3001930219ED9AD900AB4305 /* AboutViewController.h */,
-				3001930319ED9ADA00AB4305 /* AboutViewController.m */,
-				30C3F85119E2ECED009E26EB /* ImageCollectionViewCell.h */,
-				30C3F85219E2ECED009E26EB /* ImageCollectionViewCell.m */,
-				30C3F85319E2ECED009E26EB /* ImageCollectionViewCell.xib */,
-				30C3F84819DF12C7009E26EB /* TradeTypeView.h */,
-				30C3F84919DF12C7009E26EB /* TradeTypeView.m */,
+				30DCEA8519B8B54D006521D4 /* FirstViewController.h */,
+				30DCEA8619B8B54D006521D4 /* FirstViewController.m */,
+				305C5BBF19C3726E00E73AC5 /* PerformanceViewController.h */,
+				305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */,
+				305C5BC219C3728600E73AC5 /* ClosedViewController.h */,
+				305C5BC319C3728600E73AC5 /* ClosedViewController.m */,
+				305C5BC519C3729B00E73AC5 /* AddOpsViewController.h */,
+				305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */,
+				305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */,
+				305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		30B048121A001C040085EFCC /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				30DCEA7F19B8B54D006521D4 /* Main_iPhone.storyboard */,
+				30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */,
 				3015623F19D9ECE3001EDCD7 /* DataCollectionViewCell.h */,
 				3015624019D9ECE3001EDCD7 /* DataCollectionViewCell.m */,
 				3015623D19D9E9DF001EDCD7 /* DataCollectionViewCell.xib */,
-				30DED3C119C9FD780078E8B0 /* NSString+Formatting.h */,
-				30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */,
+				30C3F85119E2ECED009E26EB /* ImageCollectionViewCell.h */,
+				30C3F85219E2ECED009E26EB /* ImageCollectionViewCell.m */,
+				30C3F85319E2ECED009E26EB /* ImageCollectionViewCell.xib */,
+				3034CE3519B9FF7C008BB3FF /* companyCell.h */,
+				3034CE3619B9FF7C008BB3FF /* companyCell.m */,
+				30C3F84819DF12C7009E26EB /* TradeTypeView.h */,
+				30C3F84919DF12C7009E26EB /* TradeTypeView.m */,
 				305C5BC819C73E2C00E73AC5 /* MenuTableViewController.h */,
 				305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */,
 				30F540DC19F839DA00E9A81B /* CustomNavController.h */,
 				30F540DD19F839DA00E9A81B /* CustomNavController.m */,
+				30F540D919F81A6E00E9A81B /* CustomViewController.h */,
+				30F540DA19F81A6E00E9A81B /* CustomViewController.m */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		30B048131A001C280085EFCC /* Popout View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3001930219ED9AD900AB4305 /* AboutViewController.h */,
+				3001930319ED9ADA00AB4305 /* AboutViewController.m */,
+				3001930519EEE86800AB4305 /* LegendViewController.h */,
+				3001930619EEE86800AB4305 /* LegendViewController.m */,
+				30B9455C19F1AB6A008502D0 /* TutorialViewController.h */,
+				30B9455D19F1AB6A008502D0 /* TutorialViewController.m */,
+				30B9455619F195D5008502D0 /* PushNotificationsViewController.h */,
+				30B9455719F195D5008502D0 /* PushNotificationsViewController.m */,
+			);
+			name = "Popout View Controllers";
+			sourceTree = "<group>";
+		};
+		30DCEA6119B8B54D006521D4 = {
+			isa = PBXGroup;
+			children = (
+				30B048131A001C280085EFCC /* Popout View Controllers */,
+				30B048111A001BED0085EFCC /* Tabs */,
+				30B048121A001C040085EFCC /* User Interface */,
+				30B64B4A19F9488900D9EDE7 /* Data.h */,
+				30B64B4B19F9488900D9EDE7 /* Data.m */,
+				30B0480E1A001BD90085EFCC /* LoginViewController.h */,
+				30B0480F1A001BD90085EFCC /* LoginViewController.m */,
+				30DED3C119C9FD780078E8B0 /* NSString+Formatting.h */,
+				30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */,
 				30EA96A119BE43CB002F50E2 /* FPPopover */,
-				3034CE3519B9FF7C008BB3FF /* companyCell.h */,
-				3034CE3619B9FF7C008BB3FF /* companyCell.m */,
 				30DCEA7319B8B54D006521D4 /* Smartrend_Advisor */,
 				30DCEA9819B8B54D006521D4 /* Smartrend_AdvisorTests */,
 				30DCEA6C19B8B54D006521D4 /* Frameworks */,
@@ -228,18 +269,6 @@
 				3054E3BF19FE7F3900C73F7A /* TutorialCollectionViewCell.h */,
 				3054E3C019FE7F3900C73F7A /* TutorialCollectionViewCell.m */,
 				30F540D519F7F7D400E9A81B /* TutorialCollectionViewCell.xib */,
-				30DCEA7F19B8B54D006521D4 /* Main_iPhone.storyboard */,
-				30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */,
-				30DCEA8519B8B54D006521D4 /* FirstViewController.h */,
-				30DCEA8619B8B54D006521D4 /* FirstViewController.m */,
-				305C5BBF19C3726E00E73AC5 /* PerformanceViewController.h */,
-				305C5BC019C3726E00E73AC5 /* PerformanceViewController.m */,
-				305C5BC219C3728600E73AC5 /* ClosedViewController.h */,
-				305C5BC319C3728600E73AC5 /* ClosedViewController.m */,
-				305C5BC519C3729B00E73AC5 /* AddOpsViewController.h */,
-				305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */,
-				305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */,
-				305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */,
 				30EA96AC19BE451E002F50E2 /* InfoViewController.h */,
 				30EA96AD19BE451E002F50E2 /* InfoViewController.m */,
 				30DCEA8B19B8B54D006521D4 /* Images.xcassets */,
@@ -441,6 +470,7 @@
 			files = (
 				30B64B4C19F9488900D9EDE7 /* Data.m in Sources */,
 				305C5BC119C3726E00E73AC5 /* PerformanceViewController.m in Sources */,
+				30B048101A001BD90085EFCC /* LoginViewController.m in Sources */,
 				30DCEA7E19B8B54D006521D4 /* AppDelegate.m in Sources */,
 				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
 				30F540DE19F839DA00E9A81B /* CustomNavController.m in Sources */,
@@ -500,6 +530,7 @@
 				30DCEA8019B8B54D006521D4 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
+			path = Smartrend_Advisor;
 			sourceTree = "<group>";
 		};
 		30DCEA8219B8B54D006521D4 /* Main_iPad.storyboard */ = {
@@ -508,6 +539,7 @@
 				30DCEA8319B8B54D006521D4 /* Base */,
 			);
 			name = Main_iPad.storyboard;
+			path = Smartrend_Advisor;
 			sourceTree = "<group>";
 		};
 		30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */ = {

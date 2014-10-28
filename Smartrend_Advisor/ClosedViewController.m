@@ -204,14 +204,11 @@ AFHTTPRequestOperationManager *manager;
 }
 
 -(void)refreshCollectionView{
-    NSLog(@"refresh2");
     if([self isViewLoaded] && self.view.window){
         [self closedPositions];
-        NSLog(@"active2");
     }
     else{
         
-        NSLog(@"inactive2");
     }
     
     

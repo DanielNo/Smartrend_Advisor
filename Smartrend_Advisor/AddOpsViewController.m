@@ -30,9 +30,7 @@
 @implementation AddOpsViewController
 @synthesize AddOpsData,infoVC,popoverVC,refreshControl,spinner;
 
--(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
-    [self.view setAlpha:1.0];
-}
+
 
 -(void)presentedNewPopoverController:(FPPopoverController *)newPopoverController shouldDismissVisiblePopover:(FPPopoverController *)visiblePopoverController{
 }

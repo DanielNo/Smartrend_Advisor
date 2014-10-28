@@ -11,7 +11,6 @@
 @implementation AboutViewController
 
 -(void)viewDidLoad{
-    NSLog(@"about view did load");
     [self.view setBackgroundColor:[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0]];
     UILabel *advisorLbl = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-20, self.view.frame.size.height/2.5)];
     [advisorLbl setFont:[UIFont systemFontOfSize:16]];
@@ -23,7 +22,6 @@
     NSMutableParagraphStyle *style  = [[NSMutableParagraphStyle alloc] init];
     style.minimumLineHeight = 18.0f;
     style.maximumLineHeight = 22.0f;
-    //style.maximumLineHeight = 30.0f;
     NSDictionary *attributtes = @{NSParagraphStyleAttributeName : style,};
     advisorLbl.attributedText = [[NSAttributedString alloc] initWithString:aboutStr
                                                              attributes:attributtes];

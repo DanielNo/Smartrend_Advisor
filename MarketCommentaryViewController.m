@@ -66,11 +66,9 @@
 -(void)refreshData{
     if([self isViewLoaded] && self.view.window){
         [self technicalCommentary];
-        NSLog(@"active2");
     }
     else{
         
-        NSLog(@"inactive2");
     }
     
     
