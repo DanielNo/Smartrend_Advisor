@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
+#import <MessageUI/MessageUI.h>
 
-@interface CustomViewController : UIViewController <FPPopoverControllerDelegate>
+@interface CustomViewController : UIViewController <FPPopoverControllerDelegate,MFMailComposeViewControllerDelegate>
 
 
 

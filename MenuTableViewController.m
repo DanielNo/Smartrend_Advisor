@@ -66,7 +66,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 4;
+    return 5;
 }
 
 
@@ -108,6 +108,8 @@
         case 3:
             cell.textLabel.text = @"Settings";
             break;
+        case 4:
+            cell.textLabel.text = @"Contact";
             
         default:
             break;

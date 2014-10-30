@@ -18,6 +18,7 @@
 #import "FirstViewController.h"
 #import "AddOpsViewController.h"
 #import "MarketCommentaryViewController.h"
+#import <MessageUI/MessageUI.h>
 
 @interface CustomViewController ()
 @property (strong,nonatomic) FPPopoverController *settingsPopover;
@@ -43,6 +44,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
+            break;
+        default:
+            NSLog(@"Mail not sent.");
+            break;
+    }
+    
+    // Remove the mail view
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self changeAlpha];
+}
+
 -(void)setupNavBar{
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsBtnPressed:)];
     self.navigationItem.rightBarButtonItem = rightButton;
@@ -51,7 +78,6 @@
 }
 
 -(void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController{
-    NSLog(@"delegate - dismiss popover");
     
     [self.view setAlpha:1.0];
 }
@@ -104,7 +130,13 @@
     [pushNotificationPopover adjustPushContentSize];
     
     
-    
+    MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+    mail.mailComposeDelegate = self;
+    [mail setSubject:@"Smartrend Advisor Mobile"];
+    [mail setToRecipients:@[@"cs@comtex.com"]];
+        
+        
+
     
     
     
@@ -125,6 +157,14 @@
             [pushNotificationPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
             
             break;
+        case 4:
+            if ([MFMailComposeViewController canSendMail]){
+                [self presentViewController:mail animated:YES completion:NULL];}
+            else
+            {
+                NSLog(@"This device cannot send email");
+            }
+            //[self showContactView];
             
         default:
             break;
@@ -147,7 +187,7 @@
         settingsPopover.contentSize = CGSizeMake(300, 500);
     }
     else{
-        settingsPopover.contentSize = CGSizeMake(140, 218);
+        settingsPopover.contentSize = CGSizeMake(140, 258);
     }
     settingsPopover.arrowDirection = FPPopoverNoArrow;
     settingsPopover.border = YES;
@@ -180,7 +220,6 @@
     
     
 }
-
 
 
 
