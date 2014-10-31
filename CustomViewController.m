@@ -20,7 +20,13 @@
 #import "MarketCommentaryViewController.h"
 #import <MessageUI/MessageUI.h>
 
-@interface CustomViewController ()
+@interface CustomViewController (){
+    FPPopoverController *aboutPopover;
+    FPPopoverController *legendPopover;
+    FPPopoverController *tutorialPopover;
+    FPPopoverController *pushNotificationPopover;
+    MFMailComposeViewController *mail;
+}
 @property (strong,nonatomic) FPPopoverController *settingsPopover;
 
 @end
@@ -33,6 +39,45 @@
     [self setupNavBar];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeAlpha) name:@"tutorialDismissed" object:nil];
     // Do any additional setup after loading the view.
+    
+    [self initializePopupViews];
+}
+
+-(void)initializePopupViews{
+    AboutViewController *aboutVC = [AboutViewController new];
+    aboutPopover = [[FPPopoverController alloc]initWithViewController:aboutVC];
+    aboutPopover.delegate = self;
+    aboutPopover.contentView.title = @"Smartrend Advisor";
+    [aboutPopover setArrowDirection:FPPopoverNoArrow];
+    [aboutPopover adjustAboutContentSize];
+    
+    LegendViewController *legendVC = [LegendViewController new];
+    legendPopover = [[FPPopoverController alloc]initWithViewController:legendVC];
+    legendPopover.delegate = self;
+    legendPopover.contentView.title = @"Legend";
+    [legendPopover setArrowDirection:FPPopoverNoArrow];
+    [legendPopover adjustLegendContentSize];
+    
+    
+    TutorialViewController *tutorialVC = [[TutorialViewController alloc]init];
+    tutorialPopover = [[FPPopoverController alloc]initWithViewController:tutorialVC];
+    tutorialPopover.delegate = self;
+    [tutorialPopover setArrowDirection:FPPopoverNoArrow];
+    tutorialPopover.contentView.title = @"Tutorial";
+    [tutorialPopover adjustTutorialContentSize];
+    
+    PushNotificationsViewController *pushVC = [PushNotificationsViewController new];
+    pushNotificationPopover = [[FPPopoverController alloc]initWithViewController:pushVC];
+    pushNotificationPopover.delegate = self;
+    [pushNotificationPopover setArrowDirection:FPPopoverNoArrow];
+    pushNotificationPopover.contentView.title = @"Settings";
+    [pushNotificationPopover adjustPushContentSize];
+    
+    
+    mail = [[MFMailComposeViewController alloc] init];
+    mail.mailComposeDelegate = self;
+    [mail setSubject:@"Smartrend Advisor Mobile"];
+    [mail setToRecipients:@[@"cs@comtex.com"]];
 }
 
 -(void)changeAlpha{
@@ -95,48 +140,9 @@
     
     [self.view setAlpha:0.5];
     
-    AboutViewController *aboutVC = [AboutViewController new];
-    FPPopoverController *aboutPopover = [[FPPopoverController alloc]initWithViewController:aboutVC];
-    aboutPopover.delegate = self;
-    aboutPopover.contentView.title = @"Smartrend Advisor";
-    [aboutPopover setArrowDirection:FPPopoverNoArrow];
-    [aboutPopover adjustAboutContentSize];
     
-    LegendViewController *legendVC = [LegendViewController new];
-    FPPopoverController *legendPopover = [[FPPopoverController alloc]initWithViewController:legendVC];
-    legendPopover.delegate = self;
-    legendPopover.contentView.title = @"Legend";
-    [legendPopover setArrowDirection:FPPopoverNoArrow];
-    [legendPopover adjustLegendContentSize];
-    
-    
-    TutorialViewController *tutorialVC = [[TutorialViewController alloc]init];
-    FPPopoverController *tutorialPopover = [[FPPopoverController alloc]initWithViewController:tutorialVC];
-    tutorialPopover.delegate = self;
-    [tutorialPopover setArrowDirection:FPPopoverNoArrow];
-    tutorialPopover.contentView.title = @"Tutorial";
-    [tutorialPopover adjustTutorialContentSize];
-    
-    
-    
-    
-    
-    
-    PushNotificationsViewController *pushVC = [PushNotificationsViewController new];
-    FPPopoverController *pushNotificationPopover = [[FPPopoverController alloc]initWithViewController:pushVC];
-    pushNotificationPopover.delegate = self;
-    [pushNotificationPopover setArrowDirection:FPPopoverNoArrow];
-    pushNotificationPopover.contentView.title = @"Settings";
-    [pushNotificationPopover adjustPushContentSize];
-    
-    
-    MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
-    mail.mailComposeDelegate = self;
-    [mail setSubject:@"Smartrend Advisor Mobile"];
-    [mail setToRecipients:@[@"cs@comtex.com"]];
         
-        
-
+    
     
     
     
@@ -149,15 +155,13 @@
             
             break;
         case 2: //Tutorial
-            
-            //[tutorialPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
             [self showTutorialView];
             break;
         case 3: //Settings
             [pushNotificationPopover presentPopoverFromPoint:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/4.5)];
             
             break;
-        case 4:
+        case 4: //Mail
             if ([MFMailComposeViewController canSendMail]){
                 [self presentViewController:mail animated:YES completion:NULL];}
             else

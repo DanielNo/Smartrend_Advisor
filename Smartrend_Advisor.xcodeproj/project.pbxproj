@@ -25,6 +25,8 @@
 		30C3F84A19DF12C7009E26EB /* TradeTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F84919DF12C7009E26EB /* TradeTypeView.m */; };
 		30C3F85419E2ECED009E26EB /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C3F85219E2ECED009E26EB /* ImageCollectionViewCell.m */; };
 		30C3F85519E2ECED009E26EB /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C3F85319E2ECED009E26EB /* ImageCollectionViewCell.xib */; };
+		30CDD9D71A03E28C004AB3F9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CDD9D61A03E28C004AB3F9 /* StoreKit.framework */; };
+		30CDD9DA1A041C2F004AB3F9 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 30CDD9D91A041C2F004AB3F9 /* IAPHelper.m */; };
 		30DCEA6E19B8B54D006521D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6D19B8B54D006521D4 /* Foundation.framework */; };
 		30DCEA7019B8B54D006521D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */; };
 		30DCEA7219B8B54D006521D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DCEA7119B8B54D006521D4 /* UIKit.framework */; };
@@ -98,6 +100,9 @@
 		30C3F85119E2ECED009E26EB /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
 		30C3F85219E2ECED009E26EB /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
 		30C3F85319E2ECED009E26EB /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		30CDD9D61A03E28C004AB3F9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		30CDD9D81A041C2F004AB3F9 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		30CDD9D91A041C2F004AB3F9 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		30DCEA6A19B8B54D006521D4 /* Smartrend_Advisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smartrend_Advisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DCEA6D19B8B54D006521D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -142,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30CDD9D71A03E28C004AB3F9 /* StoreKit.framework in Frameworks */,
 				30DCEA7019B8B54D006521D4 /* CoreGraphics.framework in Frameworks */,
 				30DCEA7219B8B54D006521D4 /* UIKit.framework in Frameworks */,
 				30DCEA6E19B8B54D006521D4 /* Foundation.framework in Frameworks */,
@@ -222,6 +228,8 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				30CDD9D81A041C2F004AB3F9 /* IAPHelper.h */,
+				30CDD9D91A041C2F004AB3F9 /* IAPHelper.m */,
 				30B048131A001C280085EFCC /* Popout View Controllers */,
 				30B048111A001BED0085EFCC /* Tabs */,
 				30B048121A001C040085EFCC /* User Interface */,
@@ -252,6 +260,7 @@
 		30DCEA6C19B8B54D006521D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30CDD9D61A03E28C004AB3F9 /* StoreKit.framework */,
 				30DCEA6D19B8B54D006521D4 /* Foundation.framework */,
 				30DCEA6F19B8B54D006521D4 /* CoreGraphics.framework */,
 				30DCEA7119B8B54D006521D4 /* UIKit.framework */,
@@ -379,7 +388,7 @@
 				ORGANIZATIONNAME = Comtex;
 				TargetAttributes = {
 					30DCEA6919B8B54D006521D4 = {
-						DevelopmentTeam = 8GK88KXK62;
+						DevelopmentTeam = G628HN75ZZ;
 					};
 					30DCEA9019B8B54D006521D4 = {
 						TestTargetID = 30DCEA6919B8B54D006521D4;
@@ -475,6 +484,7 @@
 				30EA96AE19BE451E002F50E2 /* InfoViewController.m in Sources */,
 				30F540DE19F839DA00E9A81B /* CustomNavController.m in Sources */,
 				30C3F85419E2ECED009E26EB /* ImageCollectionViewCell.m in Sources */,
+				30CDD9DA1A041C2F004AB3F9 /* IAPHelper.m in Sources */,
 				30B9455819F195D5008502D0 /* PushNotificationsViewController.m in Sources */,
 				3015624119D9ECE3001EDCD7 /* DataCollectionViewCell.m in Sources */,
 				3001930419ED9ADA00AB4305 /* AboutViewController.m in Sources */,
@@ -633,10 +643,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kan Devnani (PR3Z43KQE2)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Smartrend_Advisor/Smartrend_Advisor-Prefix.pch";
 				INFOPLIST_FILE = "Smartrend_Advisor/Smartrend_Advisor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6bf6736a-06c0-4072-9109-bd44f0dedbb0";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -648,10 +661,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kan Devnani (G628HN75ZZ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Smartrend_Advisor/Smartrend_Advisor-Prefix.pch";
 				INFOPLIST_FILE = "Smartrend_Advisor/Smartrend_Advisor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c374905b-91bb-42ca-81ba-1f96b56e14df";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
