@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "SubscriptionHelper.h"
 
-//test svn
+//testing SVNN
 
 @implementation AppDelegate
 

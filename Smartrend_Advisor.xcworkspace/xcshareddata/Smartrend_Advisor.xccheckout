@@ -10,6 +10,10 @@
 	<string>Smartrend_Advisor</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>4eb6c614-5532-4767-9742-8810660b68c3</key>
+		<string>http://204.197.209.51/svn/mobile/advisorapp</string>
+		<key>4eb6c614-5532-4767-9742-8810660b68c3++1603</key>
+		<string>http://204.197.209.51/svn/mobile/advisorapp</string>
 		<key>EF5B8042D43126E3624EC260C9B1DB7E0D83C656</key>
 		<string>https://github.com/DanielNo/Smartrend_Advisor.git</string>
 	</dict>
@@ -17,8 +21,19 @@
 	<string>Smartrend_Advisor.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>4eb6c614-5532-4767-9742-8810660b68c3</key>
+		<string>../..</string>
+		<key>4eb6c614-5532-4767-9742-8810660b68c3++1603</key>
+		<string>../..</string>
 		<key>EF5B8042D43126E3624EC260C9B1DB7E0D83C656</key>
 		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>4eb6c614-5532-4767-9742-8810660b68c3</key>
+		<string>http://204.197.209.51/svn/mobile</string>
+		<key>4eb6c614-5532-4767-9742-8810660b68c3++1603</key>
+		<string>http://204.197.209.51/svn/mobile</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/DanielNo/Smartrend_Advisor.git</string>
@@ -28,6 +43,38 @@
 	<string>EF5B8042D43126E3624EC260C9B1DB7E0D83C656</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4eb6c614-5532-4767-9742-8810660b68c3</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4eb6c614-5532-4767-9742-8810660b68c3</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4eb6c614-5532-4767-9742-8810660b68c3</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4eb6c614-5532-4767-9742-8810660b68c3++1603</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

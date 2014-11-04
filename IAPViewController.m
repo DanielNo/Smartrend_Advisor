@@ -23,6 +23,22 @@
 @implementation IAPViewController
 @synthesize subscriptionTableView;
 
+- (IBAction)subscribe:(id)sender {
+    
+    
+  
+    
+    
+    NSIndexPath *selectedIndexPath = [subscriptionTableView indexPathForSelectedRow];
+
+}
+- (IBAction)restorePurchases:(id)sender {
+    
+   [sharedSubscriptionHelper restoreCompletedTransactions];
+    
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     subscriptionTableView.delegate = self;
@@ -67,8 +83,13 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     SKProduct * product = (SKProduct *) subscriptionsArray[indexPath.row];
-    cell.textLabel.text = product.productIdentifier;
-    
+    if ([product.productIdentifier compare:@"1_Month"] == NSOrderedSame) {
+        cell.textLabel.text = @"1 Month Subscription";
+    }
+    else if([product.productIdentifier compare:@"3_Months"] == NSOrderedSame){
+    cell.textLabel.text = @"3 Month Subscription";
+    }
+    cell.detailTextLabel.text = [product.price stringValue];
     NSLog(@"product localized title : %@",product.localizedTitle);
     NSLog(@"product identifier : %@",product.productIdentifier);
     
@@ -78,11 +99,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     SKProduct * product = (SKProduct *) subscriptionsArray[indexPath.row];
     
     
     [sharedSubscriptionHelper buyProduct:product];
-    
     
     
 }

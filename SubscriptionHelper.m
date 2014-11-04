@@ -17,7 +17,7 @@
     static SubscriptionHelper * sharedInstance;
     dispatch_once(&once, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      @"1_Month_Subscription_STAdvisor",
+                                      @"1_Month",@"3_Months",
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });

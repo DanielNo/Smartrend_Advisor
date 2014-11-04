@@ -12,7 +12,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 @interface IAPHelper ()
 @end
-//test svn
+
 
 @implementation IAPHelper {
     SKProductsRequest * _productsRequest;
@@ -20,6 +20,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     NSSet * _productIdentifiers;
     NSMutableSet * _purchasedProductIdentifiers;
 }
+
+#pragma mark - Handle transactions
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
     NSLog(@"completeTransaction...");
@@ -34,18 +36,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [self provideContentForProductIdentifier:transaction.originalTransaction.payment.productIdentifier];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
-
-
-
-- (void)provideContentForProductIdentifier:(NSString *)productIdentifier {
-    
-    [_purchasedProductIdentifiers addObject:productIdentifier];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
-    
-}
-
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
     
@@ -77,6 +67,20 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     };
 }
 
+
+#pragma mark
+
+- (void)provideContentForProductIdentifier:(NSString *)productIdentifier {
+    
+    [_purchasedProductIdentifiers addObject:productIdentifier];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
+    
+}
+
+
+
 - (BOOL)productPurchased:(NSString *)productIdentifier {
     return [_purchasedProductIdentifiers containsObject:productIdentifier];
 }
@@ -90,7 +94,10 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     
 }
 
-
+- (void)restoreCompletedTransactions {
+    NSLog(@"restoring completed transactions");
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
 
 - (id)initWithProductIdentifiers:(NSSet *)productIdentifiers {
     
