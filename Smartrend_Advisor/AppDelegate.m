@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SubscriptionHelper.h"
 
 @implementation AppDelegate
 
@@ -71,6 +72,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [SubscriptionHelper sharedInstance];
+    
     // Override point for customization after application launch.
     if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
     {

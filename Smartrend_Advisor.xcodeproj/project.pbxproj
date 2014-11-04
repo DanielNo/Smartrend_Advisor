@@ -18,6 +18,7 @@
 		305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC619C3729B00E73AC5 /* AddOpsViewController.m */; };
 		305C5BCA19C73E2C00E73AC5 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */; };
 		305C5BCD19C759F400E73AC5 /* MarketCommentaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */; };
+		306F50CE1A082DFA00DEF2F2 /* IAPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306F50CD1A082DFA00DEF2F2 /* IAPViewController.m */; };
 		30B048101A001BD90085EFCC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B0480F1A001BD90085EFCC /* LoginViewController.m */; };
 		30B64B4C19F9488900D9EDE7 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B64B4B19F9488900D9EDE7 /* Data.m */; };
 		30B9455819F195D5008502D0 /* PushNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B9455719F195D5008502D0 /* PushNotificationsViewController.m */; };
@@ -43,6 +44,7 @@
 		30DCEA9D19B8B54D006521D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30DCEA9B19B8B54D006521D4 /* InfoPlist.strings */; };
 		30DCEA9F19B8B54D006521D4 /* Smartrend_AdvisorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */; };
 		30DED3C319C9FD780078E8B0 /* NSString+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */; };
+		30E11E921A08026400D7C929 /* SubscriptionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E11E911A08026400D7C929 /* SubscriptionHelper.m */; };
 		30EA96A919BE43CB002F50E2 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A419BE43CB002F50E2 /* FPPopoverController.m */; };
 		30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A619BE43CB002F50E2 /* FPPopoverView.m */; };
 		30EA96AB19BE43CB002F50E2 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30EA96A819BE43CB002F50E2 /* FPTouchView.m */; };
@@ -87,6 +89,8 @@
 		305C5BC919C73E2C00E73AC5 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		305C5BCB19C759F400E73AC5 /* MarketCommentaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketCommentaryViewController.h; sourceTree = "<group>"; };
 		305C5BCC19C759F400E73AC5 /* MarketCommentaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketCommentaryViewController.m; sourceTree = "<group>"; };
+		306F50CC1A082DFA00DEF2F2 /* IAPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPViewController.h; sourceTree = "<group>"; };
+		306F50CD1A082DFA00DEF2F2 /* IAPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPViewController.m; sourceTree = "<group>"; };
 		30B0480E1A001BD90085EFCC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		30B0480F1A001BD90085EFCC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		30B64B4A19F9488900D9EDE7 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 		30DCEA9E19B8B54D006521D4 /* Smartrend_AdvisorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smartrend_AdvisorTests.m; sourceTree = "<group>"; };
 		30DED3C119C9FD780078E8B0 /* NSString+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Formatting.h"; sourceTree = "<group>"; };
 		30DED3C219C9FD780078E8B0 /* NSString+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Formatting.m"; sourceTree = "<group>"; };
+		30E11E901A08026400D7C929 /* SubscriptionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscriptionHelper.h; sourceTree = "<group>"; };
+		30E11E911A08026400D7C929 /* SubscriptionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscriptionHelper.m; sourceTree = "<group>"; };
 		30EA96A219BE43CB002F50E2 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
 		30EA96A319BE43CB002F50E2 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
 		30EA96A419BE43CB002F50E2 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
@@ -228,6 +234,10 @@
 		30DCEA6119B8B54D006521D4 = {
 			isa = PBXGroup;
 			children = (
+				306F50CC1A082DFA00DEF2F2 /* IAPViewController.h */,
+				306F50CD1A082DFA00DEF2F2 /* IAPViewController.m */,
+				30E11E901A08026400D7C929 /* SubscriptionHelper.h */,
+				30E11E911A08026400D7C929 /* SubscriptionHelper.m */,
 				30CDD9D81A041C2F004AB3F9 /* IAPHelper.h */,
 				30CDD9D91A041C2F004AB3F9 /* IAPHelper.m */,
 				30B048131A001C280085EFCC /* Popout View Controllers */,
@@ -489,8 +499,10 @@
 				3015624119D9ECE3001EDCD7 /* DataCollectionViewCell.m in Sources */,
 				3001930419ED9ADA00AB4305 /* AboutViewController.m in Sources */,
 				30DED3C319C9FD780078E8B0 /* NSString+Formatting.m in Sources */,
+				30E11E921A08026400D7C929 /* SubscriptionHelper.m in Sources */,
 				30EA96AA19BE43CB002F50E2 /* FPPopoverView.m in Sources */,
 				30F540DB19F81A6E00E9A81B /* CustomViewController.m in Sources */,
+				306F50CE1A082DFA00DEF2F2 /* IAPViewController.m in Sources */,
 				305C5BC419C3728600E73AC5 /* ClosedViewController.m in Sources */,
 				3034CE3719B9FF7C008BB3FF /* companyCell.m in Sources */,
 				305C5BC719C3729B00E73AC5 /* AddOpsViewController.m in Sources */,
@@ -650,7 +662,7 @@
 				INFOPLIST_FILE = "Smartrend_Advisor/Smartrend_Advisor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6bf6736a-06c0-4072-9109-bd44f0dedbb0";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -668,7 +680,7 @@
 				INFOPLIST_FILE = "Smartrend_Advisor/Smartrend_Advisor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c374905b-91bb-42ca-81ba-1f96b56e14df";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
